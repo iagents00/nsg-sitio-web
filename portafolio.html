@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#080a0d">
+  <meta name="description" content="Portafolio de NSG: sistemas de inteligencia artificial, agentes y automatización creados para operaciones reales en ventas, salud, finanzas y e-commerce.">
+  <title>Portafolio | NSG · New Strategy Group</title>
+  <link rel="canonical" href="https://newstrategygroup-nsg.vercel.app/portafolio">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="NSG · New Strategy Group">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="NSG · New Strategy Group">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:url" content="https://newstrategygroup-nsg.vercel.app/portafolio">
+  <meta property="og:title" content="Portafolio NSG | Sistemas de IA para operaciones reales">
+  <meta property="og:description" content="Agentes de IA, sistemas comerciales y automatización en producción. Ventas, salud, finanzas y e-commerce.">
+  <meta property="og:image" content="https://newstrategygroup-nsg.vercel.app/assets/og-portafolio.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Portafolio NSG | Sistemas de IA para operaciones reales">
+  <meta name="twitter:description" content="Agentes de IA, sistemas comerciales y automatización en producción. Ventas, salud, finanzas y e-commerce.">
+  <meta name="twitter:image" content="https://newstrategygroup-nsg.vercel.app/assets/og-portafolio.jpg">
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #080a0d; --surface: #0d1014; --surface-2: #12161c; --line: #242a32; --line-soft: #171c22;
+      --text: #f5f7fa; --muted: #8f969f; --muted-2: #65707c; --blue: #3f94ff; --eblue: #2f7bff; --cyan: #42d8ff;
+      --orange: #ff8744; --green: #53d18a; --max: 1180px; --radius: 10px;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-synthesis: none;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -2;
+      background: radial-gradient(circle at 50% 8%, rgba(0,126,255,.12), transparent 30%), radial-gradient(circle at 78% 30%, rgba(57,222,255,.05), transparent 24%); }
+    body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -3; opacity: .42;
+      background-image: linear-gradient(rgba(91,114,141,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(91,114,141,.09) 1px, transparent 1px);
+      background-size: 88px 88px; mask-image: linear-gradient(to bottom, #000, transparent 82%); }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .nav { position: sticky; top: 0; z-index: 50; height: 72px; display: flex; align-items: center;
+      background: rgba(8,10,13,.78); border-bottom: 1px solid rgba(255,255,255,.06); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { font-size: 18px; font-weight: 780; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
+    .brand-mark { width: 25px; height: 25px; border: 2px solid var(--blue); border-right-color: var(--cyan); border-radius: 7px; transform: rotate(45deg); box-shadow: 0 0 18px rgba(66,216,255,.3); }
+    .brand-mark::after { content: ""; display: block; width: 7px; height: 7px; margin: 7px; background: var(--text); border-radius: 2px; }
+    .nav-back { font-size: 13px; color: #c4cad2; padding: 11px 16px; border-radius: 999px; transition: color .2s, background .2s; }
+    .nav-back:hover { color: #fff; background: rgba(255,255,255,.05); }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 20px;
+      border: 1px solid #31445b; border-radius: 999px; background: rgba(10,22,37,.84); color: #eef6ff; font-size: 13px; font-weight: 680; cursor: pointer;
+      transition: transform .2s, border-color .2s, background .2s, box-shadow .2s; box-shadow: inset 0 1px rgba(255,255,255,.035), 0 8px 24px rgba(0,0,0,.22); }
+    .btn:hover { transform: translateY(-2px); border-color: #5a9fe9; }
+    .nav-cta { background: #f7f9fb; border-color: #fff; color: #080b10; }
+    .nav-cta:hover { background: #fff; color: #080b10; }
+    .arrow { font-size: 16px; line-height: 1; }
+    .phero { padding: 80px 0 40px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px;
+      background: rgba(255,255,255,.025); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .08em; color: #9aa2ac; text-transform: uppercase; }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.75); }
+    .badge .accent { color: var(--eblue); font-weight: 700; text-transform: none; text-shadow: 0 0 14px rgba(47,123,255,.55); }
+    .phero h1 { margin: 22px auto 16px; max-width: 880px; font-size: clamp(42px, 7vw, 76px); line-height: 1.02; font-weight: 540; text-wrap: balance; }
+    .phero h1 .grad { background: linear-gradient(90deg,#fff 18%,#b9ddff 56%,#3f94ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .phero p { max-width: 660px; margin: 0 auto; color: #a2a8b0; font-size: clamp(16px, 2vw, 20px); line-height: 1.55; text-wrap: balance; }
+    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin: 44px auto 0; max-width: 900px; }
+    .stat { padding: 22px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .stat b { display: block; font-size: clamp(26px,4vw,38px); font-weight: 560; letter-spacing: -.02em; }
+    .stat span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .section-label { text-align: center; margin: 70px 0 8px; }
+    .section-label .eyebrow { color: var(--cyan); font-size: 11px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
+    .section-label h2 { margin: 12px 0 0; font-size: clamp(32px,5vw,52px); font-weight: 560; line-height: 1.05; }
+    .systems { display: flex; flex-direction: column; gap: 26px; margin-top: 40px; }
+    .sysrow { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+    .sysrow:nth-child(even) .sys-media { order: -1; }
+    .sys-media { border-radius: 14px; overflow: hidden; border: 1px solid #1b212a; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .sys-media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1/1; }
+    .sys-tag { color: var(--cyan); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
+    .sysrow h3 { margin: 14px 0 12px; font-size: clamp(26px,3.4vw,38px); font-weight: 580; line-height: 1.05; }
+    .sys-desc { color: var(--muted); line-height: 1.6; font-size: 15px; margin: 0 0 22px; }
+    .sys-feats { display: flex; flex-direction: column; gap: 16px; }
+    .sys-feat { display: grid; grid-template-columns: 18px 1fr; gap: 12px; }
+    .sys-feat::before { content: ""; grid-column: 1; grid-row: 1; width: 9px; height: 9px; margin-top: 6px; border-radius: 50%; background: var(--eblue); box-shadow: 0 0 12px rgba(47,123,255,.7); }
+    .sys-feat b, .sys-feat span { grid-column: 2; }
+    .sys-feat b { display: block; font-size: 15px; font-weight: 620; margin-bottom: 3px; }
+    .sys-feat span { color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 54px 0 28px; }
+    .filter { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: 10px 16px; font-size: 12px; cursor: pointer; transition: .2s; }
+    .filter:hover { color: #fff; border-color: #34465c; }
+    .filter.active { color: #fff; background: #17202b; border-color: #34465c; }
+    .grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; padding-bottom: 30px; }
+    .card { display: flex; flex-direction: column; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
+      position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; }
+    .card:hover { transform: translateY(-4px); border-color: #345b89; box-shadow: 0 18px 50px rgba(0,0,0,.4); }
+    .card.hidden { display: none; }
+    .card::before { content: ""; position: absolute; top: -80px; right: -80px; width: 170px; height: 170px; border: 1px solid rgba(63,148,255,.18); border-radius: 50%; box-shadow: 0 0 50px rgba(63,148,255,.08); }
+    .card.warm::before { border-color: rgba(255,135,68,.2); box-shadow: 0 0 50px rgba(255,135,68,.08); }
+    .card small { color: var(--cyan); text-transform: uppercase; letter-spacing: .12em; font-size: 9px; }
+    .card.warm small { color: #ffad79; }
+    .card h3 { margin: 16px 0 10px; font-size: 25px; font-weight: 580; }
+    .card .desc { color: var(--muted); line-height: 1.6; font-size: 14px; margin: 0; }
+    .card .scope { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line-soft); color: #b6bcc4; font-size: 13px; line-height: 1.55; }
+    .card .scope b { color: #dfe4ea; font-weight: 600; }
+    .card .result { margin-top: auto; padding-top: 18px; }
+    .pill-result { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; font-size: 12px; font-weight: 600;
+      color: #aef0c6; border: 1px solid #214b35; background: #0d2117; }
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
+    .tag { font-size: 10px; color: #8a93a0; border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; }
+    .cta-section { padding: 30px 0 110px; }
+    .cta-box { text-align: center; padding: 70px 24px; border: 1px solid #25466b; background: #0a1421; border-radius: var(--radius); position: relative; overflow: hidden; }
+    .cta-box::before { content: ""; position: absolute; inset: auto 14% -60px; height: 100px; background: linear-gradient(90deg, var(--eblue), var(--cyan)); filter: blur(50px); opacity: .16; }
+    .cta-box h2 { max-width: 680px; margin: 0 auto 14px; font-size: clamp(34px,6vw,58px); line-height: 1.02; font-weight: 560; }
+    .cta-box p { max-width: 540px; margin: 0 auto 26px; color: var(--muted); line-height: 1.6; }
+    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a:hover { color: #fff; }
+    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2,1fr); }
+      .grid { grid-template-columns: repeat(2,1fr); }
+      .sysrow { grid-template-columns: 1fr; gap: 26px; padding: 22px; }
+      .sysrow:nth-child(even) .sys-media { order: 0; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); }
+      .nav { height: 64px; } .nav-back { display: none; }
+      .phero { padding-top: 56px; }
+      .grid { grid-template-columns: 1fr; }
+      .footer-inner { display: block; } .footer-links { margin-top: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" aria-label="Navegación">
+    <div class="wrap nav-inner">
+      <a class="brand" href="index.html" aria-label="NSG, inicio"><span class="brand-mark" aria-hidden="true"></span>NSG</a>
+      <div class="nav-right">
+        <a class="nav-back" href="index.html">← Inicio</a>
+        <a class="btn nav-cta" href="index.html#diagnostico">Agendar diagnóstico <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <header class="phero wrap">
+      <div class="badge"><span class="dot" aria-hidden="true"></span><span>Portafolio</span><span class="accent">+ iAgents</span></div>
+      <h1>Sistemas de IA creados para <span class="grad">operaciones reales</span>.</h1>
+      <p>No mostramos demostraciones aisladas. Cada proyecto es un sistema en producción que atiende, vende, opera o protege un negocio real.</p>
+      <div class="stats">
+        <div class="stat"><b>+40M</b><span>USD facturados (Duke del Caribe, 3 años)</span></div>
+        <div class="stat"><b>6</b><span>Sistemas en producción</span></div>
+        <div class="stat"><b>5</b><span>Sectores: ventas, salud, finanzas, e-commerce, operación</span></div>
+        <div class="stat"><b>24/7</b><span>Agentes que atienden sin pausas</span></div>
+      </div>
+    </header>
+
+    <section class="wrap reveal">
+      <div class="section-label">
+        <div class="eyebrow">Sistemas NSG en producción</div>
+        <h2>Infraestructura de IA por vertical.</h2>
+      </div>
+      <div class="systems">
+        <article class="sysrow">
+          <div class="sys-media"><img src="assets/sys-callcenter.jpg" width="900" height="900" loading="lazy" decoding="async" alt="Callcenter IA & CRM"></div>
+          <div>
+            <span class="sys-tag">01 · Vertical inmobiliaria &amp; ventas</span>
+            <h3>Callcenter IA &amp; CRM</h3>
+            <p class="sys-desc">Sustituimos a los equipos saturados por un Callcenter IA acoplado a un CRM 100% autónomo. Perfila prospectos en tiempo real sin intervención manual.</p>
+            <div class="sys-feats">
+              <div class="sys-feat"><b>Callcenter IA (voz y texto)</b><span>Atención persuasiva 24/7 que filtra intención de compra.</span></div>
+              <div class="sys-feat"><b>CRM inteligente</b><span>Actualiza el pipeline y el estado del lead al instante.</span></div>
+              <div class="sys-feat"><b>Cierre sin fricción</b><span>Agendamiento autónomo de citas. Tu equipo solo cierra.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sysrow">
+          <div class="sys-media"><img src="assets/sys-intelligence.jpg" width="900" height="900" loading="lazy" decoding="async" alt="NSG Intelligence"></div>
+          <div>
+            <span class="sys-tag">02 · Producto insignia</span>
+            <h3>NSG Intelligence</h3>
+            <p class="sys-desc">Sistema de inteligencia para altos mandos y directivos. Centraliza tu conocimiento corporativo y asiste en decisiones críticas basándose en datos reales.</p>
+            <div class="sys-feats">
+              <div class="sys-feat"><b>Horizon IA</b><span>Entorno inmersivo que estructura y resume notas estratégicas.</span></div>
+              <div class="sys-feat"><b>Copilot ejecutivo</b><span>Seguimiento implacable de tareas y métricas operativas.</span></div>
+              <div class="sys-feat"><b>Educación adaptativa</b><span>Rutas formativas vía bases de datos RAG y psicología.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sysrow">
+          <div class="sys-media"><img src="assets/sys-satelital.jpg" width="900" height="900" loading="lazy" decoding="async" alt="NSG Monitoreo Satelital"></div>
+          <div>
+            <span class="sys-tag">03 · Agro &amp; industria</span>
+            <h3>NSG Monitoreo Satelital</h3>
+            <p class="sys-desc">Infraestructura de captura masiva. La inteligencia artificial traduce imágenes satelitales complejas en decisiones rentables para optimizar cultivos a nivel industrial.</p>
+            <div class="sys-feats">
+              <div class="sys-feat"><b>Analítica NDVI/NDWI</b><span>Monitoreo de suelos y salud vegetal en tiempo real.</span></div>
+              <div class="sys-feat"><b>Cálculo cinemático</b><span>Modelos predictivos de velocidad y humedad vegetal.</span></div>
+              <div class="sys-feat"><b>Optimización de cosechas</b><span>Identificación de datos críticos para la decisión.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sysrow">
+          <div class="sys-media"><img src="assets/sys-odoo.jpg" width="900" height="900" loading="lazy" decoding="async" alt="Integración Odoo IA"></div>
+          <div>
+            <span class="sys-tag">04 · Finanzas &amp; ERP</span>
+            <h3>Integración Odoo IA</h3>
+            <p class="sys-desc">Aniquilación de la carga administrativa. Conexión de flujos contables directamente con inteligencias de extracción de datos NSG y bandejas de entrada.</p>
+            <div class="sys-feats">
+              <div class="sys-feat"><b>Extracción autónoma</b><span>Análisis IA de facturas desde Gmail/Outlook corporativo.</span></div>
+              <div class="sys-feat"><b>Matching contable</b><span>Conciliación perfecta en Odoo sin intervención humana.</span></div>
+              <div class="sys-feat"><b>Asignación analítica</b><span>Distribución inteligente de centros de costos.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sysrow">
+          <div class="sys-media"><img src="assets/sys-legal.jpg" width="900" height="900" loading="lazy" decoding="async" alt="Agentes Slack & OCR"></div>
+          <div>
+            <span class="sys-tag">05 · Legal &amp; corporativo</span>
+            <h3>Agentes Slack &amp; OCR</h3>
+            <p class="sys-desc">Automatización del backoffice jurídico. Agentes NSG especializados que leen documentos complejos y entregan respuestas estructuradas al equipo directivo.</p>
+            <div class="sys-feats">
+              <div class="sys-feat"><b>Slack nativos</b><span>Asistentes legales consultando jurisprudencias vía RAG.</span></div>
+              <div class="sys-feat"><b>Análisis multimodal</b><span>Procesamiento de contratos PDF con visión por IA.</span></div>
+              <div class="sys-feat"><b>Secretario IA</b><span>Clasificación de correos y extracción de entidades clave.</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-label" style="margin-top:90px">
+        <div class="eyebrow">Más proyectos</div>
+        <h2>Otros sistemas creados para clientes.</h2>
+      </div>
+      <div class="filters" id="filters" aria-label="Filtrar proyectos">
+        <button class="filter active" data-filter="all" type="button">Todos</button>
+        <button class="filter" data-filter="ventas" type="button">Ventas</button>
+        <button class="filter" data-filter="operacion" type="button">Operación</button>
+        <button class="filter" data-filter="salud" type="button">Salud</button>
+        <button class="filter" data-filter="finanzas" type="button">Finanzas</button>
+        <button class="filter" data-filter="ecommerce" type="button">E-commerce</button>
+      </div>
+
+      <div class="grid" id="grid">
+        <article class="card" data-category="ventas">
+          <small>Sistema comercial</small>
+          <h3>Stratos AI</h3>
+          <p class="desc">Organiza oportunidades, detecta falta de seguimiento, recuerda reuniones y conecta agentes de voz con la operación comercial.</p>
+          <p class="scope"><b>Alcance:</b> sistema comercial inmobiliario con seguimiento proactivo, agentes de voz, recordatorios, resúmenes para gerencia y organización de oportunidades.</p>
+          <div class="tags"><span class="tag">Agentes de voz</span><span class="tag">CRM</span><span class="tag">Inmobiliaria</span></div>
+          <div class="result"><span class="pill-result">Seguimiento proactivo</span></div>
+        </article>
+
+        <article class="card warm" data-category="ventas">
+          <small>Voz y mensajería</small>
+          <h3>ALMA</h3>
+          <p class="desc">Empleado virtual que llama, conversa por WhatsApp, califica prospectos y agenda durante todo el día.</p>
+          <p class="scope"><b>Alcance:</b> plataforma multiempresa de agentes de voz y WhatsApp para atender, calificar y agendar conversaciones de manera continua. Cada conversación queda transcrita, resumida y clasificada.</p>
+          <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Voz</span><span class="tag">Multiempresa</span></div>
+          <div class="result"><span class="pill-result">Atención continua 24/7</span></div>
+        </article>
+
+        <article class="card warm" data-category="ventas operacion ecommerce">
+          <small>Comercio electrónico</small>
+          <h3>Recuperación de ventas</h3>
+          <p class="desc">Agentes que recuperan compras abandonadas, confirman pedidos y validan direcciones antes del envío.</p>
+          <p class="scope"><b>Alcance:</b> dos asistentes coordinados — uno recupera compras abandonadas y otro confirma pedidos, inventario y dirección antes del envío.</p>
+          <div class="tags"><span class="tag">E-commerce</span><span class="tag">Carrito abandonado</span><span class="tag">Logística</span></div>
+          <div class="result"><span class="pill-result">Venta recuperada y pedido protegido</span></div>
+        </article>
+
+        <article class="card" data-category="salud ventas">
+          <small>Atención médica</small>
+          <h3>Asistente para clínicas</h3>
+          <p class="desc">Responde consultas, identifica necesidades, agenda citas, envía recordatorios y deriva casos delicados.</p>
+          <p class="scope"><b>Alcance:</b> recepción digital configurable por especialidad que responde preguntas, califica necesidades, agenda y deriva situaciones sensibles al personal.</p>
+          <div class="tags"><span class="tag">Salud</span><span class="tag">Agenda</span><span class="tag">Recordatorios</span></div>
+          <div class="result"><span class="pill-result">En producción</span></div>
+        </article>
+
+        <article class="card" data-category="finanzas operacion">
+          <small>Administración financiera</small>
+          <h3>Facturas y pagos</h3>
+          <p class="desc">Lee facturas, concilia información, convierte divisas y prepara archivos bancarios de pago.</p>
+          <p class="scope"><b>Alcance:</b> automatización de lectura, conciliación, conversión de divisas y preparación de archivos bancarios para pagos masivos.</p>
+          <div class="tags"><span class="tag">Finanzas</span><span class="tag">Conciliación</span><span class="tag">Pagos masivos</span></div>
+          <div class="result"><span class="pill-result">70% menos trabajo de auditoría</span></div>
+        </article>
+
+        <article class="card warm" data-category="finanzas">
+          <small>Prevención de fraude</small>
+          <h3>Certipago</h3>
+          <p class="desc">Verifica identidad, valida pagos, controla reputación y registra cada operación desde WhatsApp.</p>
+          <p class="scope"><b>Alcance:</b> ecosistema de validación de identidad, pagos, reputación y planes desde WhatsApp para dejar trazabilidad y reducir riesgo.</p>
+          <div class="tags"><span class="tag">Antifraude</span><span class="tag">Identidad</span><span class="tag">WhatsApp</span></div>
+          <div class="result"><span class="pill-result">Trazabilidad del pago</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="wrap cta-section reveal">
+      <div class="cta-box">
+        <div class="badge" style="margin-bottom:18px"><span class="dot" aria-hidden="true"></span><span>Diagnóstico NSG</span></div>
+        <h2>¿Quieres un sistema así para tu empresa?</h2>
+        <p>Identificamos la oportunidad más valiosa y la ruta para implementarla. Empezamos donde existe mayor impacto.</p>
+        <a class="btn nav-cta" href="index.html#diagnostico">Agendar diagnóstico <span class="arrow">→</span></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span>NSG</div>
+      <div class="footer-links">
+        <a href="index.html">Inicio</a><a href="index.html#sistema">Sistema</a><a href="portafolio.html">Portafolio</a><a href="index.html#nosotros">Nosotros</a><span>© 2026 NSG</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
+      document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+      const f = b.dataset.filter;
+      document.querySelectorAll('.card').forEach(c => c.classList.toggle('hidden', f !== 'all' && !c.dataset.category.includes(f)));
+    }));
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
