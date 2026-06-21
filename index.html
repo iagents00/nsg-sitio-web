@@ -44,12 +44,18 @@
       background: rgba(8,10,13,.78); border-bottom: 1px solid rgba(255,255,255,.06);
       backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
     }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; }
     .brand { font-size: 18px; font-weight: 780; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
     .brand-mark { width: 25px; height: 25px; border: 2px solid var(--blue); border-right-color: var(--cyan); border-radius: 7px; transform: rotate(45deg); box-shadow: 0 0 18px rgba(66,216,255,.3); }
     .brand-mark::after { content: ""; display: block; width: 7px; height: 7px; margin: 7px; background: var(--text); border-radius: 2px; }
-    .nav-links { display: flex; align-items: center; gap: 26px; color: #b4bac2; font-size: 13px; }
-    .nav-links a:hover { color: white; }
+    .nav-pill { justify-self: center; display: flex; }
+    .nav-actions { justify-self: end; }
+    .nav-links { display: flex; align-items: center; gap: 2px; padding: 6px; border: 1px solid rgba(255,255,255,.07); border-radius: 999px; background: rgba(255,255,255,.03); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #aab1ba; font-size: 13px; }
+    .nav-links a { padding: 9px 16px; border-radius: 999px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+    .nav-actions { display: flex; align-items: center; gap: 8px; }
+    .nav-login { padding: 11px 16px; border-radius: 999px; font-size: 13px; color: #c4cad2; transition: color .2s, background .2s; }
+    .nav-login:hover { color: #fff; background: rgba(255,255,255,.05); }
     .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: var(--surface); border-radius: 7px; cursor: pointer; }
     .nav-toggle span, .nav-toggle::before, .nav-toggle::after { content: ""; display: block; width: 18px; height: 1.5px; margin: 4px auto; background: white; }
     .btn {
@@ -68,6 +74,10 @@
     .arrow { font-size: 16px; line-height: 1; }
     .hero { padding: 108px 0 52px; text-align: center; position: relative; }
     .eyebrow { color: var(--cyan); font-size: 11px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; background: rgba(255,255,255,.025); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .08em; color: #9aa2ac; text-transform: uppercase; max-width: 100%; }
+    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.75); flex: none; }
+    .hero-badge .sep { color: #3a424c; }
+    .hero-badge .accent { color: var(--green); font-weight: 600; text-transform: none; }
     h1, h2, h3, p { margin-top: 0; }
     h1 { max-width: 1080px; margin: 20px auto 24px; font-size: clamp(44px, 7vw, 82px); line-height: 1.02; letter-spacing: 0; font-weight: 520; text-wrap: balance; }
     .rotating-line { display: grid; min-height: 1.12em; margin-top: .08em; color: #dceeff; }
@@ -170,13 +180,24 @@
     .dialog { width: min(92vw, 640px); border: 1px solid #343c46; border-radius: 8px; background: #0d1116; color: white; padding: 0; box-shadow: 0 30px 100px #000; }.dialog::backdrop { background: rgba(0,0,0,.78); backdrop-filter: blur(8px); }.dialog-inner { padding: 28px; }.dialog-head { display: flex; justify-content: space-between; gap: 20px; }.dialog h3 { font-size: 25px; font-weight: 570; }.close { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; }.dialog p { color: var(--muted); line-height: 1.6; }.diagnostic-options { display: grid; gap: 8px; margin-top: 20px; }.diagnostic-option { text-align: left; padding: 14px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface-2); cursor: pointer; }.diagnostic-option:hover, .diagnostic-option.selected { border-color: #4a89cc; background: #111e2d; }.diagnostic-result { display: none; margin-top: 18px; padding: 18px; border-left: 2px solid var(--blue); background: #101722; }.diagnostic-result.show { display: block; }
     .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }.reveal.visible { opacity: 1; transform: none; }
     @media (max-width: 900px) {
-      .nav-links { position: fixed; inset: 72px 0 auto; display: none; flex-direction: column; align-items: stretch; padding: 20px; background: #0b0e12; border-bottom: 1px solid var(--line); }.nav-links.open { display: flex; }.nav-toggle { display: block; }.nav .btn.nav-cta { display: none; }
+      .nav-inner { display: flex; align-items: center; }
+      .brand { margin-right: auto; }
+      .nav-pill { display: contents; }
+      .nav-links { position: fixed; inset: 72px 0 auto; display: none; flex-direction: column; align-items: stretch; gap: 4px; padding: 16px; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); background: #0b0e12; backdrop-filter: none; -webkit-backdrop-filter: none; }
+      .nav-links.open { display: flex; }
+      .nav-links a { padding: 13px 14px; }
+      .nav-toggle { display: block; order: 3; }
+      .nav-actions { gap: 6px; }
+      .nav-login { display: none; }
+      .nav .btn.nav-cta { display: inline-flex; padding: 0 16px; min-height: 40px; }
       .hero { padding-top: 76px; }.demo { grid-template-columns: 1fr; }.demo-side { display: none; }.demo-main { padding: 16px; }.metrics { grid-template-columns: repeat(3,1fr); }.pipe-row { grid-template-columns: 1.2fr .7fr .5fr; }.pipe-row > :nth-child(3) { display: none; }
       .section-head { grid-template-columns: 1fr; gap: 20px; }.problem-grid { grid-template-columns: repeat(2,1fr); }.problem:nth-child(2) { border-right: 0; }.problem:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
       .solutions { grid-template-columns: repeat(2,1fr); }.offer-wrap { grid-template-columns: 1fr; gap: 34px; }.offer-copy { position: static; }.entry-grid { grid-template-columns: 1fr; }.process { grid-template-columns: repeat(2,1fr); }.process-step { border-bottom: 1px solid var(--line); }.team { grid-template-columns: 1fr; gap: 35px; }
     }
     @media (max-width: 640px) {
       .wrap { width: min(calc(100% - 28px), var(--max)); }.nav { height: 64px; }.nav-links { top: 64px; }
+      .hero-badge { flex-wrap: wrap; gap: 7px 8px; font-size: 11px; padding: 7px 13px; letter-spacing: .05em; }
+      .nav .btn.nav-cta { font-size: 12px; padding: 0 13px; gap: 6px; }
       .hero { text-align: left; padding-top: 72px; }.hero .eyebrow { line-height: 1.5; }.hero h1 { font-size: 43px; margin-left: 0; }.rotating-line { min-height: 2.22em; }.hero-copy { font-size: 16px; margin-left: 0; }.hero-actions { justify-content: flex-start; }.hero-actions .btn { width: 100%; }.proof-line { margin-left: 0; }.system-stage { margin-top: 42px; }
       section { padding: 70px 0; }.problem-grid, .alliance, .solutions, .portfolio-grid { grid-template-columns: 1fr; }.problem { border-right: 0; border-bottom: 1px solid var(--line); min-height: 160px; }.problem h3 { margin-top: 24px; }.alliance-panel { min-height: 280px; }.alliance-panel h3 { margin-top: 50px; }.alliance-result { display: block; }.alliance-result b { font-size: 58px; }
       .system-item { grid-template-columns: 42px 1fr; gap: 14px; }.system-item p { grid-column: 2; }.solutions { gap: 10px; }.solution { min-height: 230px; }.solution h3 { margin-top: 48px; }.portfolio-top { display: block; }.filters { margin-top: 18px; }.project { min-height: 340px; }.process { grid-template-columns: 1fr; }.process-step { border-right: 0; }.process-step h3 { margin-top: 25px; }.footer-inner { display: block; }.footer-links { margin-top: 15px; flex-wrap: wrap; }
@@ -216,17 +237,22 @@
   <nav class="nav" aria-label="Navegación principal">
     <div class="wrap nav-inner">
       <a class="brand" href="#inicio" aria-label="NSG, inicio"><span class="brand-mark" aria-hidden="true"></span>NSG</a>
-      <div class="nav-links" id="navLinks">
-        <a href="#soluciones">Servicios</a><a href="#sistema">Sistema</a><a href="#alianza">Alianza</a><a href="#proyectos">Proyectos</a><a href="#nosotros">Nosotros</a>
+      <div class="nav-pill">
+        <div class="nav-links" id="navLinks">
+          <a href="#soluciones">Servicios</a><a href="#sistema">Sistema</a><a href="#alianza">Alianza</a><a href="#proyectos">Proyectos</a><a href="#nosotros">Nosotros</a>
+        </div>
       </div>
-      <a class="btn nav-cta" href="#diagnostico">Agendar diagnóstico <span class="arrow">→</span></a>
+      <div class="nav-actions">
+        <a class="nav-login" href="#diagnostico">Iniciar sesión</a>
+        <a class="btn nav-cta" href="#diagnostico">Empezar gratis <span class="arrow">→</span></a>
+      </div>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
     </div>
   </nav>
 
   <main id="inicio">
     <header class="hero wrap">
-      <div class="eyebrow">Sistemas de crecimiento + inteligencia artificial</div>
+      <div class="hero-badge"><span class="dot" aria-hidden="true"></span><span>Sistema operativo comercial</span><span class="sep" aria-hidden="true">|</span><span class="accent">+ iAgents</span></div>
       <h1>Escalamos empresas con<span class="rotating-line" id="heroRotator"><span class="rotating-word active">Marketing + AI</span><span class="rotating-word">AI Department</span><span class="rotating-word">AI Consulting</span><span class="rotating-word">iAgent Teams</span><span class="rotating-word">IAOS + Second Brain</span></span></h1>
       <p class="hero-copy">Diseñamos la estrategia, el equipo y la tecnología para vender más y operar mejor.</p>
       <div class="hero-actions"><button class="btn btn-primary diagnostic-open" type="button">Agendar diagnóstico <span class="arrow">→</span></button><a class="btn" href="#sistema">Ver cómo funciona</a></div>
