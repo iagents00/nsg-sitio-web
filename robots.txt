@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://newstrategygroup-nsg.vercel.app/sitemap.xml
