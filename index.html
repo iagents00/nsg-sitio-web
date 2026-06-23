@@ -4,206 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#080a0d">
-  <meta name="description" content="NSG escala empresas con estrategia, inteligencia artificial, agentes y sistemas operativos.">
-  <title>NSG | Escalamos empresas con inteligencia artificial</title>
-  <style>
-    :root {
-      color-scheme: dark;
-      --bg: #080a0d;
-      --surface: #0d1014;
-      --surface-2: #12161c;
-      --line: #242a32;
-      --line-soft: #171c22;
-      --text: #f5f7fa;
-      --muted: #8f969f;
-      --muted-2: #65707c;
-      --blue: #3f94ff;
-      --cyan: #42d8ff;
-      --orange: #ff8744;
-      --green: #53d18a;
-      --max: 1180px;
-      --radius: 8px;
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      font-synthesis: none;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden; }
-    body::before {
-      content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -2;
-      background: radial-gradient(circle at 50% 18%, rgba(0, 126, 255, .11), transparent 27%),
-                  radial-gradient(circle at 72% 38%, rgba(57, 222, 255, .045), transparent 22%);
-    }
-    body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -3; opacity: .42; background-image: linear-gradient(rgba(91,114,141,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(91,114,141,.09) 1px, transparent 1px); background-size: 88px 88px; mask-image: linear-gradient(to bottom, #000, transparent 78%); }
-    a { color: inherit; text-decoration: none; }
-    button, input, select, textarea { font: inherit; }
-    button { color: inherit; }
-    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
-    .nav {
-      position: sticky; top: 0; z-index: 50; height: 72px; display: flex; align-items: center;
-      background: rgba(8,10,13,.78); border-bottom: 1px solid rgba(255,255,255,.06);
-      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
-    }
-    .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; }
-    .brand { font-size: 18px; font-weight: 780; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
-    .brand-mark { width: 25px; height: 25px; border: 2px solid var(--blue); border-right-color: var(--cyan); border-radius: 7px; transform: rotate(45deg); box-shadow: 0 0 18px rgba(66,216,255,.3); }
-    .brand-mark::after { content: ""; display: block; width: 7px; height: 7px; margin: 7px; background: var(--text); border-radius: 2px; }
-    .nav-pill { justify-self: center; display: flex; }
-    .nav-actions { justify-self: end; }
-    .nav-links { display: flex; align-items: center; gap: 2px; padding: 6px; border: 1px solid rgba(255,255,255,.07); border-radius: 999px; background: rgba(255,255,255,.03); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #aab1ba; font-size: 13px; }
-    .nav-links a { padding: 9px 16px; border-radius: 999px; transition: color .2s, background .2s; }
-    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
-    .nav-actions { display: flex; align-items: center; gap: 8px; }
-    .nav-login { padding: 11px 16px; border-radius: 999px; font-size: 13px; color: #c4cad2; transition: color .2s, background .2s; }
-    .nav-login:hover { color: #fff; background: rgba(255,255,255,.05); }
-    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: var(--surface); border-radius: 7px; cursor: pointer; }
-    .nav-toggle span, .nav-toggle::before, .nav-toggle::after { content: ""; display: block; width: 18px; height: 1.5px; margin: 4px auto; background: white; }
-    .btn {
-      min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 9px;
-      padding: 0 20px; border: 1px solid #31445b; border-radius: 8px; background: rgba(10,22,37,.84);
-      color: #eef6ff; font-size: 13px; font-weight: 680; cursor: pointer; transition: transform .2s, border-color .2s, background .2s, box-shadow .2s;
-      box-shadow: inset 0 1px rgba(255,255,255,.035), 0 8px 24px rgba(0,0,0,.22);
-    }
-    .btn:hover { transform: translateY(-2px); border-color: #5a9fe9; background: rgba(16,38,64,.94); box-shadow: 0 0 24px rgba(0,119,255,.12), 0 10px 30px rgba(0,0,0,.3); }
-    .btn-primary { position: relative; overflow: hidden; color: #f7fbff; border-color: #5ab0ff; background: linear-gradient(180deg, #173c63, #102844); box-shadow: 0 0 0 1px rgba(47,151,255,.16), 0 0 26px rgba(0,126,255,.12), inset 0 1px rgba(255,255,255,.1); }
-    .btn-primary:hover { background: linear-gradient(180deg, #1c4a7a, #123155); }
-    .nav-cta { border-radius: 999px; background: #f7f9fb; border-color: #fff; color: #080b10; box-shadow: 0 0 0 1px rgba(73,158,255,.2), 0 8px 24px rgba(0,0,0,.22); }
-    .nav-cta:hover { color: #080b10; background: #fff; }
-    .btn-primary::after { content: ""; position: absolute; inset: -60% auto -60% -45%; width: 34%; transform: rotate(18deg); background: rgba(255,255,255,.68); filter: blur(8px); animation: liquidShine 4.8s ease-in-out infinite; }
-    @keyframes liquidShine { 0%,55% { left:-45%; opacity:0; } 63% { opacity:.8; } 82%,100% { left:120%; opacity:0; } }
-    .arrow { font-size: 16px; line-height: 1; }
-    .hero { padding: 108px 0 52px; text-align: center; position: relative; }
-    .eyebrow { color: var(--cyan); font-size: 11px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; background: rgba(255,255,255,.025); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .08em; color: #9aa2ac; text-transform: uppercase; max-width: 100%; }
-    .hero-badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.75); flex: none; }
-    .hero-badge .sep { color: #3a424c; }
-    .hero-badge .accent { color: #2f7bff; font-weight: 700; text-transform: none; text-shadow: 0 0 14px rgba(47,123,255,.55); }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 1080px; margin: 20px auto 24px; font-size: clamp(44px, 7vw, 82px); line-height: 1.02; letter-spacing: 0; font-weight: 520; text-wrap: balance; }
-    .rotating-line { display: grid; min-height: 1.12em; margin-top: .08em; color: #dceeff; }
-    .rotating-word { grid-area: 1/1; opacity: 0; transform: translateY(18px); filter: blur(8px); transition: opacity .55s ease, transform .55s ease, filter .55s ease; background: linear-gradient(90deg, #ffffff 12%, #b9ddff 54%, #4fa5ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .rotating-word.active { opacity: 1; transform: translateY(0); filter: blur(0); }
-    .hero-copy { max-width: 760px; margin: 0 auto; color: #a2a8b0; font-size: clamp(17px, 2vw, 21px); line-height: 1.55; text-wrap: balance; }
-    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
-    .proof-line { margin: 30px auto 0; color: #737b85; font-size: 12px; max-width: 820px; line-height: 1.5; }
-    .proof-line strong { color: #c7cbd1; font-weight: 600; }
-    @property --border-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
-    .system-stage { position: relative; max-width: 1030px; margin: 60px auto 0; padding: 2px; border-radius: 11px; isolation: isolate; }
-    .system-stage::before {
-      content: ""; position: absolute; inset: -18px 1% -24px; z-index: -2; filter: blur(38px); opacity: .38;
-      background: conic-gradient(from var(--border-angle), transparent 0 29%, rgba(0,108,255,.22) 40%, rgba(0,174,255,.84) 54%, rgba(75,218,255,.55) 66%, transparent 81%);
-      animation: borderTravel 8s linear infinite;
-    }
-    .system-stage::after {
-      content: ""; position: absolute; inset: -2px; z-index: 3; border-radius: 11px; padding: 2px; pointer-events: none;
-      background: conic-gradient(from var(--border-angle), #26313e 0 18%, #087fff 31%, #35c9ff 42%, #edf9ff 48%, #354452 59% 78%, #1394ff 91%, #26313e 100%);
-      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-      -webkit-mask-composite: xor; mask-composite: exclude;
-      animation: borderTravel 8s linear infinite;
-    }
-    @keyframes borderTravel { to { --border-angle: 360deg; } }
-    .system-window { border: 1px solid #555e69; border-radius: 8px; overflow: hidden; background: #0a0d11; box-shadow: 0 24px 70px #000; text-align: left; }
-    .window-bar { height: 43px; border-bottom: 1px solid #1d232a; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; color: #6f7781; font-size: 10px; }
-    .dots { display: flex; gap: 6px; }.dots i { width: 7px; height: 7px; border-radius: 50%; background: #323943; }.dots i:first-child { background: var(--blue); }
-    .demo { display: grid; grid-template-columns: 180px 1fr; min-height: 430px; }
-    .demo-side { padding: 18px 12px; border-right: 1px solid #1b2026; background: #090c10; }
-    .demo-logo { font-size: 12px; font-weight: 740; margin: 0 8px 24px; }
-    .side-link { padding: 10px 11px; margin-bottom: 4px; border-radius: 6px; color: #68717c; font-size: 11px; }
-    .side-link.active { background: #121923; color: #c9def9; border: 1px solid #1c2a3b; }
-    .demo-main { padding: 24px; overflow: hidden; }
-    .demo-head { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 22px; }
-    .demo-head h3 { margin: 0; font-size: 18px; font-weight: 620; }.demo-head p { margin: 5px 0 0; color: #69727d; font-size: 10px; }
-    .demo-status { color: #80dfa7; font-size: 10px; border: 1px solid #214b35; background: #0d2117; border-radius: 999px; padding: 7px 10px; }
-    .metrics { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-bottom: 14px; }
-    .metric { padding: 14px; border: 1px solid #1e252d; background: #0d1116; border-radius: 7px; }
-    .metric b { font-size: 22px; font-weight: 600; }.metric span { display: block; color: #6d7680; font-size: 9px; margin-top: 4px; }
-    .pipeline { border: 1px solid #20262e; border-radius: 7px; overflow: hidden; }
-    .pipe-row { display: grid; grid-template-columns: 1.25fr .7fr .7fr .5fr; align-items: center; gap: 8px; min-height: 49px; padding: 8px 13px; border-bottom: 1px solid #171c22; color: #89919a; font-size: 10px; transition: background .3s, box-shadow .3s; }
-    .pipe-row:last-child { border-bottom: 0; }.pipe-row.head { min-height: 34px; color: #555f6a; background: #0a0e12; font-size: 8px; text-transform: uppercase; }
-    .pipe-row:not(.head):nth-child(2) { animation: rowSignal 6s ease-in-out infinite; }
-    .pipe-row:not(.head):nth-child(3) { animation: rowSignal 6s 2s ease-in-out infinite; }
-    .pipe-row:not(.head):nth-child(4) { animation: rowSignal 6s 4s ease-in-out infinite; }
-    @keyframes rowSignal { 0%,22%,100% { background: transparent; box-shadow: none; } 8%,14% { background: rgba(63,148,255,.075); box-shadow: inset 2px 0 var(--blue); } }
-    .lead { color: #c9cdd2; display: flex; align-items: center; gap: 9px; }.avatar { width: 22px; height: 22px; border-radius: 50%; background: #192c43; display: grid; place-items: center; color: #78b8ff; font-size: 8px; }
-    .tag { width: fit-content; padding: 4px 7px; border: 1px solid #26384f; background: #111c29; color: #83b8f3; border-radius: 999px; }
-    .tag.warm { border-color: #4b3729; background: #21170f; color: #f0a66d; }.tag.good { border-color: #204534; background: #0e2118; color: #72d49b; }
-    .product-slider { position: relative; aspect-ratio: 2048 / 1331; background: #02050a; overflow: hidden; }
-    .product-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transform: scale(1.008); transition: opacity .75s ease, transform 1.4s ease; }
-    .product-slide.active { opacity: 1; transform: scale(1); z-index: 1; }
-    .product-slide img { width: 100%; height: 100%; display: block; object-fit: contain; }
-    .slider-overlay { position: absolute; inset: auto 0 0; z-index: 3; height: 18%; pointer-events: none; background: linear-gradient(transparent, rgba(2,5,10,.72)); }
-    .slider-caption { position: absolute; left: 18px; bottom: 16px; z-index: 4; display: flex; align-items: center; gap: 9px; padding: 8px 11px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(5,8,12,.72); backdrop-filter: blur(12px); color: #d9dde2; font-size: 10px; }
-    .slider-caption i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.8); }
-    .slider-dots { position: absolute; right: 18px; bottom: 19px; z-index: 5; display: flex; gap: 7px; }
-    .slider-dot { width: 24px; height: 3px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.22); cursor: pointer; overflow: hidden; }
-    .slider-dot::after { content: ""; display: block; width: 0; height: 100%; background: linear-gradient(90deg, #087fff, #4ed9ff); }
-    .slider-dot.active::after { animation: sliderProgress 3s linear forwards; }
-    @keyframes sliderProgress { to { width: 100%; } }
-    section { padding: 92px 0; }
-    .section-head { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; margin-bottom: 46px; }
-    .section-head h2 { margin: 0; font-size: clamp(34px, 5vw, 58px); line-height: 1.03; font-weight: 570; }
-    .section-head p { margin: 5px 0 0; color: var(--muted); line-height: 1.7; max-width: 580px; }
-    .problem-grid { display: grid; grid-template-columns: repeat(4,1fr); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .problem { min-height: 200px; padding: 28px 20px; border-right: 1px solid var(--line); }
-    .problem:last-child { border-right: 0; }.problem span { color: var(--blue); font-size: 11px; }.problem h3 { font-size: 18px; font-weight: 570; margin: 42px 0 10px; }.problem p { color: var(--muted); font-size: 13px; line-height: 1.55; }
-    .alliance { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .alliance-panel { min-height: 320px; padding: 34px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); position: relative; overflow: hidden; }
-    .alliance-panel::after { content: ""; position: absolute; width: 190px; height: 190px; border: 1px solid rgba(63,148,255,.2); border-radius: 50%; right: -70px; bottom: -70px; box-shadow: 0 0 46px rgba(63,148,255,.12); }
-    .alliance-panel.duke::after { border-color: rgba(255,135,68,.23); box-shadow: 0 0 46px rgba(255,135,68,.11); }
-    .alliance-panel small { color: var(--cyan); font-size: 10px; letter-spacing: .13em; text-transform: uppercase; }.alliance-panel.duke small { color: #ffad79; }
-    .alliance-panel h3 { margin: 70px 0 14px; font-size: 30px; font-weight: 580; }.alliance-panel p { max-width: 440px; color: var(--muted); line-height: 1.65; }
-    .alliance-result { margin-top: 16px; padding: 24px 4px 0; display: flex; align-items: end; gap: 18px; }
-    .alliance-result b { font-size: clamp(50px,8vw,92px); font-weight: 540; letter-spacing: -.04em; }.alliance-result p { color: var(--muted); max-width: 350px; line-height: 1.5; margin-bottom: 13px; }
-    .system-list { counter-reset: steps; border-top: 1px solid var(--line); }
-    .system-item { counter-increment: steps; display: grid; grid-template-columns: 80px .75fr 1.25fr; gap: 28px; padding: 30px 0; border-bottom: 1px solid var(--line); align-items: start; }
-    .system-item::before { content: "0" counter(steps); color: var(--blue); font-size: 12px; padding-top: 5px; }.system-item h3 { margin: 0; font-size: 22px; font-weight: 580; }.system-item p { color: var(--muted); line-height: 1.65; margin: 0; }
-    .solutions { display: grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
-    .solution { min-height: 260px; padding: 26px 14px 26px 0; border-top: 1px solid var(--line); background: transparent; transition: transform .25s, border-color .25s; }
-    .solution:hover { transform: translateY(-4px); border-color: #4a84c5; }.solution .glyph { color: var(--blue); font-size: 31px; font-weight: 300; text-shadow: 0 0 22px rgba(63,148,255,.38); }.solution h3 { margin: 72px 0 12px; font-size: 21px; font-weight: 570; }.solution p { color: var(--muted); font-size: 13px; line-height: 1.65; max-width: 330px; }
-    .offer-wrap { display: grid; grid-template-columns: .82fr 1.18fr; gap: 70px; align-items: start; }
-    .offer-copy { position: sticky; top: 112px; }.offer-copy h2 { font-size: clamp(40px,5vw,62px); line-height: 1.02; font-weight: 570; margin: 14px 0 20px; }.offer-copy p { color: var(--muted); line-height: 1.7; }.offer-list { border-top: 1px solid var(--line); }
-    .offer-item { display: grid; grid-template-columns: 46px 1fr; gap: 16px; padding: 22px 0; border-bottom: 1px solid var(--line); }.offer-item span { color: var(--blue); font-size: 11px; padding-top: 4px; }.offer-item h3 { margin: 0 0 7px; font-size: 18px; font-weight: 570; }.offer-item p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
-    .entry-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }.entry { padding: 28px; min-height: 310px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); display: flex; flex-direction: column; }.entry.featured { border-color: #345b89; box-shadow: inset 0 1px rgba(145,203,255,.16), 0 0 50px rgba(63,148,255,.08); }.entry small { color: var(--cyan); font-size: 9px; letter-spacing: .13em; text-transform: uppercase; }.entry h3 { font-size: 25px; font-weight: 570; margin: 42px 0 12px; }.entry p { color: var(--muted); font-size: 13px; line-height: 1.6; }.entry ul { margin: auto 0 0; padding: 20px 0 0; list-style: none; border-top: 1px solid var(--line-soft); }.entry li { color: #bec4ca; font-size: 12px; margin: 8px 0; }.entry li::before { content: "✓"; color: var(--green); margin-right: 8px; }
-    .portfolio-top { display: flex; justify-content: space-between; gap: 20px; align-items: end; margin-bottom: 28px; }
-    .filters { display: flex; gap: 7px; flex-wrap: wrap; }.filter { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: 8px 12px; font-size: 11px; cursor: pointer; }.filter.active { color: white; background: #17202b; border-color: #34465c; }
-    .portfolio-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
-    .project { min-height: 390px; padding: 28px; border: 1px solid var(--line); background: var(--surface); border-radius: var(--radius); display: flex; flex-direction: column; position: relative; overflow: hidden; transition: opacity .2s, transform .2s; }
-    .project::before { content: ""; position: absolute; top: -80px; right: -80px; width: 180px; height: 180px; border: 1px solid rgba(63,148,255,.2); border-radius: 50%; box-shadow: 0 0 50px rgba(63,148,255,.09); }.project.orange::before { border-color: rgba(45,170,255,.22); box-shadow: 0 0 50px rgba(0,126,255,.1); }
-    .project.hidden { display: none; }.project small { color: var(--cyan); text-transform: uppercase; letter-spacing: .12em; font-size: 9px; }.project h3 { margin: 18px 0 10px; font-size: 29px; font-weight: 570; }.project p { color: var(--muted); line-height: 1.6; max-width: 500px; }
-    .project-result { margin-top: auto; padding-top: 25px; border-top: 1px solid var(--line-soft); color: #c9ced4; font-size: 13px; }.project-result b { color: white; font-size: 24px; font-weight: 560; display: block; margin-bottom: 5px; }
-    .project-link { margin-top: 18px; color: #8fc5ff; font-size: 12px; cursor: pointer; background: none; border: 0; padding: 0; text-align: left; }
-    .process { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--line); }.process-step { padding: 25px 20px; border-right: 1px solid var(--line); }.process-step:last-child { border-right: 0; }.process-step span { color: var(--blue); font-size: 11px; }.process-step h3 { margin: 45px 0 10px; font-size: 17px; font-weight: 560; }.process-step p { color: var(--muted); font-size: 12px; line-height: 1.55; }
-    .team { display: grid; grid-template-columns: 1.2fr .8fr; gap: 70px; }.team-copy h2 { font-size: clamp(38px,5vw,62px); line-height: 1.03; font-weight: 570; }.team-copy p { color: var(--muted); line-height: 1.7; }.team-list { border-top: 1px solid var(--line); }.person { padding: 20px 0; border-bottom: 1px solid var(--line); }.person b { display: block; font-weight: 590; margin-bottom: 5px; }.person span { color: var(--muted); font-size: 12px; }
-    .faq { max-width: 900px; margin: auto; }.faq h2 { font-size: clamp(38px,5vw,58px); font-weight: 570; margin-bottom: 36px; }.faq details { border-top: 1px solid var(--line); padding: 20px 0; }.faq details:last-of-type { border-bottom: 1px solid var(--line); }.faq summary { cursor: pointer; font-size: 17px; list-style: none; padding-right: 30px; position: relative; }.faq summary::after { content: "+"; position: absolute; right: 4px; color: var(--blue); }.faq details[open] summary::after { content: "-"; }.faq details p { max-width: 720px; color: var(--muted); line-height: 1.65; margin: 16px 0 0; font-size: 14px; }
-    .cta-section { padding-bottom: 110px; }.cta-box { text-align: center; padding: 80px 24px; border: 1px solid #25466b; background: #0a1421; border-radius: var(--radius); position: relative; overflow: hidden; }.cta-box::before { content: ""; position: absolute; inset: auto 12% -60px; height: 100px; background: linear-gradient(90deg, var(--blue), var(--cyan)); filter: blur(50px); opacity: .14; }.cta-box h2 { max-width: 800px; margin: 0 auto 18px; font-size: clamp(38px,6vw,70px); line-height: 1; font-weight: 570; }.cta-box p { max-width: 600px; margin: 0 auto 28px; color: var(--muted); line-height: 1.6; }
-    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }.footer-inner { display: flex; justify-content: space-between; gap: 24px; align-items: center; }.footer-links { display: flex; gap: 18px; }
-    .dialog { width: min(92vw, 640px); border: 1px solid #343c46; border-radius: 8px; background: #0d1116; color: white; padding: 0; box-shadow: 0 30px 100px #000; }.dialog::backdrop { background: rgba(0,0,0,.78); backdrop-filter: blur(8px); }.dialog-inner { padding: 28px; }.dialog-head { display: flex; justify-content: space-between; gap: 20px; }.dialog h3 { font-size: 25px; font-weight: 570; }.close { width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; }.dialog p { color: var(--muted); line-height: 1.6; }.diagnostic-options { display: grid; gap: 8px; margin-top: 20px; }.diagnostic-option { text-align: left; padding: 14px; border: 1px solid var(--line); border-radius: 7px; background: var(--surface-2); cursor: pointer; }.diagnostic-option:hover, .diagnostic-option.selected { border-color: #4a89cc; background: #111e2d; }.diagnostic-result { display: none; margin-top: 18px; padding: 18px; border-left: 2px solid var(--blue); background: #101722; }.diagnostic-result.show { display: block; }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }.reveal.visible { opacity: 1; transform: none; }
-    @media (max-width: 900px) {
-      .nav-inner { display: flex; align-items: center; }
-      .brand { margin-right: auto; }
-      .nav-pill { display: contents; }
-      .nav-links { position: fixed; inset: 72px 0 auto; display: none; flex-direction: column; align-items: stretch; gap: 4px; padding: 16px; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); background: #0b0e12; backdrop-filter: none; -webkit-backdrop-filter: none; }
-      .nav-links.open { display: flex; }
-      .nav-links a { padding: 13px 14px; }
-      .nav-toggle { display: block; order: 3; }
-      .nav-actions { gap: 6px; }
-      .nav-login { display: none; }
-      .nav .btn.nav-cta { display: inline-flex; padding: 0 16px; min-height: 40px; }
-      .hero { padding-top: 76px; }.demo { grid-template-columns: 1fr; }.demo-side { display: none; }.demo-main { padding: 16px; }.metrics { grid-template-columns: repeat(3,1fr); }.pipe-row { grid-template-columns: 1.2fr .7fr .5fr; }.pipe-row > :nth-child(3) { display: none; }
-      .section-head { grid-template-columns: 1fr; gap: 20px; }.problem-grid { grid-template-columns: repeat(2,1fr); }.problem:nth-child(2) { border-right: 0; }.problem:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
-      .solutions { grid-template-columns: repeat(2,1fr); }.offer-wrap { grid-template-columns: 1fr; gap: 34px; }.offer-copy { position: static; }.entry-grid { grid-template-columns: 1fr; }.process { grid-template-columns: repeat(2,1fr); }.process-step { border-bottom: 1px solid var(--line); }.team { grid-template-columns: 1fr; gap: 35px; }
-    }
-    @media (max-width: 640px) {
-      .wrap { width: min(calc(100% - 28px), var(--max)); }.nav { height: 64px; }.nav-links { top: 64px; }
-      .hero-badge { flex-wrap: wrap; gap: 7px 8px; font-size: 11px; padding: 7px 13px; letter-spacing: .05em; }
-      .nav .btn.nav-cta { font-size: 12px; padding: 0 13px; gap: 6px; }
-      .hero { text-align: center; padding-top: 72px; }.hero .eyebrow { line-height: 1.5; }.hero h1 { font-size: 43px; margin-left: auto; margin-right: auto; }.rotating-line { min-height: 2.22em; justify-items: center; }.hero-copy { font-size: 16px; margin-left: auto; margin-right: auto; }.hero-actions { justify-content: center; }.hero-actions .btn { width: 100%; }.proof-line { margin-left: auto; margin-right: auto; }.system-stage { margin-top: 42px; }
-      section { padding: 70px 0; }.problem-grid, .alliance, .solutions, .portfolio-grid { grid-template-columns: 1fr; }.problem { border-right: 0; border-bottom: 1px solid var(--line); min-height: 160px; }.problem h3 { margin-top: 24px; }.alliance-panel { min-height: 280px; }.alliance-panel h3 { margin-top: 50px; }.alliance-result { display: block; }.alliance-result b { font-size: 58px; }
-      .system-item { grid-template-columns: 42px 1fr; gap: 14px; }.system-item p { grid-column: 2; }.solutions { gap: 10px; }.solution { min-height: 230px; }.solution h3 { margin-top: 48px; }.portfolio-top { display: block; }.filters { margin-top: 18px; }.project { min-height: 340px; }.process { grid-template-columns: 1fr; }.process-step { border-right: 0; }.process-step h3 { margin-top: 25px; }.footer-inner { display: block; }.footer-links { margin-top: 15px; flex-wrap: wrap; }
-    }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
-  </style>
+  <meta name="description" content="NSG diseña e implementa el sistema comercial operado por IA que convierte tus prospectos en ventas: respuesta inmediata, calificación, seguimiento, CRM y medición.">
+  <title>NSG | Convierte más oportunidades en ventas con un sistema comercial operado por IA</title>
   <link rel="canonical" href="https://newstrategygroup-nsg.vercel.app/">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
@@ -211,27 +13,343 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="robots" content="index, follow">
   <meta name="author" content="NSG · New Strategy Group">
-  <meta name="keywords" content="inteligencia artificial, agentes IA, automatización, sistemas comerciales, NSG, New Strategy Group, escalamiento empresarial">
+  <meta name="keywords" content="sistema comercial con IA, inteligencia artificial inmobiliaria, agentes IA, CRM, seguimiento de prospectos, Stratos AI, NSG, New Strategy Group">
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NSG · New Strategy Group">
   <meta property="og:locale" content="es_ES">
   <meta property="og:url" content="https://newstrategygroup-nsg.vercel.app/">
-  <meta property="og:title" content="NSG | Escalamos empresas con inteligencia artificial">
-  <meta property="og:description" content="NSG escala empresas con estrategia, inteligencia artificial, agentes y sistemas operativos.">
+  <meta property="og:title" content="NSG | Sistema comercial operado por IA">
+  <meta property="og:description" content="Conectamos llamadas, WhatsApp, CRM, seguimiento y medición para que cada prospecto tenga respuesta, contexto y una siguiente acción.">
   <meta property="og:image" content="https://newstrategygroup-nsg.vercel.app/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="NSG — Escalamos empresas con inteligencia artificial">
+  <meta property="og:image:alt" content="NSG — Sistema comercial operado por IA">
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="NSG | Escalamos empresas con inteligencia artificial">
-  <meta name="twitter:description" content="NSG escala empresas con estrategia, inteligencia artificial, agentes y sistemas operativos.">
+  <meta name="twitter:title" content="NSG | Sistema comercial operado por IA">
+  <meta name="twitter:description" content="Convierte más oportunidades en ventas. Respuesta, seguimiento, CRM y medición operados por IA.">
   <meta name="twitter:image" content="https://newstrategygroup-nsg.vercel.app/assets/og-image.jpg">
-  <!-- Datos estructurados -->
   <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"Organization","name":"NSG · New Strategy Group","url":"https://newstrategygroup-nsg.vercel.app/","logo":"https://newstrategygroup-nsg.vercel.app/assets/icon-512.png","image":"https://newstrategygroup-nsg.vercel.app/assets/og-image.jpg","description":"NSG escala empresas con estrategia, inteligencia artificial, agentes y sistemas operativos.","sameAs":[]}
+  {"@context":"https://schema.org","@type":"Organization","name":"NSG · New Strategy Group","url":"https://newstrategygroup-nsg.vercel.app/","logo":"https://newstrategygroup-nsg.vercel.app/assets/icon-512.png","image":"https://newstrategygroup-nsg.vercel.app/assets/og-image.jpg","description":"NSG diseña e implementa sistemas comerciales y operativos con inteligencia artificial.","sameAs":[]}
   </script>
+  <style>
+    @property --border-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
+    :root {
+      color-scheme: dark;
+      --bg: #080a0d; --surface: #0d1014; --surface-2: #0f141a; --line: #222831; --line-soft: #161b21;
+      --text: #f5f7fa; --muted: #8f969f; --muted-2: #828a94;
+      --blue: #2f7bff; --blue-hi: #5aa6ff; --cyan: #42d8ff; --green: #53d18a; --amber: #ff8744;
+      --max: 1140px; --max-wide: 1280px; --radius: 10px; --radius-lg: 16px;
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-synthesis: none;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -2;
+      background: radial-gradient(circle at 50% 14%, rgba(47,123,255,.12), transparent 28%), radial-gradient(circle at 76% 32%, rgba(66,216,255,.05), transparent 22%); }
+    body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -3; opacity: .4;
+      background-image: linear-gradient(rgba(91,114,141,.085) 1px, transparent 1px), linear-gradient(90deg, rgba(91,114,141,.085) 1px, transparent 1px);
+      background-size: 90px 90px; mask-image: linear-gradient(to bottom, #000, transparent 80%); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
+    .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .wide { width: min(calc(100% - 40px), var(--max-wide)); margin-inline: auto; }
+    .grad { background: linear-gradient(100deg, #ffffff 8%, #bcdcff 46%, #2f7bff 96%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .tnum { font-variant-numeric: tabular-nums; }
+    @media (max-width: 1180px) { .hide-narrow { display: none; } }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 50; height: 72px; display: flex; align-items: center;
+      background: rgba(8,10,13,.78); border-bottom: 1px solid rgba(255,255,255,.06); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
+    .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; }
+    .brand { font-size: 18px; font-weight: 780; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
+    .brand-mark { width: 25px; height: 25px; border: 2px solid var(--blue); border-right-color: var(--cyan); border-radius: 7px; transform: rotate(45deg); box-shadow: 0 0 18px rgba(66,216,255,.3); }
+    .brand-mark::after { content: ""; display: block; width: 7px; height: 7px; margin: 7px; background: var(--text); border-radius: 2px; }
+    .nav-pill { justify-self: center; display: flex; }
+    .nav-links { display: flex; align-items: center; gap: 2px; padding: 6px; border: 1px solid rgba(255,255,255,.07); border-radius: 999px; background: rgba(255,255,255,.03); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #aab1ba; font-size: 13px; }
+    .nav-links a { padding: 9px 15px; border-radius: 999px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+    .nav-actions { justify-self: end; display: flex; align-items: center; gap: 8px; }
+    .nav-login { padding: 11px 16px; border-radius: 999px; font-size: 13px; color: #c4cad2; transition: color .2s, background .2s; }
+    .nav-login:hover { color: #fff; background: rgba(255,255,255,.05); }
+    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: var(--surface); border-radius: 9px; cursor: pointer; }
+    .nav-toggle span, .nav-toggle::before, .nav-toggle::after { content: ""; display: block; width: 18px; height: 1.5px; margin: 4px auto; background: #fff; }
+
+    /* BUTTONS */
+    .btn { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 22px;
+      border: 1px solid #2c3a4d; border-radius: 999px; background: rgba(13,18,26,.8); color: #eef6ff; font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: transform .2s, border-color .2s, background .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: #44597a; }
+    .btn-primary { position: relative; overflow: hidden; border-color: #3f7fe0;
+      background: linear-gradient(180deg, #2f7bff, #1f5fe0); color: #fff;
+      box-shadow: 0 0 0 1px rgba(47,123,255,.25), 0 12px 34px -10px rgba(47,123,255,.5), inset 0 1px rgba(255,255,255,.18); }
+    .btn-primary:hover { background: linear-gradient(180deg, #4a8cff, #2a6cf0); box-shadow: 0 0 0 1px rgba(90,166,255,.35), 0 16px 40px -10px rgba(47,123,255,.6); }
+    .btn-primary::after { content: ""; position: absolute; inset: -60% auto -60% -45%; width: 32%; transform: rotate(18deg); background: rgba(255,255,255,.5); filter: blur(8px); animation: none; }
+    .btn-primary:hover::after { animation: liquidShine 1.1s ease-out; }
+    @keyframes liquidShine { 0%,58% { left:-45%; opacity:0; } 66% { opacity:.7; } 86%,100% { left:130%; opacity:0; } }
+    .btn-ghost { background: rgba(255,255,255,.02); }
+    .nav-cta { background: #f7f9fb; border-color: #fff; color: #080b10; min-height: 42px; padding: 0 18px; font-size: 13px; box-shadow: none; }
+    .nav-cta::after { display: none; }
+    .nav-cta:hover { background: #fff; color: #080b10; transform: translateY(-2px); }
+    .arrow { font-size: 16px; line-height: 1; }
+
+    /* TYPOGRAPHY SYSTEM */
+    .eyebrow { display: inline-block; color: var(--cyan); font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
+    .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px;
+      background: rgba(255,255,255,.025); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .07em; color: #9aa2ac; text-transform: uppercase; }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.75); flex: none; }
+    .badge .accent { color: var(--blue); font-weight: 700; text-transform: none; text-shadow: 0 0 14px rgba(47,123,255,.55); }
+    section { padding-block: clamp(80px, 9vw, 140px); }
+    .section-head { max-width: 760px; margin-bottom: clamp(40px, 5vw, 64px); }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    h2.title { margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.04; letter-spacing: -.018em; font-weight: 560; text-wrap: balance; }
+    .section-head p { margin: 16px 0 0; color: var(--muted); font-size: clamp(15px, 1.3vw, 18px); line-height: 1.6; max-width: 60ch; }
+    .section-head.center p { margin-inline: auto; }
+
+    /* HERO */
+    .hero { text-align: center; padding: clamp(76px, 10vw, 132px) 0 clamp(50px, 7vw, 84px); }
+    .hero h1 { margin: 22px auto 20px; max-width: 15ch; font-size: clamp(44px, 6.4vw, 88px); line-height: 1.0; letter-spacing: -.022em; font-weight: 560; text-wrap: balance; }
+    .hero-sub { max-width: 60ch; margin: 0 auto; color: #a8aeb6; font-size: clamp(17px, 1.5vw, 22px); line-height: 1.5; font-weight: 420; text-wrap: balance; }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .hero-proof { margin: 24px auto 0; color: var(--muted-2); font-size: 13px; }
+    .hero-support { max-width: 64ch; margin: 14px auto 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    /* GLOWING SCREENSHOT STAGE */
+    .stage { position: relative; margin: clamp(46px, 6vw, 64px) auto 0; padding: 2px; border-radius: 13px; isolation: isolate; }
+    .stage::before { content: ""; position: absolute; inset: -16px 2% -22px; z-index: -2; filter: blur(40px); opacity: .42;
+      background: conic-gradient(from var(--border-angle), transparent 0 29%, rgba(47,123,255,.3) 40%, rgba(66,216,255,.85) 54%, rgba(90,166,255,.5) 66%, transparent 81%);
+      animation: borderTravel 6s linear infinite; }
+    .stage::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: 13px; padding: 2px; pointer-events: none;
+      background: conic-gradient(from var(--border-angle), #26313e 0 18%, #2f7bff 31%, #42d8ff 42%, #edf9ff 48%, #2c3a4d 59% 78%, #2f7bff 91%, #26313e 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: borderTravel 6s linear infinite; }
+    .stage.calm::before { animation-duration: 9s; opacity: .2; filter: blur(30px); }
+    .stage.calm::after { animation-duration: 9s; }
+    @keyframes borderTravel { to { --border-angle: 360deg; } }
+    .window { border: 1px solid #2a323c; border-radius: 11px; overflow: hidden; background: #0a0d11; box-shadow: 0 40px 120px -30px rgba(47,123,255,.35), 0 30px 80px rgba(0,0,0,.6); }
+    .window-bar { height: 42px; border-bottom: 1px solid #1a2027; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; color: #6f7781; font-size: 11px; }
+    .window-bar .dots { display: flex; gap: 6px; }
+    .window-bar .dots i { width: 8px; height: 8px; border-radius: 50%; background: #323943; opacity: .6; }
+    .window-bar .ttl { font-family: ui-monospace, Menlo, monospace; letter-spacing: .04em; }
+    .product-slider { position: relative; aspect-ratio: 1200 / 780; background: #02050a; overflow: hidden; }
+    .product-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transform: scale(1.006); transition: opacity .8s ease, transform 1.6s ease; }
+    .product-slide.active { opacity: 1; transform: scale(1); z-index: 1; }
+    .product-slide img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top; }
+    .slider-cap { position: absolute; left: 16px; bottom: 14px; z-index: 4; display: flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(5,8,12,.74); backdrop-filter: blur(12px); color: #d9dde2; font-size: 11px; max-width: calc(100% - 32px); }
+    .slider-cap i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.8); flex: none; }
+    .slider-dots { position: absolute; right: 16px; bottom: 17px; z-index: 5; display: flex; gap: 7px; }
+    .slider-dot { width: 24px; height: 3px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.22); cursor: pointer; overflow: hidden; }
+    .slider-dot::after { content: ""; display: block; width: 0; height: 100%; background: linear-gradient(90deg, #2f7bff, #42d8ff); }
+    .slider-dot.active::after { animation: sliderProgress 4s linear forwards; }
+    @keyframes sliderProgress { to { width: 100%; } }
+
+    /* PRUEBA / STATS */
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+    .stat { padding: clamp(26px,3vw,38px); border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat b { display: block; font-size: clamp(28px,3vw,40px); font-weight: 560; letter-spacing: -.03em; color: #fff; }
+    .stat b.cyan { color: var(--cyan); }
+    .stat h3 { margin: 12px 0 8px; font-size: 16px; font-weight: 560; }
+    .stat p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .note-line { margin-top: 22px; color: var(--muted-2); font-size: 13px; line-height: 1.6; max-width: 80ch; }
+
+    /* DIAGNOSTIC */
+    .diag { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); overflow: hidden; }
+    .diag-form { padding: clamp(24px,3vw,40px); }
+    .q { padding: 22px 0; border-bottom: 1px solid var(--line-soft); }
+    .q:first-child { padding-top: 0; }
+    .q-label { display: flex; gap: 12px; align-items: baseline; margin-bottom: 14px; }
+    .q-label .n { color: var(--blue); font-size: 13px; font-weight: 700; }
+    .q-label span { font-size: clamp(16px,1.6vw,19px); font-weight: 540; }
+    .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .opt { padding: 11px 15px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 999px; font-size: 13px; color: #c2c8cf; cursor: pointer; transition: .18s; }
+    .opt:hover { border-color: #3a4b60; color: #fff; }
+    .opt.sel { border-color: var(--blue); background: rgba(47,123,255,.14); color: #fff; box-shadow: inset 0 0 0 1px rgba(47,123,255,.35); }
+    .num-in { width: 100%; max-width: 280px; padding: 13px 16px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; color: #fff; font-size: 16px; }
+    .num-in:focus { outline: none; border-color: var(--blue); }
+    .lead-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 4px; }
+    .lead-grid input { padding: 13px 14px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; color: #fff; font-size: 15px; width: 100%; }
+    .lead-grid input:focus { outline: none; border-color: var(--blue); }
+    .diag-actions { margin-top: 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .diag-hint { color: var(--muted-2); font-size: 12px; }
+    .diag-err { color: #ff9a7a; font-size: 13px; margin-top: 12px; min-height: 1px; }
+    .diag-result { display: none; padding: clamp(26px,3vw,40px); border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(47,123,255,.06), transparent 60%); }
+    .diag-result.show { display: block; animation: fadeUp .5s ease; }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform:none; } }
+    .leak-num { font-size: clamp(48px,8vw,96px); font-weight: 560; letter-spacing: -.045em; line-height: .95; }
+    .res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 26px 0; }
+    .res-card { padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-2); }
+    .res-card small { color: var(--muted-2); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+    .res-card b.tnum, .res-card b { font-variant-numeric: tabular-nums; }
+    .res-card b { display: block; margin: 8px 0 6px; font-size: 17px; font-weight: 580; }
+    .res-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+    /* PROBLEMS */
+    .prob-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .prob { padding: clamp(24px,2.6vw,32px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); transition: border-color .25s, transform .25s; }
+    .prob:hover { border-color: rgba(47,123,255,.35); transform: translateY(-3px); }
+    .prob h3 { margin: 0 0 10px; font-size: clamp(19px,1.6vw,23px); font-weight: 560; letter-spacing: -.01em; }
+    .prob p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .prob .fix { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft); color: #aef0c6; font-size: 13px; display: flex; gap: 9px; align-items: flex-start; }
+    .prob .fix::before { content: "→"; color: var(--green); font-weight: 700; }
+
+    /* STRATOS / STEPS */
+    .stratos-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(36px,5vw,70px); align-items: start; }
+    .steps { border-top: 1px solid var(--line); }
+    .step { display: grid; grid-template-columns: 46px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .step .n { color: var(--blue); font-size: 13px; font-weight: 700; padding-top: 3px; }
+    .step h3 { margin: 0 0 5px; font-size: 18px; font-weight: 560; }
+    .step p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.55; }
+    .twin { display: grid; gap: 16px; position: sticky; top: 96px; }
+    .twin .window-bar .ttl { font-size: 10px; }
+    .twin .product-slide { position: static; opacity: 1; transform: none; }
+    .twin .pshot { position: relative; aspect-ratio: 1200/780; overflow: hidden; background: #02050a; }
+    .twin .pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+    /* DUKE */
+    .duke { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px,5vw,64px); align-items: center; }
+    .duke-num { font-size: clamp(64px,11vw,128px); font-weight: 540; letter-spacing: -.05em; line-height: .9; }
+    .duke-num span { font-size: .42em; letter-spacing: 0; color: var(--muted); display: block; margin-top: 12px; font-weight: 440; }
+    .duke p.lead { color: var(--muted); line-height: 1.65; font-size: 15px; }
+    .duke-quote { margin: 22px 0 0; padding-left: 18px; border-left: 2px solid var(--blue); font-size: 18px; line-height: 1.45; color: #dfe4ea; font-style: italic; }
+    .triad { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 28px; }
+    .triad div { padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .triad small { color: var(--muted-2); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+    .triad b { display: block; margin: 8px 0 6px; font-size: 17px; font-weight: 580; }
+    .triad p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+    .honesty { margin-top: 22px; padding: 14px 16px; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted-2); font-size: 12.5px; line-height: 1.5; }
+
+    /* OFFER LADDER */
+    .ladder { border-top: 1px solid var(--line); }
+    .tier { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 26px 26px; border-bottom: 1px solid var(--line); position: relative; transition: background .25s; }
+    .tier:hover { background: rgba(255,255,255,.015); }
+    .tier-main h3 { margin: 0 0 6px; font-size: clamp(20px,2vw,26px); font-weight: 560; letter-spacing: -.01em; display: flex; align-items: center; gap: 12px; }
+    .tier-main p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; max-width: 60ch; }
+    .tier-tag { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); border: 1px solid var(--line); padding: 4px 9px; border-radius: 999px; }
+    .tier-price { font-size: clamp(18px,1.8vw,24px); font-weight: 580; letter-spacing: -.02em; white-space: nowrap; text-align: right; }
+    .tier-price small { display: block; color: var(--muted-2); font-size: 11px; font-weight: 440; letter-spacing: 0; margin-top: 4px; text-transform: none; }
+    .tier.featured { background: linear-gradient(180deg, rgba(47,123,255,.08), transparent); box-shadow: inset 3px 0 0 var(--blue); }
+    .tier.featured .tier-tag { color: #fff; background: var(--blue); border-color: var(--blue); }
+    .offer-foot { margin-top: 26px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+    .offer-foot .muted { color: var(--muted-2); font-size: 13px; }
+
+    /* PARTNER */
+    .partner { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(36px,5vw,64px); align-items: center; }
+    .comp-bar { display: flex; height: 56px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); margin: 4px 0 8px; }
+    .comp-seg { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; min-width: 0; padding: 0 6px; text-align: center; white-space: nowrap; overflow: hidden; }
+    .comp-cli { background: var(--blue); flex: 1200; }
+    .comp-nsg { background: linear-gradient(90deg, #2f7bff, #4f8cff); flex: 5000; }
+    .comp-sld { background: repeating-linear-gradient(45deg, rgba(146,170,196,.2) 0 8px, rgba(146,170,196,.07) 8px 16px); color: #c4ccd5; flex: 3800; }
+    .comp-legend { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .comp-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+    .ptable { width: 100%; border-collapse: collapse; }
+    .ptable td { padding: 13px 0; border-bottom: 1px solid var(--line-soft); font-size: 14px; vertical-align: top; }
+    .ptable tr:last-child td { border-bottom: 0; }
+    .ptable .amt { text-align: right; font-weight: 600; white-space: nowrap; }
+    .ptable .pc { color: var(--muted); }
+    .ptable .pc small { display: block; color: var(--muted-2); font-size: 12px; margin-top: 3px; }
+    .scarcity { margin-top: 18px; padding: 14px 16px; border: 1px solid rgba(47,123,255,.25); border-radius: var(--radius); background: rgba(47,123,255,.06); color: #cfe0ff; font-size: 13px; line-height: 1.5; }
+
+    /* PORTFOLIO TEASER */
+    .pf-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .pf-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); transition: transform .25s, border-color .25s; }
+    .pf-card:hover { transform: translateY(-3px); border-color: #345b89; }
+    .pf-card .ph { aspect-ratio: 16/10; overflow: hidden; background: #02050a; }
+    .pf-card .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pf-card .pb { padding: 18px 20px 22px; }
+    .pf-card small { color: var(--muted-2); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+    .pf-card h3 { margin: 9px 0 7px; font-size: 19px; font-weight: 560; }
+    .pf-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .pf-foot { margin-top: 26px; text-align: center; }
+
+    /* PROCESS / IMPLEMENTATION */
+    .proc { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--line); }
+    .proc-step { padding: 24px 18px 24px 0; border-right: 1px solid var(--line); }
+    .proc-step:last-child { border-right: 0; padding-right: 0; }
+    .proc-step .n { color: var(--blue); font-size: 12px; font-weight: 700; }
+    .proc-step .t { color: var(--muted-2); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-left: 8px; }
+    .proc-step h3 { margin: 38px 0 9px; font-size: 17px; font-weight: 560; }
+    .proc-step p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+    .proc-note { margin-top: 24px; color: var(--muted-2); font-size: 13px; }
+
+    /* GUARANTEE */
+    .guarantee { margin-top: clamp(40px,5vw,60px); padding: clamp(30px,4vw,48px); border: 1px solid rgba(83,209,138,.25); border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(83,209,138,.06), transparent 70%); }
+    .guarantee h3 { margin: 12px 0 14px; font-size: clamp(26px,3vw,40px); font-weight: 560; letter-spacing: -.015em; max-width: 18ch; }
+    .guarantee .gbody { color: #c7ccd2; line-height: 1.65; max-width: 70ch; font-size: 15px; }
+    .glist { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px 24px; margin: 24px 0; max-width: 760px; }
+    .glist div { color: #cdd2d8; font-size: 13.5px; display: flex; gap: 9px; align-items: flex-start; }
+    .glist div::before { content: "✓"; color: var(--green); font-weight: 700; }
+    .ghonesty { color: var(--muted-2); font-size: 13px; line-height: 1.6; max-width: 76ch; border-top: 1px solid var(--line-soft); padding-top: 18px; }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
+    .person { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .person .role { color: var(--cyan); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.4; min-height: 26px; }
+    .person b { display: block; margin: 12px 0 8px; font-size: 18px; font-weight: 580; letter-spacing: -.01em; }
+    .person p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+
+    /* FAQ */
+    .faq { max-width: 860px; }
+    .faq details { border-top: 1px solid var(--line); padding: 20px 0; }
+    .faq details:last-of-type { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; font-size: clamp(16px,1.5vw,19px); font-weight: 500; list-style: none; padding-right: 32px; position: relative; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; position: absolute; right: 4px; top: -2px; color: var(--blue); font-size: 22px; }
+    .faq details[open] summary::after { content: "–"; }
+    .faq details p { max-width: 74ch; color: var(--muted); line-height: 1.65; margin: 14px 0 0; font-size: 14.5px; }
+
+    /* CTA FINAL */
+    .cta-final { padding-bottom: clamp(90px,10vw,130px); }
+    .cta-box { text-align: center; padding: clamp(56px,7vw,90px) 24px; border: 1px solid #25466b; background: #0a1421; border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+    .cta-box::before { content: ""; position: absolute; inset: auto 14% -70px; height: 120px; background: linear-gradient(90deg, var(--blue), var(--cyan)); filter: blur(56px); opacity: .18; }
+    .cta-box h2 { position: relative; max-width: 20ch; margin: 14px auto 16px; font-size: clamp(32px,5vw,62px); line-height: 1.04; font-weight: 560; letter-spacing: -.02em; }
+    .cta-box p { position: relative; max-width: 60ch; margin: 0 auto 28px; color: var(--muted); line-height: 1.6; }
+    .cta-box .micro { margin-top: 16px; color: var(--muted-2); font-size: 12px; }
+
+    /* FOOTER */
+    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .footer-inner { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links a:hover { color: #fff; }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1); }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    @media (max-width: 1000px) {
+      .nav-inner { display: flex; align-items: center; }
+      .brand { margin-right: auto; }
+      .nav-pill { display: contents; }
+      .nav-links { position: fixed; inset: 72px 0 auto; display: none; flex-direction: column; align-items: stretch; gap: 4px; padding: 16px; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); background: #0b0e12; backdrop-filter: none; }
+      .nav-links.open { display: flex; } .nav-links a { padding: 13px 14px; }
+      .nav-toggle { display: block; order: 3; } .nav-login { display: none; }
+      .stratos-wrap, .duke, .partner { grid-template-columns: 1fr; }
+      .twin { position: static; }
+      .proc { grid-template-columns: repeat(2,1fr); } .proc-step { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; }
+      .team-grid { grid-template-columns: repeat(2,1fr); }
+      .pf-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(calc(100% - 28px), var(--max)); } .wide { width: min(calc(100% - 28px), var(--max-wide)); }
+      .nav { height: 64px; } .nav-links { top: 64px; }
+      .badge { flex-wrap: wrap; font-size: 11px; }
+      .hero-actions .btn { width: 100%; }
+      .stats { grid-template-columns: 1fr; } .stat { border-right: 0; border-bottom: 1px solid var(--line); } .stat:last-child { border-bottom: 0; }
+      .prob-grid { grid-template-columns: 1fr; }
+      .res-grid, .triad { grid-template-columns: 1fr; }
+      .lead-grid { grid-template-columns: 1fr; }
+      .tier { grid-template-columns: 1fr; align-items: start; } .tier-price { text-align: left; }
+      .proc { grid-template-columns: 1fr; } .proc-step h3 { margin-top: 18px; }
+      .team-grid, .pf-grid { grid-template-columns: 1fr; }
+      .glist { grid-template-columns: 1fr; }
+      .footer-inner { display: block; } .footer-links { margin-top: 14px; }
+      .duke-num { font-size: clamp(56px,18vw,90px); }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+  </style>
 </head>
 <body>
   <nav class="nav" aria-label="Navegación principal">
@@ -239,170 +357,475 @@
       <a class="brand" href="#inicio" aria-label="NSG, inicio"><span class="brand-mark" aria-hidden="true"></span>NSG</a>
       <div class="nav-pill">
         <div class="nav-links" id="navLinks">
-          <a href="#soluciones">Servicios</a><a href="#sistema">Sistema</a><a href="#alianza">Alianza</a><a href="#proyectos">Proyectos</a><a href="#nosotros">Nosotros</a>
+          <a href="#stratos">Stratos AI</a><a href="#oferta">Cómo trabajamos</a><a href="#partner">Partner</a><a href="portafolio.html">Portafolio</a><a href="#equipo">Equipo</a>
         </div>
       </div>
       <div class="nav-actions">
-        <a class="nav-login" href="#diagnostico">Iniciar sesión</a>
-        <a class="btn nav-cta" href="#diagnostico">Empezar gratis <span class="arrow">→</span></a>
+        <a class="nav-login" href="#diagnostico">Diagnóstico</a>
+        <a class="btn nav-cta" href="#diagnostico">Encontrar mi fuga<span class="hide-narrow"> comercial</span> <span class="arrow">→</span></a>
       </div>
       <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
     </div>
   </nav>
 
   <main id="inicio">
+    <!-- HERO -->
     <header class="hero wrap">
-      <div class="hero-badge"><span class="dot" aria-hidden="true"></span><span>Sistema operativo comercial</span><span class="sep" aria-hidden="true">|</span><span class="accent">+ iAgents</span></div>
-      <h1>Escalamos empresas con<span class="rotating-line" id="heroRotator"><span class="rotating-word active">Marketing + AI</span><span class="rotating-word">AI Department</span><span class="rotating-word">AI Consulting</span><span class="rotating-word">iAgent Teams</span><span class="rotating-word">IAOS + Second Brain</span></span></h1>
-      <p class="hero-copy">Diseñamos la estrategia, el equipo y la tecnología para vender más y operar mejor.</p>
-      <div class="hero-actions"><button class="btn btn-primary diagnostic-open" type="button">Agendar diagnóstico <span class="arrow">→</span></button><a class="btn" href="#sistema">Ver cómo funciona</a></div>
-      <p class="proof-line"><strong>Duke del Caribe: más de 40 millones de dólares facturados en tres años.</strong> Experiencia real convertida en sistemas.</p>
-      <div class="system-stage" aria-label="Vista conceptual del sistema comercial NSG">
-        <div class="system-window">
-          <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span>Stratos AI · Producto real</span><span>NSG</span></div>
-          <div class="product-slider" id="productSlider">
-            <figure class="product-slide active"><img src="assets/product-1.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: sistema de gestión comercial y prioridades"></figure>
-            <figure class="product-slide"><img src="assets/product-2.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: agentes de inteligencia artificial y actividad"></figure>
-            <div class="slider-overlay"></div>
-            <div class="slider-caption"><i></i><span id="sliderCaption">Gestión comercial</span></div>
-            <div class="slider-dots" aria-label="Vistas de Stratos AI"><button class="slider-dot active" type="button" aria-label="Ver gestión comercial"></button><button class="slider-dot" type="button" aria-label="Ver agentes de inteligencia artificial"></button></div>
+      <div class="badge"><span class="dot" aria-hidden="true"></span><span>NSG · Sistemas comerciales con IA</span><span class="accent">+ agentes de IA</span></div>
+      <h1>Convierte más oportunidades en ventas con un sistema comercial <span class="grad">operado por IA</span>.</h1>
+      <p class="hero-sub">Conectamos llamadas, WhatsApp, CRM, seguimiento y medición para que cada prospecto tenga respuesta, contexto y una siguiente acción.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#diagnostico">Encontrar mi fuga comercial <span class="arrow">→</span></a>
+        <a class="btn" href="#stratos">Ver cómo funciona Stratos AI</a>
+      </div>
+      <p class="hero-proof">Diagnóstico sin costo. Sin compromiso. Indicadores que puedes medir.</p>
+      <p class="hero-support">No vendemos software ni campañas. Diseñamos e implementamos el sistema que cierra la fuga entre el prospecto que ya generaste y la venta que estás perdiendo.</p>
+      <div class="wide" style="padding:0">
+        <div class="stage" aria-label="Stratos AI, vista del producto">
+          <div class="window">
+            <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · sistema comercial</span><span>NSG</span></div>
+            <div class="product-slider" id="productSlider">
+              <figure class="product-slide active"><img src="assets/product-1.jpg" width="1200" height="780" loading="eager" decoding="async" alt="Stratos AI: bandeja unificada de gestión comercial y prioridades"></figure>
+              <figure class="product-slide"><img src="assets/product-2.jpg" width="1200" height="780" loading="eager" decoding="async" alt="Stratos AI: agentes de IA y registro de actividad"></figure>
+              <div class="slider-cap"><i></i><span id="sliderCap">Bandeja comercial · responsable y siguiente acción por prospecto</span></div>
+              <div class="slider-dots" aria-label="Vistas de Stratos AI"><button class="slider-dot active" type="button" aria-label="Vista 1"></button><button class="slider-dot" type="button" aria-label="Vista 2"></button></div>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
+    <!-- 2 · PRUEBA -->
     <section class="wrap reveal">
-      <div class="section-head"><div class="eyebrow">Primero el problema</div><div><h2>¿Dónde se detiene tu crecimiento?</h2><p>Encontramos la fuga antes de construir.</p></div></div>
-      <div class="problem-grid"><article class="problem"><span>01</span><h3>Llegan prospectos, pero no avanzan</h3><p>La respuesta, calificación o seguimiento está frenando la conversión.</p></article><article class="problem"><span>02</span><h3>Todo depende del equipo</h3><p>La operación requiere demasiadas tareas y recordatorios manuales.</p></article><article class="problem"><span>03</span><h3>Las herramientas están separadas</h3><p>Los datos y conversaciones se pierden entre diferentes plataformas.</p></article><article class="problem"><span>04</span><h3>Crecer reduce el control</h3><p>Hace falta una estructura que pueda aumentar capacidad sin aumentar el caos.</p></article></div>
+      <div class="section-head center">
+        <span class="eyebrow">Operando hoy</span>
+        <h2 class="title">No es una promesa. Ya está funcionando.</h2>
+        <p>Cinco sistemas con IA en producción, operando en empresas reales, en sectores distintos. La misma ingeniería detrás.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b class="tnum">+USD&nbsp;40&nbsp;M</b><h3>Experiencia comercial verificada</h3><p>Facturados por Duke del Caribe en operaciones inmobiliarias durante los últimos tres años. La experiencia real sobre la que construimos.</p></div>
+        <div class="stat"><b>5 sistemas</b><h3>Hoy en producción</h3><p>Call center, ERP, legal, agro y dirección. No son demos: son sistemas operando.</p></div>
+        <div class="stat"><b>5 perfiles</b><h3>Estrategia, arquitectura y adopción</h3><p>Arquitectura de IA, ingeniería full-stack y adopción real en la misma mesa.</p></div>
+      </div>
+      <p class="note-line">Cinco industrias. Una misma ingeniería: la que vas a operar tú. Duke del Caribe aporta la experiencia comercial; NSG diseña e implementa el sistema; el resultado lo produce tu operación.</p>
     </section>
 
-    <section class="wrap reveal" id="alianza">
-      <div class="section-head"><div class="eyebrow">Duke del Caribe × NSG</div><div><h2>Experiencia comercial convertida en tecnología.</h2><p>Operación real e ingeniería en una sola sociedad.</p></div></div>
-      <div class="alliance"><article class="alliance-panel duke"><small>Experiencia comercial</small><h3>Duke del Caribe</h3><p>Aporta lo aprendido al construir, vender y administrar una operación inmobiliaria de alto valor durante los últimos tres años.</p></article><article class="alliance-panel"><small>Ingeniería y automatización</small><h3>NSG</h3><p>Convierte ese conocimiento en embudos, agentes de inteligencia artificial, seguimiento, sistemas comerciales y programas que pueden replicarse.</p></article></div>
-      <div class="alliance-result"><b>+40 M</b><p>de dólares facturados durante los últimos tres años. Experiencia real que ahora se transforma en sistemas para otras empresas.</p></div>
-    </section>
-
-    <section class="wrap reveal" id="sistema">
-      <div class="section-head"><div class="eyebrow">El mecanismo</div><div><h2>Un sistema. Siete partes conectadas.</h2><p>De la primera impresión al seguimiento.</p></div></div>
-      <div class="system-list"><article class="system-item"><h3>Oferta</h3><p>Aclaramos qué vendes, para quién, qué resultado produces y por qué deberían elegirte.</p></article><article class="system-item"><h3>Atracción</h3><p>Contenido, publicidad, alianzas y prospección para llegar a las personas correctas.</p></article><article class="system-item"><h3>Captura</h3><p>Páginas y diagnósticos que convierten interés en información útil para vender.</p></article><article class="system-item"><h3>Respuesta</h3><p>Agentes de inteligencia artificial atienden mensajes y llamadas sin hacer esperar.</p></article><article class="system-item"><h3>Conversión</h3><p>El sistema califica, agenda y prepara cada oportunidad para el equipo comercial.</p></article><article class="system-item"><h3>Seguimiento</h3><p>Recordatorios y conversaciones automáticas evitan que los prospectos se enfríen.</p></article><article class="system-item"><h3>Medición</h3><p>Un tablero muestra qué atrae, qué convierte, qué se pierde y qué debe mejorarse.</p></article></div>
-    </section>
-
-    <section class="wrap reveal" id="oferta">
-      <div class="offer-wrap">
-        <div class="offer-copy"><div class="eyebrow">Lo que recibe tu empresa</div><h2>No vendemos herramientas. Construimos el sistema completo.</h2><p>Diseñamos, conectamos y activamos cada pieza.</p><a class="btn" href="#diagnostico">Evaluar mi empresa <span class="arrow">→</span></a></div>
-        <div class="offer-list">
-          <article class="offer-item"><span>01</span><div><h3>Oferta y mensaje</h3><p>Definimos el resultado, el cliente correcto y una propuesta fácil de entender.</p></div></article>
-          <article class="offer-item"><span>02</span><div><h3>Sistema de captación</h3><p>Contenido, publicidad, páginas y formularios diseñados como un solo recorrido.</p></div></article>
-          <article class="offer-item"><span>03</span><div><h3>Agentes de inteligencia artificial</h3><p>Responden, llaman, califican y agendan bajo las reglas de tu empresa.</p></div></article>
-          <article class="offer-item"><span>04</span><div><h3>Seguimiento y ventas</h3><p>Etapas, guiones, responsables y avisos para que cada oportunidad avance.</p></div></article>
-          <article class="offer-item"><span>05</span><div><h3>Tablero de resultados</h3><p>Una vista clara de captación, citas, avance, conversión y puntos de fuga.</p></div></article>
-          <article class="offer-item"><span>06</span><div><h3>Implementación y capacitación</h3><p>Conectamos las herramientas, probamos los recorridos y preparamos al equipo.</p></div></article>
+    <!-- 3 · DIAGNÓSTICO -->
+    <section class="wrap reveal" id="diagnostico">
+      <div class="section-head center">
+        <span class="eyebrow">Diagnóstico en 2 minutos</span>
+        <h2 class="title">¿Cuánto dinero se te escapa después del lead?</h2>
+        <p>El problema casi nunca es generar prospectos. Es lo que pasa después. Responde 4 preguntas y te decimos dónde está tu fuga, qué tan grande es y qué corregir primero.</p>
+      </div>
+      <div class="diag">
+        <div class="diag-form" id="diagForm">
+          <div class="q">
+            <div class="q-label"><span class="n">1</span><span>¿Cuántos prospectos nuevos recibes al mes?</span></div>
+            <input class="num-in tnum" id="qLeads" type="number" inputmode="numeric" min="0" placeholder="Ej. 120">
+          </div>
+          <div class="q">
+            <div class="q-label"><span class="n">2</span><span>En promedio, ¿cuánto tardas en dar la primera respuesta?</span></div>
+            <div class="opts" data-group="resp">
+              <button class="opt" type="button" data-v="0">Menos de 5 min</button>
+              <button class="opt" type="button" data-v="1">5–30 min</button>
+              <button class="opt" type="button" data-v="2">30 min–2 h</button>
+              <button class="opt" type="button" data-v="3">Más de 2 h</button>
+              <button class="opt" type="button" data-v="4">A veces no respondemos</button>
+            </div>
+          </div>
+          <div class="q">
+            <div class="q-label"><span class="n">3</span><span>¿Tienes seguimiento estructurado después del primer contacto?</span></div>
+            <div class="opts" data-group="follow">
+              <button class="opt" type="button" data-v="0">Sí, sistematizado</button>
+              <button class="opt" type="button" data-v="1">Parcial, depende de la persona</button>
+              <button class="opt" type="button" data-v="2">No, depende de la memoria</button>
+            </div>
+          </div>
+          <div class="q">
+            <div class="q-label"><span class="n">4</span><span>¿Cuál es tu ticket promedio por operación? (USD)</span></div>
+            <input class="num-in tnum" id="qTicket" type="number" inputmode="numeric" min="0" placeholder="Ej. 8000">
+          </div>
+          <div class="q">
+            <div class="q-label"><span>¿A dónde te enviamos el resultado y el plan?</span></div>
+            <div class="lead-grid">
+              <input id="qName" type="text" autocomplete="name" placeholder="Nombre">
+              <input id="qEmail" type="email" autocomplete="email" placeholder="Correo">
+              <input id="qPhone" type="tel" autocomplete="tel" placeholder="WhatsApp">
+            </div>
+          </div>
+          <div class="diag-actions">
+            <button class="btn btn-primary" id="diagCalc" type="button">Calcular mi fuga comercial <span class="arrow">→</span></button>
+            <span class="diag-hint">Tus datos solo se usan para enviarte el diagnóstico. Nada de spam.</span>
+          </div>
+          <div class="diag-err" id="diagErr" role="alert"></div>
+        </div>
+        <div class="diag-result" id="diagResult" aria-live="polite" tabindex="-1">
+          <span class="eyebrow">Esta es tu fuga comercial estimada</span>
+          <div class="leak-num tnum" id="leakNum">—</div>
+          <p style="color:var(--muted);max-width:64ch;margin:14px 0 0;line-height:1.6" id="leakSub"></p>
+          <div class="res-grid">
+            <div class="res-card"><small>Primer punto a corregir</small><b id="resFix">—</b><p id="resFixP"></p></div>
+            <div class="res-card"><small>Sistema recomendado</small><b id="resSys">—</b><p id="resSysP"></p></div>
+            <div class="res-card"><small>KPIs a medir</small><b id="resKpi">—</b><p id="resKpiP"></p></div>
+          </div>
+          <div class="diag-actions">
+            <a class="btn btn-primary" id="resWhats" href="#" target="_blank" rel="noopener">Enviar mi diagnóstico por WhatsApp <span class="arrow">→</span></a>
+            <span class="diag-hint">Recibirás el plan y los siguientes pasos en menos de 24 horas hábiles.</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="wrap reveal" id="soluciones">
-      <div class="section-head"><div class="eyebrow">Cinco formas de escalar</div><div><h2>El nivel de inteligencia que tu empresa necesita.</h2><p>Empezamos donde existe mayor impacto.</p></div></div>
-      <div class="solutions"><article class="solution"><div class="glyph">↗</div><h3>Marketing + AI</h3><p>Oferta, campañas, embudos y seguimiento conectados.</p></article><article class="solution"><div class="glyph">◎</div><h3>AI Department</h3><p>Capacidad interna de inteligencia artificial sin crearla desde cero.</p></article><article class="solution"><div class="glyph">◇</div><h3>AI Consulting</h3><p>Diagnóstico, estrategia y ruta de implementación.</p></article><article class="solution"><div class="glyph">⌁</div><h3>iAgent Teams</h3><p>Equipos de agentes que atienden, venden y operan.</p></article><article class="solution"><div class="glyph">▦</div><h3>IAOS + Second Brain</h3><p>Operación, conocimiento y decisiones en un solo sistema.</p></article></div>
-    </section>
-
-    <section class="wrap reveal" id="proyectos">
-      <div class="portfolio-top"><div><div class="eyebrow">Portafolio enviable</div><h2 style="font-size:clamp(38px,5vw,58px);font-weight:570;margin:14px 0 0">Sistemas creados para operaciones reales.</h2></div><div class="filters" aria-label="Filtrar proyectos"><button class="filter active" data-filter="all">Todos</button><button class="filter" data-filter="ventas">Ventas</button><button class="filter" data-filter="operacion">Operación</button><button class="filter" data-filter="salud">Salud</button><button class="filter" data-filter="finanzas">Finanzas</button></div></div>
-      <div class="portfolio-grid">
-        <article class="project" data-category="ventas"><small>Sistema comercial</small><h3>Stratos AI</h3><p>Organiza oportunidades, detecta falta de seguimiento, recuerda reuniones y conecta agentes de voz con la operación comercial.</p><div class="project-result"><b>Seguimiento proactivo</b>Ningún prospecto sin contexto, responsable o siguiente acción.</div><button class="project-link" data-project="Stratos AI">Ver alcance del proyecto →</button></article>
-        <article class="project orange" data-category="ventas"><small>Voz y mensajería</small><h3>ALMA</h3><p>Empleado virtual que llama, conversa por WhatsApp, califica prospectos y agenda durante todo el día.</p><div class="project-result"><b>Atención continua</b>Cada conversación queda transcrita, resumida y clasificada.</div><button class="project-link" data-project="ALMA">Ver alcance del proyecto →</button></article>
-        <article class="project orange" data-category="ventas operacion"><small>Comercio electrónico</small><h3>Recuperación de ventas</h3><p>Agentes que recuperan compras abandonadas, confirman pedidos y validan direcciones antes del envío.</p><div class="project-result"><b>Dos agentes coordinados</b>Venta recuperada y pedido protegido dentro del mismo flujo.</div><button class="project-link" data-project="Recuperación de ventas">Ver alcance del proyecto →</button></article>
-        <article class="project" data-category="salud ventas"><small>Atención médica</small><h3>Asistente para clínicas</h3><p>Responde consultas, identifica necesidades, agenda citas, envía recordatorios y deriva casos delicados.</p><div class="project-result"><b>En producción</b>Configurable por especialidad, servicio y reglas de atención.</div><button class="project-link" data-project="Asistente para clínicas">Ver alcance del proyecto →</button></article>
-        <article class="project" data-category="finanzas operacion"><small>Administración financiera</small><h3>Facturas y pagos</h3><p>Lee facturas, concilia información, convierte divisas y prepara archivos bancarios de pago.</p><div class="project-result"><b>70% menos auditoría</b>Reducción documentada del trabajo manual de revisión.</div><button class="project-link" data-project="Facturas y pagos">Ver alcance del proyecto →</button></article>
-        <article class="project orange" data-category="finanzas"><small>Prevención de fraude</small><h3>Certipago</h3><p>Verifica identidad, valida pagos, controla reputación y registra cada operación desde WhatsApp.</p><div class="project-result"><b>Trazabilidad del pago</b>Información organizada para detectar operaciones sospechosas.</div><button class="project-link" data-project="Certipago">Ver alcance del proyecto →</button></article>
-      </div>
-      <div style="margin-top:32px;text-align:center"><a class="btn btn-primary" href="portafolio.html">Ver portafolio completo <span class="arrow">→</span></a></div>
-    </section>
-
-    <section class="wrap reveal" id="comenzar">
-      <div class="section-head"><div class="eyebrow">Cómo comenzar</div><div><h2>Empieza pequeño. Amplía cuando funcione.</h2><p>Primero una mejora visible. Después el sistema completo.</p></div></div>
-      <div class="entry-grid">
-        <article class="entry"><small>Primera victoria</small><h3>Resolver una fuga crítica</h3><p>Para empresas que quieren comprobar valor antes de transformar todo.</p><ul><li>Un problema prioritario</li><li>Alcance y resultado definidos</li><li>Implementación por etapas</li></ul></article>
-        <article class="entry featured"><small>Sistema de crecimiento</small><h3>Conectar captación y ventas</h3><p>Para empresas con demanda que necesitan convertir más y controlar mejor.</p><ul><li>Oferta y captación</li><li>Agentes y seguimiento</li><li>Sistema comercial y medición</li></ul></article>
-        <article class="entry"><small>Transformación operativa</small><h3>Escalar varias áreas</h3><p>Para empresas que necesitan integrar ventas, servicio y operación.</p><ul><li>Programas a la medida</li><li>Automatización de procesos</li><li>Mejora continua</li></ul></article>
-      </div>
-    </section>
-
+    <!-- 4 · PROBLEMAS -->
     <section class="wrap reveal">
-      <div class="section-head"><div class="eyebrow">Implementación</div><div><h2>De la fuga al resultado.</h2><p>Cinco pasos. Sin complejidad innecesaria.</p></div></div>
-      <div class="process"><article class="process-step"><span>01</span><h3>Diagnóstico</h3><p>Encontramos la principal limitación.</p></article><article class="process-step"><span>02</span><h3>Diseño</h3><p>Definimos resultado, flujo e indicadores.</p></article><article class="process-step"><span>03</span><h3>Construcción</h3><p>Implementamos por módulos verificables.</p></article><article class="process-step"><span>04</span><h3>Activación</h3><p>Conectamos y capacitamos al equipo.</p></article><article class="process-step"><span>05</span><h3>Mejora</h3><p>Medimos y ampliamos lo que funciona.</p></article></div>
+      <div class="section-head">
+        <span class="eyebrow">Dónde se pierde el dinero</span>
+        <h2 class="title">La venta no se cae al inicio. Se cae después.</h2>
+        <p>Generas el lead. El sistema falla en convertirlo. Estos son los cuatro puntos de fuga.</p>
+      </div>
+      <div class="prob-grid">
+        <article class="prob"><h3>Respuesta lenta</h3><p>El prospecto pregunta y nadie contesta a tiempo. El interés se enfría y se va con quien sí respondió.</p><div class="fix">El sistema responde en segundos, a cualquier hora.</div></article>
+        <article class="prob"><h3>Falta de calificación</h3><p>Tu equipo invierte el mismo tiempo en quien va a comprar y en quien nunca iba a comprar.</p><div class="fix">El sistema califica y prioriza antes de que llegue al vendedor.</div></article>
+        <article class="prob"><h3>Seguimiento inconsistente</h3><p>Un mensaje, dos, y silencio. Sin sistema, el seguimiento depende de la memoria de alguien ocupado.</p><div class="fix">El sistema da seguimiento hasta el cierre o el descarte, sin que se olvide nadie.</div></article>
+        <article class="prob"><h3>Cero visibilidad</h3><p>No sabes cuántas oportunidades entraron, cuántas se atendieron ni cuántas se perdieron. No se corrige lo que no se mide.</p><div class="fix">El sistema registra cada conversación y mantiene el CRM al día, solo.</div></article>
+      </div>
+      <p class="note-line">Cada punto de fuga es dinero que ya pagaste por generar y dejaste ir.</p>
     </section>
 
-    <section class="wrap reveal" id="nosotros">
-      <div class="team"><div class="team-copy"><div class="eyebrow">Quiénes lo hacen posible</div><h2>Negocio, ventas e ingeniería en un mismo equipo.</h2><p>NSG reúne experiencia comercial y capacidad técnica para diseñar, construir e implementar sistemas completos, no demostraciones aisladas.</p></div><div class="team-list"><div class="person"><b>Iván Rodríguez</b><span>Dirección estratégica, alianzas y desarrollo empresarial</span></div><div class="person"><b>Duke del Caribe</b><span>Experiencia comercial, mercadotecnia y crecimiento</span></div><div class="person"><b>Ángel Garzón Sarzosa</b><span>Arquitectura de inteligencia artificial y automatización</span></div><div class="person"><b>Jorge Calderón</b><span>Ingeniería full-stack &amp; IA · sistemas core, bases vectoriales y automatización de ERPs</span></div><div class="person"><b>Themis Nickthel</b><span>Psicología cognitiva &amp; EdTech · rigor científico en UX para cero fricción humana</span></div><div class="person"><b>Consejo Directivo NSG</b><span>Orientación estratégica, empresarial y operativa</span></div></div></div>
+    <!-- 5 · STRATOS AI -->
+    <section class="wide reveal" id="stratos">
+      <div class="section-head">
+        <span class="eyebrow">El sistema · Stratos AI</span>
+        <h2 class="title">Stratos AI no asiste. Opera tu proceso comercial.</h2>
+        <p>No es un chatbot. Es el sistema comercial que recibe al prospecto, lo entiende, actúa y deja registro — para que tu equipo cierre, no persiga.</p>
+      </div>
+      <div class="stratos-wrap">
+        <div class="steps">
+          <div class="step"><span class="n">01</span><div><h3>Responde primero</h3><p>En cuanto entra un prospecto —llamada, WhatsApp o formulario— Stratos AI responde al instante. Sin horarios, sin tiempos muertos, sin “se me pasó”.</p></div></div>
+          <div class="step"><span class="n">02</span><div><h3>Califica y enruta</h3><p>Identifica intención, presupuesto y momento de compra. Lo que está caliente llega a tu vendedor con el contexto listo.</p></div></div>
+          <div class="step"><span class="n">03</span><div><h3>Da seguimiento sin fallar</h3><p>Cadencias automáticas hasta que el prospecto avanza o cierra. El seguimiento deja de depender de la memoria.</p></div></div>
+          <div class="step"><span class="n">04</span><div><h3>Registra y actualiza el CRM</h3><p>Cada conversación queda registrada. El CRM se actualiza solo. Tu información deja de vivir en cabezas y libretas.</p></div></div>
+          <div class="step"><span class="n">05</span><div><h3>Mide lo que importa</h3><p>Tiempo de respuesta, oportunidades atendidas, conversión por etapa. Ves el sistema completo en un tablero.</p></div></div>
+        </div>
+        <div class="twin">
+          <div class="stage calm">
+            <div class="window">
+              <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · bandeja</span><span>en vivo</span></div>
+              <div class="pshot"><img src="assets/product-1.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: bandeja unificada, pipeline con responsable y siguiente acción por prospecto"></div>
+              <div class="slider-cap" style="position:static;border-radius:0;border:0;border-top:1px solid var(--line-soft)"><i></i><span>Bandeja unificada — pipeline con responsable y siguiente acción por prospecto.</span></div>
+            </div>
+          </div>
+          <div class="stage calm">
+            <div class="window" style="box-shadow:0 30px 80px rgba(0,0,0,.6)">
+              <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · agentes</span><span>en vivo</span></div>
+              <div class="pshot"><img src="assets/product-2.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: agentes de voz y WhatsApp con registro de cada conversación e indicadores"></div>
+              <div class="slider-cap" style="position:static;border-radius:0;border:0;border-top:1px solid var(--line-soft)"><i></i><span>Agentes de voz y WhatsApp con registro de cada conversación e indicadores.</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="wrap reveal"><div class="faq"><div class="eyebrow">Preguntas frecuentes</div><h2>Claridad antes de comenzar.</h2><details><summary>¿NSG es una agencia de mercadotecnia?</summary><p>No. La mercadotecnia es una parte del sistema. También resolvemos respuesta, seguimiento, ventas, información y operación.</p></details><details><summary>¿Debo reemplazar mis herramientas actuales?</summary><p>No. Conservamos lo que funciona e integramos únicamente lo necesario para alcanzar el objetivo.</p></details><details><summary>¿La inteligencia artificial reemplazará a mi equipo?</summary><p>Automatiza tareas repetitivas y prepara oportunidades para que las personas se concentren en decisiones y conversaciones importantes.</p></details><details><summary>¿Trabajan solamente con inmobiliarias?</summary><p>No. Tenemos proyectos en bienes raíces, salud, comercio electrónico, restaurantes, finanzas, industria y servicios.</p></details><details><summary>¿Garantizan resultados comerciales?</summary><p>No prometemos cifras universales. Definimos entregables, responsables, indicadores y funcionamiento técnico. El resultado también depende del mercado, la oferta y la ejecución del cliente.</p></details></div></section>
+    <!-- 6 · DUKE -->
+    <section class="wrap reveal" id="duke">
+      <div class="section-head">
+        <span class="eyebrow">Experiencia real, sistema real</span>
+        <h2 class="title">Tomamos 40 millones de experiencia y los volvimos sistema.</h2>
+      </div>
+      <div class="duke">
+        <div>
+          <div class="duke-num tnum"><span class="grad" style="font-size:inherit;letter-spacing:-.05em">+40M</span><span>USD facturados por Duke del Caribe en operaciones inmobiliarias · últimos 3 años</span></div>
+          <blockquote class="duke-quote">“Lo que tardábamos años en enseñar a un vendedor, ahora vive dentro del sistema.”</blockquote>
+        </div>
+        <div>
+          <p class="lead">Duke del Caribe sabe vender propiedades, con un método comercial probado en la calle. NSG trabaja junto a Duke para traducir ese criterio —cómo califican, cómo dan seguimiento, cómo cierran— en flujos, reglas y respuestas dentro de Stratos AI. El resultado es un sistema que aplica, a escala, lo que un equipo experto haría en su mejor día.</p>
+          <div class="triad">
+            <div><small>Experiencia</small><b>Duke del Caribe</b><p>El método comercial y la autoridad inmobiliaria.</p></div>
+            <div><small>Implementación</small><b>NSG</b><p>La ingeniería, la IA y el sistema que lo ejecuta.</p></div>
+            <div><small>Resultado</small><b>Tuyo</b><p>Atribuible a tu operación. Medible desde el primer mes.</p></div>
+          </div>
+          <p class="honesty">La facturación histórica de Duke del Caribe es resultado de su experiencia comercial. NSG no la generó ni la atribuye a la inteligencia artificial.</p>
+        </div>
+      </div>
+    </section>
 
-    <section class="wrap cta-section reveal" id="diagnostico"><div class="cta-box"><div class="eyebrow">Diagnóstico NSG</div><h2>¿Qué debe escalar primero?</h2><p>Identificamos la oportunidad más valiosa y la ruta para implementarla.</p><button class="btn btn-primary diagnostic-open" type="button">Agendar diagnóstico <span class="arrow">→</span></button></div></section>
+    <!-- 7 · OFERTA -->
+    <section class="wrap reveal" id="oferta">
+      <div class="section-head">
+        <span class="eyebrow">Cómo trabajamos contigo</span>
+        <h2 class="title">Un solo camino. El que tu operación necesita hoy.</h2>
+        <p>No vendemos un menú. En el diagnóstico definimos la modalidad correcta para tu caso. Una sola.</p>
+      </div>
+      <div class="ladder">
+        <div class="tier">
+          <div class="tier-main"><h3>Diagnóstico NSG <span class="tier-tag">Puerta de entrada</span></h3><p>Identificamos tu fuga, su impacto económico, qué corregir primero, el sistema recomendado y los KPIs. Sales con un plan claro, decidas o no avanzar con nosotros.</p></div>
+          <div class="tier-price">Sin costo</div>
+        </div>
+        <div class="tier">
+          <div class="tier-main"><h3>Primera Victoria</h3><p>Resolvemos una fuga en 21 a 30 días, atada a un KPI concreto. La forma más rápida de ver el sistema funcionando con riesgo mínimo.</p></div>
+          <div class="tier-price tnum">USD 3,000–5,000<small>21–30 días · 1 KPI</small></div>
+        </div>
+        <div class="tier featured">
+          <div class="tier-main"><h3>Stratos AI <span class="tier-tag">Punta de lanza</span></h3><p>El sistema completo: respuesta, agentes, CRM, seguimiento, medición y capacitación. Tu proceso comercial, operado por IA.</p></div>
+          <div class="tier-price tnum">USD 12,000–25,000<small>Sistema completo</small></div>
+        </div>
+        <div class="tier">
+          <div class="tier-main"><h3>AI Department</h3><p>Capacidad de IA instalada dentro de tu empresa, en varias áreas. Dejas de contratar IA por proyecto y la vuelves músculo propio.</p></div>
+          <div class="tier-price tnum">USD 30,000–70,000<small>Capacidad interna</small></div>
+        </div>
+      </div>
+      <div class="offer-foot">
+        <a class="btn btn-primary" href="#diagnostico">Encontrar mi fuga comercial <span class="arrow">→</span></a>
+        <span class="muted">No tienes que decidir cuál es la tuya. Para eso es el diagnóstico.</span>
+      </div>
+    </section>
+
+    <!-- 8 · PARTNER -->
+    <section class="wrap reveal" id="partner">
+      <div class="section-head">
+        <span class="eyebrow">Programa Partner · Coinversión tecnológica</span>
+        <h2 class="title">Construimos tu sistema. Y ponemos capital técnico.</h2>
+        <p>No es inversión financiera. Es ingeniería compartida con riesgo alineado: NSG aporta ingeniería e implementación y baja tu barrera de entrada.</p>
+      </div>
+      <div class="partner">
+        <div>
+          <p style="color:var(--muted);line-height:1.65;font-size:15px;margin:0 0 24px">Para un grupo reducido de empresas seleccionadas, NSG no solo construye el sistema: coinvierte en su construcción. Atamos parte del valor a hitos que tú puedes verificar.</p>
+          <div style="font-size:12px;color:var(--muted-2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px">Composición del valor del proyecto · USD 10,000</div>
+          <div class="comp-bar" aria-hidden="true">
+            <div class="comp-seg comp-cli">Cliente</div>
+            <div class="comp-seg comp-nsg">Coinversión NSG</div>
+            <div class="comp-seg comp-sld">Contingente</div>
+          </div>
+          <div class="comp-legend">
+            <span><i style="background:var(--blue)"></i>Cliente · desde USD 1,200</span>
+            <span><i style="background:linear-gradient(90deg,#2f7bff,#4f8cff)"></i>NSG · hasta USD 5,000</span>
+            <span><i style="background:repeating-linear-gradient(45deg,rgba(146,170,196,.45) 0 4px,rgba(146,170,196,.14) 4px 8px)"></i>Contingente · hasta USD 3,800</span>
+          </div>
+          <div class="scarcity">Máximo 3 partners por cohorte de 90 días. Máximo 1 nuevo al mes. Seleccionamos por encaje, no por orden de llegada.</div>
+        </div>
+        <div>
+          <table class="ptable">
+            <tr><td class="pc">Valor contractual del proyecto<small>Base de referencia</small></td><td class="amt tnum">USD 10,000</td></tr>
+            <tr><td class="pc">Aportación inicial del cliente<small>Tu entrada al programa</small></td><td class="amt tnum">desde USD 1,200</td></tr>
+            <tr><td class="pc">Coinversión NSG<small>Ingeniería, implementación y propiedad intelectual</small></td><td class="amt tnum">hasta USD 5,000</td></tr>
+            <tr><td class="pc">Saldo contingente<small>Ligado a hitos verificables cumplidos</small></td><td class="amt tnum">hasta USD 3,800</td></tr>
+            <tr><td class="pc">A cargo del cliente<small>Tokens, telefonía, WhatsApp, hosting y servicios externos</small></td><td class="amt">Variable</td></tr>
+          </table>
+          <div class="offer-foot" style="align-items:flex-start;margin-top:22px">
+            <a class="btn btn-primary" href="#diagnostico">Postular a una cohorte Partner <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 · PORTAFOLIO -->
+    <section class="wide reveal" id="portafolio">
+      <div class="section-head">
+        <span class="eyebrow">Sistemas en producción</span>
+        <h2 class="title">Lo construimos antes de proponértelo.</h2>
+        <p>Cinco sistemas operando hoy, en cinco industrias distintas. Diseñados y construidos por el mismo equipo.</p>
+      </div>
+      <div class="pf-grid">
+        <article class="pf-card"><div class="ph"><img src="assets/sys-callcenter.jpg" width="900" height="563" loading="lazy" decoding="async" alt="Call Center IA & CRM"></div><div class="pb"><small>Inmobiliaria</small><h3>Call Center IA & CRM</h3><p>Respuesta y calificación de prospectos integradas al CRM. El caso base de Stratos AI, en operación.</p></div></article>
+        <article class="pf-card"><div class="ph"><img src="assets/sys-intelligence.jpg" width="900" height="563" loading="lazy" decoding="async" alt="NSG Intelligence"></div><div class="pb"><small>Dirección y estrategia</small><h3>NSG Intelligence</h3><p>Producto insignia para equipos directivos. Información del negocio convertida en decisiones, no en intuición.</p></div></article>
+        <article class="pf-card"><div class="ph"><img src="assets/sys-satelital.jpg" width="900" height="563" loading="lazy" decoding="async" alt="NSG Monitoreo Satelital"></div><div class="pb"><small>Agro</small><h3>NSG Monitoreo Satelital</h3><p>Análisis NDVI por imagen satelital para seguimiento de cultivos y decisiones de campo.</p></div></article>
+        <article class="pf-card"><div class="ph"><img src="assets/sys-odoo.jpg" width="900" height="563" loading="lazy" decoding="async" alt="Integración Odoo IA"></div><div class="pb"><small>Finanzas / ERP</small><h3>Integración Odoo IA</h3><p>IA conectada al ERP para automatizar y ordenar la operación financiera y administrativa.</p></div></article>
+        <article class="pf-card"><div class="ph"><img src="assets/sys-legal.jpg" width="900" height="563" loading="lazy" decoding="async" alt="Agentes Slack & OCR"></div><div class="pb"><small>Legal</small><h3>Agentes Slack & OCR</h3><p>Agentes que leen documentos (OCR) y operan dentro de Slack. Trabajo legal repetitivo, automatizado.</p></div></article>
+        <article class="pf-card" style="display:flex;align-items:center;justify-content:center;text-align:center"><div class="pb"><h3 style="margin:0 0 12px">Industrias distintas.<br>Un mismo estándar.</h3><a class="btn" href="portafolio.html">Ver portafolio completo <span class="arrow">→</span></a></div></article>
+      </div>
+    </section>
+
+    <!-- 10 · IMPLEMENTACIÓN + GARANTÍA -->
+    <section class="wrap reveal" id="implementacion">
+      <div class="section-head">
+        <span class="eyebrow">Cómo lo activamos</span>
+        <h2 class="title">Tú decides. Nosotros lo activamos.</h2>
+        <p>Un proceso claro, con responsables, tiempos e hitos verificables. Sin proyectos eternos ni cajas negras.</p>
+      </div>
+      <div class="proc">
+        <div class="proc-step"><span class="n">01</span><span class="t">Días 1–3</span><h3>Diagnóstico</h3><p>Encontramos tu fuga, la dimensionamos y definimos qué corregir primero y el primer KPI. Sin costo.</p></div>
+        <div class="proc-step"><span class="n">02</span><span class="t">Semana 1</span><h3>Diseño del sistema</h3><p>Mapeamos tu proceso comercial real —canales, CRM, flujo— y diseñamos el sistema sobre él. Acordamos alcance y KPIs.</p></div>
+        <div class="proc-step"><span class="n">03</span><span class="t">Días 7–30</span><h3>Activación</h3><p>Construimos, integramos y conectamos: llamadas, WhatsApp, CRM, seguimiento y medición. Probamos con tu operación viva.</p></div>
+        <div class="proc-step"><span class="n">04</span><span class="t">Cierre</span><h3>Capacitación y entrega</h3><p>Entrenamos a tu equipo y entregamos indicadores. El sistema queda operando, no en una presentación.</p></div>
+        <div class="proc-step"><span class="n">05</span><span class="t">Continuo</span><h3>Medición y mejora</h3><p>Revisamos resultados contra los KPIs acordados y ajustamos. El sistema mejora con uso.</p></div>
+      </div>
+      <p class="proc-note">Tú aportas accesos, información y aprobaciones a tiempo. Nosotros aportamos el sistema funcionando.</p>
+
+      <div class="guarantee">
+        <span class="eyebrow" style="color:var(--green)">Garantía técnica y operativa</span>
+        <h3>Si no queda operando, seguimos trabajando.</h3>
+        <p class="gbody">Si NSG no activa el alcance técnico y los indicadores operativos acordados —habiendo recibido accesos, información y aprobaciones a tiempo— continúa trabajando sin honorarios profesionales adicionales hasta cumplirlos.</p>
+        <div class="glist">
+          <div>Funcionamiento técnico del sistema</div>
+          <div>Tiempo de respuesta acordado</div>
+          <div>Cobertura de seguimiento</div>
+          <div>Registro de conversaciones</div>
+          <div>Actualización del CRM</div>
+          <div>Capacitación del equipo</div>
+          <div>Corrección de errores</div>
+          <div>Entrega de indicadores</div>
+        </div>
+        <p class="ghonesty">Garantizamos lo que está en nuestras manos: que el sistema quede operando. Las ventas las cierras tú, con un sistema que ya no falla. No garantizamos tu volumen de ventas: eso depende de tu producto, tu precio y tu mercado.</p>
+      </div>
+    </section>
+
+    <!-- 11 · EQUIPO -->
+    <section class="wrap reveal" id="equipo">
+      <div class="section-head">
+        <span class="eyebrow">Consejo Directivo NSG</span>
+        <h2 class="title">Quién está detrás del sistema.</h2>
+        <p>Estrategia comercial, arquitectura de IA, ingeniería, adopción y experiencia comercial real. En la misma mesa.</p>
+      </div>
+      <div class="team-grid">
+        <div class="person"><div class="role">Founder & Director General</div><b>Iván Rodríguez</b><p>Visión consultiva, alianzas y cierre. Traduce el problema de negocio en sistema.</p></div>
+        <div class="person"><div class="role">Arquitectura de IA & Implementación</div><b>Ángel Garzón</b><p>Diseña la arquitectura de IA y la lleva a producción.</p></div>
+        <div class="person"><div class="role">Ingeniería Full-Stack & IA</div><b>Jorge Calderón</b><p>Sistemas core e integraciones. La ingeniería que sostiene todo.</p></div>
+        <div class="person"><div class="role">Psicología Cognitiva & EdTech</div><b>Themis Nickthel</b><p>UX y adopción. Hace que el equipo use el sistema, no que lo evite.</p></div>
+        <div class="person"><div class="role">Experiencia Comercial & Autoridad Inmobiliaria</div><b>Duke del Caribe</b><p>Validación y criterio de venta probado en el mercado real.</p></div>
+      </div>
+    </section>
+
+    <!-- 12 · FAQ -->
+    <section class="wrap reveal">
+      <div class="faq">
+        <div class="section-head"><span class="eyebrow">Preguntas directas</span><h2 class="title">Lo que necesitas saber antes de avanzar.</h2><p>Respuestas claras. Sin letra chica.</p></div>
+        <details><summary>¿NSG es una agencia de marketing?</summary><p>No. No hacemos campañas ni generamos leads. Diseñamos e implementamos el sistema comercial que atiende y convierte los prospectos que ya tienes.</p></details>
+        <details><summary>¿Es un chatbot?</summary><p>No. Un chatbot responde mensajes. Stratos AI opera tu proceso comercial: recibe, responde, califica, da seguimiento, actualiza el CRM y mide.</p></details>
+        <details><summary>¿Para quién es esto?</summary><p>Para inmobiliarias, desarrolladores y equipos de venta de propiedades que ya generan prospectos, facturan más de USD 7,000 al mes y pierden oportunidades por respuesta lenta o seguimiento inconsistente.</p></details>
+        <details><summary>¿Cuánto tarda en funcionar?</summary><p>La modalidad Primera Victoria resuelve una fuga concreta en 21 a 30 días, atada a un KPI medible. El sistema completo se define en el diagnóstico.</p></details>
+        <details><summary>¿Qué incluye el diagnóstico gratuito?</summary><p>Tu fuga identificada, su impacto económico, qué corregir primero, el sistema recomendado y los KPIs. Te lo llevas decidas o no avanzar.</p></details>
+        <details><summary>¿Qué garantizan exactamente?</summary><p>El funcionamiento técnico y operativo del sistema. Si no queda operando según lo acordado, seguimos trabajando sin honorarios adicionales hasta cumplirlo. No garantizamos tu volumen de ventas: eso depende de tu equipo y tu oferta.</p></details>
+        <details><summary>¿Qué es el Programa Partner?</summary><p>Una coinversión tecnológica para pocas empresas: NSG aporta ingeniería e implementación y baja tu barrera de entrada. Cupo limitado por cohorte de 90 días.</p></details>
+      </div>
+    </section>
+
+    <!-- 13 · CTA FINAL -->
+    <section class="wrap cta-final reveal">
+      <div class="cta-box">
+        <span class="eyebrow">Empieza por aquí</span>
+        <h2>Antes de invertir más en generar leads, deja de perder los que ya tienes.</h2>
+        <p>El diagnóstico es gratis, toma poco y te deja un plan claro. Decidas o no avanzar con nosotros. Sin compromiso. Sin presentación de ventas.</p>
+        <div class="hero-actions" style="margin-top:0">
+          <a class="btn btn-primary" href="#diagnostico">Encontrar mi fuga comercial <span class="arrow">→</span></a>
+          <a class="btn" href="#stratos">Ver cómo funciona Stratos AI</a>
+        </div>
+        <p class="micro">Respuesta en menos de 24 horas hábiles.</p>
+      </div>
+    </section>
   </main>
 
-  <footer><div class="wrap footer-inner"><div class="brand"><span class="brand-mark" aria-hidden="true"></span>NSG</div><div class="footer-links"><a href="#sistema">Sistema</a><a href="portafolio.html">Portafolio</a><a href="#nosotros">Nosotros</a><span>© 2026 NSG</span></div></div></footer>
-
-  <dialog class="dialog" id="diagnosticDialog"><div class="dialog-inner"><div class="dialog-head"><div><div class="eyebrow">Diagnóstico inicial</div><h3>¿Qué está frenando más a tu empresa?</h3></div><button class="close" type="button" aria-label="Cerrar">×</button></div><p>Selecciona la situación más cercana. Te mostraremos el primer sistema que conviene evaluar.</p><div class="diagnostic-options"><button class="diagnostic-option" data-result="respuesta">Los prospectos tardan en recibir respuesta</button><button class="diagnostic-option" data-result="seguimiento">Las oportunidades se enfrían sin seguimiento</button><button class="diagnostic-option" data-result="operacion">El equipo pierde tiempo en tareas manuales</button><button class="diagnostic-option" data-result="control">No tenemos claridad sobre lo que funciona</button></div><div class="diagnostic-result" id="diagnosticResult"></div></div></dialog>
-  <dialog class="dialog" id="projectDialog"><div class="dialog-inner"><div class="dialog-head"><div><div class="eyebrow">Proyecto NSG</div><h3 id="projectTitle">Proyecto</h3></div><button class="close" type="button" aria-label="Cerrar">×</button></div><p id="projectDescription"></p><a class="btn btn-primary" href="#diagnostico" id="projectCta">Quiero analizar algo similar <span class="arrow">→</span></a></div></dialog>
+  <footer>
+    <div class="wrap footer-inner">
+      <div class="brand"><span class="brand-mark" aria-hidden="true"></span>NSG</div>
+      <div class="footer-links">
+        <a href="#stratos">Stratos AI</a><a href="#oferta">Cómo trabajamos</a><a href="portafolio.html">Portafolio</a><a href="#equipo">Equipo</a><a href="#diagnostico">Diagnóstico</a><span>© 2026 NSG · New Strategy Group</span>
+      </div>
+    </div>
+  </footer>
 
   <script>
+    // WhatsApp de NSG (formato internacional, solo dígitos)
+    const NSG_WHATSAPP = '529842803001';
+
+    // NAV
     const navToggle = document.querySelector('#navToggle');
     const navLinks = document.querySelector('#navLinks');
     navToggle.addEventListener('click', () => { const open = navLinks.classList.toggle('open'); navToggle.setAttribute('aria-expanded', String(open)); });
     navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { navLinks.classList.remove('open'); navToggle.setAttribute('aria-expanded','false'); }));
-    const heroWords = [...document.querySelectorAll('.rotating-word')];
-    let heroWordIndex = 0;
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) setInterval(() => {
-      heroWords[heroWordIndex].classList.remove('active');
-      heroWordIndex = (heroWordIndex + 1) % heroWords.length;
-      heroWords[heroWordIndex].classList.add('active');
-    }, 3000);
-    const diagnosticDialog = document.querySelector('#diagnosticDialog');
-    document.querySelectorAll('.diagnostic-open').forEach(b => b.addEventListener('click', () => diagnosticDialog.showModal()));
-    document.querySelectorAll('.dialog .close').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
-    document.querySelectorAll('dialog').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+    // HERO SLIDER
     const slider = document.querySelector('#productSlider');
     const slides = [...slider.querySelectorAll('.product-slide')];
-    const sliderDots = [...slider.querySelectorAll('.slider-dot')];
-    const sliderCaption = document.querySelector('#sliderCaption');
-    const sliderLabels = ['Gestión comercial', 'Agentes de inteligencia artificial'];
-    let currentSlide = 0;
-    let sliderTimer;
-    const showSlide = index => {
-      currentSlide = index;
-      slides.forEach((slide, i) => slide.classList.toggle('active', i === index));
-      sliderDots.forEach((dot, i) => { dot.classList.remove('active'); if (i === index) requestAnimationFrame(() => dot.classList.add('active')); });
-      sliderCaption.textContent = sliderLabels[index];
-    };
-    const startSlider = () => { clearInterval(sliderTimer); sliderTimer = setInterval(() => showSlide((currentSlide + 1) % slides.length), 3000); };
-    sliderDots.forEach((dot, index) => dot.addEventListener('click', () => { showSlide(index); startSlider(); }));
-    slider.addEventListener('mouseenter', () => clearInterval(sliderTimer));
-    slider.addEventListener('mouseleave', startSlider);
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) startSlider();
-    const recommendations = {
-      respuesta: '<b>Primera oportunidad: respuesta inmediata.</b><br>Conviene evaluar un agente de inteligencia artificial que atienda, califique y agende desde los canales donde llegan tus prospectos.',
-      seguimiento: '<b>Primera oportunidad: seguimiento proactivo.</b><br>Conviene conectar tus conversaciones con un sistema comercial que detecte silencios y active la siguiente acción.',
-      operacion: '<b>Primera oportunidad: automatización operativa.</b><br>Conviene mapear las tareas repetitivas, elegir la más costosa y automatizarla como primera victoria.',
-      control: '<b>Primera oportunidad: medición centralizada.</b><br>Conviene unificar las fuentes críticas y construir un tablero que muestre captación, avance, conversión y fugas.'
-    };
-    document.querySelectorAll('.diagnostic-option').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.diagnostic-option').forEach(x => x.classList.remove('selected')); b.classList.add('selected'); const result = document.querySelector('#diagnosticResult'); result.innerHTML = recommendations[b.dataset.result] + '<br><br><a href="#proyectos" class="btn" id="resultProjects">Ver proyectos relacionados →</a>'; result.classList.add('show'); document.querySelector('#resultProjects').addEventListener('click', () => diagnosticDialog.close()); }));
-    document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => { document.querySelectorAll('.filter').forEach(x => x.classList.remove('active')); b.classList.add('active'); document.querySelectorAll('.project').forEach(p => p.classList.toggle('hidden', b.dataset.filter !== 'all' && !p.dataset.category.includes(b.dataset.filter))); }));
-    const projectDialog = document.querySelector('#projectDialog');
-    const projectDetails = {
-      'Stratos AI':'Sistema comercial inmobiliario con seguimiento proactivo, agentes de voz, recordatorios, resúmenes para gerencia y organización de oportunidades.',
-      'ALMA':'Plataforma multiempresa de agentes de voz y WhatsApp para atender, calificar y agendar conversaciones de manera continua.',
-      'Recuperación de ventas':'Dos asistentes coordinados: uno recupera compras abandonadas y otro confirma pedidos, inventario y dirección antes del envío.',
-      'Asistente para clínicas':'Recepción digital configurable que responde preguntas, califica necesidades, agenda y deriva situaciones sensibles al personal.',
-      'Facturas y pagos':'Automatización de lectura, conciliación, conversión de divisas y preparación de archivos bancarios para pagos masivos.',
-      'Certipago':'Ecosistema de validación de identidad, pagos, reputación y planes desde WhatsApp para dejar trazabilidad y reducir riesgo.'
-    };
-    document.querySelectorAll('.project-link').forEach(b => b.addEventListener('click', () => { document.querySelector('#projectTitle').textContent=b.dataset.project; document.querySelector('#projectDescription').textContent=projectDetails[b.dataset.project]; projectDialog.showModal(); }));
-    document.querySelector('#projectCta').addEventListener('click', () => projectDialog.close());
-    const observer = new IntersectionObserver(entries => entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); observer.unobserve(e.target); } }), { threshold:.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    if (location.pathname === '/proyectos') requestAnimationFrame(() => document.querySelector('#proyectos').scrollIntoView());
+    const dots = [...slider.querySelectorAll('.slider-dot')];
+    const cap = document.querySelector('#sliderCap');
+    const caps = ['Bandeja comercial · responsable y siguiente acción por prospecto', 'Agentes de voz y WhatsApp con registro de cada conversación'];
+    let cur = 0, timer;
+    const show = i => { cur = i; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); dots.forEach((d,k)=>{ d.classList.remove('active'); if(k===i) requestAnimationFrame(()=>d.classList.add('active')); }); cap.textContent = caps[i]; };
+    const start = () => { clearInterval(timer); timer = setInterval(()=>show((cur+1)%slides.length), 4000); };
+    dots.forEach((d,i)=>d.addEventListener('click',()=>{ show(i); start(); }));
+    slider.addEventListener('mouseenter',()=>clearInterval(timer));
+    slider.addEventListener('mouseleave',start);
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) start();
+
+    // OPTION GROUPS
+    const choice = { resp: null, follow: null };
+    document.querySelectorAll('.opts').forEach(group => {
+      const key = group.dataset.group;
+      group.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', () => {
+        group.querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
+        btn.classList.add('sel'); choice[key] = parseInt(btn.dataset.v, 10);
+      }));
+    });
+
+    // DIAGNOSTIC CALCULATION
+    const fmtUSD = n => 'USD ' + Math.round(n).toLocaleString('en-US');
+    const respLoss = [0.04, 0.10, 0.20, 0.32, 0.48];   // fracción de prospectos perdidos por tiempo de respuesta
+    const followLoss = [0.05, 0.18, 0.32];             // por falta de seguimiento
+    const CLOSE_IF_RECOVERED = 0.12;                   // cierre conservador de las oportunidades recuperables
+
+    document.querySelector('#diagCalc').addEventListener('click', () => {
+      const leads = parseFloat(document.querySelector('#qLeads').value);
+      const ticket = parseFloat(document.querySelector('#qTicket').value);
+      const name = document.querySelector('#qName').value.trim();
+      const email = document.querySelector('#qEmail').value.trim();
+      const phone = document.querySelector('#qPhone').value.trim();
+      const err = document.querySelector('#diagErr');
+
+      const missing = [];
+      if (!(leads > 0)) missing.push('número de prospectos');
+      if (choice.resp === null) missing.push('tiempo de respuesta');
+      if (choice.follow === null) missing.push('seguimiento');
+      if (!(ticket > 0)) missing.push('ticket promedio');
+      if (!name) missing.push('nombre');
+      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) missing.push('correo válido');
+      if (phone.replace(/\D/g,'').length < 8) missing.push('WhatsApp');
+      if (missing.length) { err.textContent = 'Completa: ' + missing.join(', ') + '.'; return; }
+      err.textContent = '';
+
+      const leak = 1 - (1 - respLoss[choice.resp]) * (1 - followLoss[choice.follow]);
+      const lostOps = leads * leak;
+      const monthly = lostOps * ticket * CLOSE_IF_RECOVERED;
+
+      document.querySelector('#leakNum').textContent = fmtUSD(monthly) + ' / mes';
+      document.querySelector('#leakSub').textContent = 'Estimación conservadora: de ~' + Math.round(lostOps) + ' oportunidades en riesgo cada mes, recuperar incluso una parte representa este monto. Es un orden de magnitud para priorizar, no una promesa.';
+
+      // Primer punto a corregir
+      let fix, fixP;
+      if (respLoss[choice.resp] >= followLoss[choice.follow]) {
+        fix = 'Respuesta inmediata'; fixP = 'La mayor fuga está en el tiempo de primera respuesta. Es lo primero que activa el sistema.';
+      } else {
+        fix = 'Seguimiento sistemático'; fixP = 'La mayor fuga está en el seguimiento. Cadencias automáticas hasta avanzar o descartar.';
+      }
+      // Sistema recomendado
+      let sys, sysP;
+      if (monthly < 6000) { sys = 'Primera Victoria'; sysP = 'Resolver una fuga concreta en 21–30 días con un KPI, con riesgo mínimo.'; }
+      else if (monthly < 40000) { sys = 'Stratos AI'; sysP = 'El sistema comercial completo: respuesta, agentes, CRM, seguimiento y medición.'; }
+      else { sys = 'AI Department'; sysP = 'Capacidad interna de IA en varias áreas, dado el volumen de oportunidad.'; }
+      document.querySelector('#resFix').textContent = fix; document.querySelector('#resFixP').textContent = fixP;
+      document.querySelector('#resSys').textContent = sys; document.querySelector('#resSysP').textContent = sysP;
+      document.querySelector('#resKpi').textContent = 'Respuesta < 60 s · Seguimiento 100%';
+      document.querySelector('#resKpiP').textContent = 'Tiempo de primera respuesta, cobertura de seguimiento y oportunidades atendidas vs. perdidas.';
+
+      const msg = '*Diagnóstico NSG — fuga comercial*%0A' +
+        'Nombre: ' + encodeURIComponent(name) + '%0A' +
+        'Correo: ' + encodeURIComponent(email) + '%0A' +
+        'WhatsApp: ' + encodeURIComponent(phone) + '%0A' +
+        'Prospectos/mes: ' + Math.round(leads) + '%0A' +
+        'Ticket: ' + fmtUSD(ticket) + '%0A' +
+        'Fuga estimada: ' + encodeURIComponent(fmtUSD(monthly)) + ' / mes%0A' +
+        'Primer punto: ' + encodeURIComponent(fix) + '%0A' +
+        'Sistema recomendado: ' + encodeURIComponent(sys);
+      document.querySelector('#resWhats').href = 'https://wa.me/' + NSG_WHATSAPP + '?text=' + msg;
+
+      const res = document.querySelector('#diagResult');
+      res.classList.add('show');
+      res.focus({ preventScroll: true });
+      res.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    // REVEAL ON SCROLL
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .12 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 </body>
 </html>
