@@ -143,7 +143,7 @@
     .slider-dots { position: absolute; right: 16px; bottom: 17px; z-index: 5; display: flex; gap: 7px; }
     .slider-dot { width: 24px; height: 3px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.22); cursor: pointer; overflow: hidden; }
     .slider-dot::after { content: ""; display: block; width: 0; height: 100%; background: linear-gradient(90deg, #2f7bff, #42d8ff); }
-    .slider-dot.active::after { animation: sliderProgress 4s linear forwards; }
+    .slider-dot.active::after { animation: sliderProgress 2.5s linear forwards; }
     @keyframes sliderProgress { to { width: 100%; } }
 
     /* PRUEBA / STATS */
@@ -378,19 +378,6 @@
         <a class="btn" href="#stratos">Ver cómo funciona Stratos AI</a>
       </div>
       <p class="hero-proof">Diagnóstico sin costo. Sin compromiso. Indicadores que puedes medir.</p>
-      <div class="wide" style="padding:0">
-        <div class="stage" aria-label="Stratos AI, vista del producto">
-          <div class="window">
-            <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · sistema comercial</span><span>NSG</span></div>
-            <div class="product-slider" id="productSlider">
-              <figure class="product-slide active"><img src="assets/product-1.jpg" width="1200" height="780" loading="eager" decoding="async" alt="Stratos AI: bandeja unificada de gestión comercial y prioridades"></figure>
-              <figure class="product-slide"><img src="assets/product-2.jpg" width="1200" height="780" loading="eager" decoding="async" alt="Stratos AI: agentes de IA y registro de actividad"></figure>
-              <div class="slider-cap"><i></i><span id="sliderCap">Bandeja comercial · responsable y siguiente acción por prospecto</span></div>
-              <div class="slider-dots" aria-label="Vistas de Stratos AI"><button class="slider-dot active" type="button" aria-label="Vista 1"></button><button class="slider-dot" type="button" aria-label="Vista 2"></button></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </header>
 
     <!-- 2 · PRUEBA -->
@@ -406,6 +393,19 @@
         <div class="stat"><b>5 perfiles</b><h3>Estrategia, arquitectura y adopción</h3><p>Arquitectura de IA, ingeniería full-stack y adopción real en la misma mesa.</p></div>
       </div>
       <p class="note-line">Cinco industrias. Una misma ingeniería: la que vas a operar tú. Duke del Caribe aporta la experiencia comercial; NSG diseña e implementa el sistema; el resultado lo produce tu operación.</p>
+      <div class="wide" style="padding:0;margin-top:clamp(40px,5vw,64px)">
+        <div class="stage" aria-label="Stratos AI, vista del producto">
+          <div class="window">
+            <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · sistema comercial</span><span>NSG</span></div>
+            <div class="product-slider" id="productSlider">
+              <figure class="product-slide active"><img src="assets/product-1.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: bandeja unificada de gestión comercial y prioridades"></figure>
+              <figure class="product-slide"><img src="assets/product-2.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: agentes de IA y registro de actividad"></figure>
+              <div class="slider-cap"><i></i><span id="sliderCap">Bandeja comercial · responsable y siguiente acción por prospecto</span></div>
+              <div class="slider-dots" aria-label="Vistas de Stratos AI"><button class="slider-dot active" type="button" aria-label="Vista 1"></button><button class="slider-dot" type="button" aria-label="Vista 2"></button></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- 3 · DIAGNÓSTICO -->
@@ -739,7 +739,7 @@
     const caps = ['Bandeja comercial · responsable y siguiente acción por prospecto', 'Agentes de voz y WhatsApp con registro de cada conversación'];
     let cur = 0, timer;
     const show = i => { cur = i; slides.forEach((s,k)=>s.classList.toggle('active',k===i)); dots.forEach((d,k)=>{ d.classList.remove('active'); if(k===i) requestAnimationFrame(()=>d.classList.add('active')); }); cap.textContent = caps[i]; };
-    const start = () => { clearInterval(timer); timer = setInterval(()=>show((cur+1)%slides.length), 4000); };
+    const start = () => { clearInterval(timer); timer = setInterval(()=>show((cur+1)%slides.length), 2500); };
     dots.forEach((d,i)=>d.addEventListener('click',()=>{ show(i); start(); }));
     slider.addEventListener('mouseenter',()=>clearInterval(timer));
     slider.addEventListener('mouseleave',start);
