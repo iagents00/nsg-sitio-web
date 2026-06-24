@@ -197,12 +197,14 @@
     .prob .fix::before { content: "→"; color: var(--green); font-weight: 700; }
 
     /* STRATOS / STEPS */
-    .stratos-wrap { display: grid; grid-template-columns: .9fr 1.1fr; gap: clamp(36px,5vw,70px); align-items: start; }
-    .steps { border-top: 1px solid var(--line); }
-    .step { display: grid; grid-template-columns: 46px 1fr; gap: 16px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+    .stratos-shot { max-width: 860px; margin: clamp(36px,5vw,56px) auto 0; }
+    .shot-note { max-width: 58ch; margin: 20px auto 0; text-align: center; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(28px,4vw,56px); border-top: 1px solid var(--line); list-style: none; margin: clamp(44px,5vw,64px) 0 0; padding: 0; }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .step:last-child { grid-column: 1 / -1; }
     .step .n { color: var(--blue); font-size: 13px; font-weight: 700; padding-top: 3px; }
     .step h3 { margin: 0 0 5px; font-size: 18px; font-weight: 560; }
-    .step p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.55; }
+    .step p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.55; max-width: 52ch; }
     .twin { display: grid; gap: 16px; position: sticky; top: 96px; }
     .twin .window-bar .ttl { font-size: 10px; }
     .twin .product-slide { position: static; opacity: 1; transform: none; }
@@ -344,6 +346,7 @@
       .tier { grid-template-columns: 1fr; align-items: start; } .tier-price { text-align: left; }
       .proc { grid-template-columns: 1fr; } .proc-step h3 { margin-top: 18px; }
       .team-grid, .pf-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; gap: 0; } .step:last-child { grid-column: auto; }
       .glist { grid-template-columns: 1fr; }
       .footer-inner { display: block; } .footer-links { margin-top: 14px; }
       .duke-num { font-size: clamp(56px,18vw,90px); }
@@ -393,7 +396,16 @@
         <div class="stat"><b>5 perfiles</b><h3>Estrategia, arquitectura y adopción</h3><p>Arquitectura de IA, ingeniería full-stack y adopción real en la misma mesa.</p></div>
       </div>
       <p class="note-line">Cinco industrias. Una misma ingeniería: la que vas a operar tú. Duke del Caribe aporta la experiencia comercial; NSG diseña e implementa el sistema; el resultado lo produce tu operación.</p>
-      <div class="wide" style="padding:0;margin-top:clamp(40px,5vw,64px)">
+    </section>
+
+    <!-- 3 · STRATOS AI -->
+    <section class="wrap reveal" id="stratos">
+      <div class="section-head center" style="max-width:800px">
+        <span class="eyebrow">Nuestro software · Stratos AI</span>
+        <h2 class="title">Stratos AI no asiste. <span class="grad">Opera tu venta</span>.</h2>
+        <p>Lo construimos después de invertir, junto a Duke del Caribe, miles de dólares probando los mejores CRM del mercado. Ninguno operaba la venta como lo haría un equipo experto. Así que construimos el que sí lo hace.</p>
+      </div>
+      <div class="stratos-shot">
         <div class="stage" aria-label="Stratos AI, vista del producto">
           <div class="window">
             <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · sistema comercial</span><span>NSG</span></div>
@@ -405,7 +417,16 @@
             </div>
           </div>
         </div>
+        <p class="shot-note">No es un chatbot. Recibe al prospecto, lo entiende, actúa y deja registro — para que tu equipo cierre, no persiga.</p>
       </div>
+      <ol class="steps">
+        <li class="step"><span class="n">01</span><div><h3>Responde primero</h3><p>En cuanto entra un prospecto —llamada, WhatsApp o formulario— Stratos AI responde al instante. Sin horarios, sin tiempos muertos, sin “se me pasó”.</p></div></li>
+        <li class="step"><span class="n">02</span><div><h3>Califica y enruta</h3><p>Identifica intención, presupuesto y momento de compra. Lo que está caliente llega a tu vendedor con el contexto listo.</p></div></li>
+        <li class="step"><span class="n">03</span><div><h3>Da seguimiento sin fallar</h3><p>Cadencias automáticas hasta que el prospecto avanza o cierra. El seguimiento deja de depender de la memoria.</p></div></li>
+        <li class="step"><span class="n">04</span><div><h3>Registra y actualiza el CRM</h3><p>Cada conversación queda registrada. El CRM se actualiza solo. Tu información deja de vivir en cabezas y libretas.</p></div></li>
+        <li class="step"><span class="n">05</span><div><h3>Mide lo que importa</h3><p>Tiempo de respuesta, oportunidades atendidas, conversión por etapa. Ves el sistema completo en un tablero.</p></div></li>
+      </ol>
+      <div class="offer-foot" style="margin-top:38px"><a class="btn btn-primary" href="#diagnostico">Encontrar mi fuga comercial <span class="arrow">→</span></a></div>
     </section>
 
     <!-- 3 · DIAGNÓSTICO -->
@@ -488,40 +509,6 @@
         <article class="prob"><h3>Cero visibilidad</h3><p>No sabes cuántas oportunidades entraron, cuántas se atendieron ni cuántas se perdieron. No se corrige lo que no se mide.</p><div class="fix">El sistema registra cada conversación y mantiene el CRM al día, solo.</div></article>
       </div>
       <p class="note-line">Cada punto de fuga es dinero que ya pagaste por generar y dejaste ir.</p>
-    </section>
-
-    <!-- 5 · STRATOS AI -->
-    <section class="wide reveal" id="stratos">
-      <div class="section-head">
-        <span class="eyebrow">El sistema · Stratos AI</span>
-        <h2 class="title">Stratos AI no asiste. Opera tu proceso comercial.</h2>
-        <p>No es un chatbot. Es el sistema comercial que recibe al prospecto, lo entiende, actúa y deja registro — para que tu equipo cierre, no persiga.</p>
-      </div>
-      <div class="stratos-wrap">
-        <div class="steps">
-          <div class="step"><span class="n">01</span><div><h3>Responde primero</h3><p>En cuanto entra un prospecto —llamada, WhatsApp o formulario— Stratos AI responde al instante. Sin horarios, sin tiempos muertos, sin “se me pasó”.</p></div></div>
-          <div class="step"><span class="n">02</span><div><h3>Califica y enruta</h3><p>Identifica intención, presupuesto y momento de compra. Lo que está caliente llega a tu vendedor con el contexto listo.</p></div></div>
-          <div class="step"><span class="n">03</span><div><h3>Da seguimiento sin fallar</h3><p>Cadencias automáticas hasta que el prospecto avanza o cierra. El seguimiento deja de depender de la memoria.</p></div></div>
-          <div class="step"><span class="n">04</span><div><h3>Registra y actualiza el CRM</h3><p>Cada conversación queda registrada. El CRM se actualiza solo. Tu información deja de vivir en cabezas y libretas.</p></div></div>
-          <div class="step"><span class="n">05</span><div><h3>Mide lo que importa</h3><p>Tiempo de respuesta, oportunidades atendidas, conversión por etapa. Ves el sistema completo en un tablero.</p></div></div>
-        </div>
-        <div class="twin">
-          <div class="stage calm">
-            <div class="window">
-              <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · bandeja</span><span>en vivo</span></div>
-              <div class="pshot"><img src="assets/product-1.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: bandeja unificada, pipeline con responsable y siguiente acción por prospecto"></div>
-              <div class="slider-cap" style="position:static;border-radius:0;border:0;border-top:1px solid var(--line-soft)"><i></i><span>Bandeja unificada — pipeline con responsable y siguiente acción por prospecto.</span></div>
-            </div>
-          </div>
-          <div class="stage calm">
-            <div class="window" style="box-shadow:0 30px 80px rgba(0,0,0,.6)">
-              <div class="window-bar"><div class="dots"><i></i><i></i><i></i></div><span class="ttl">Stratos AI · agentes</span><span>en vivo</span></div>
-              <div class="pshot"><img src="assets/product-2.jpg" width="1200" height="780" loading="lazy" decoding="async" alt="Stratos AI: agentes de voz y WhatsApp con registro de cada conversación e indicadores"></div>
-              <div class="slider-cap" style="position:static;border-radius:0;border:0;border-top:1px solid var(--line-soft)"><i></i><span>Agentes de voz y WhatsApp con registro de cada conversación e indicadores.</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- 6 · DUKE -->
