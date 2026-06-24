@@ -111,7 +111,12 @@
 
     /* HERO */
     .hero { text-align: center; padding: clamp(76px, 10vw, 132px) 0 clamp(50px, 7vw, 84px); }
-    .hero h1 { margin: 22px auto 20px; max-width: 15ch; font-size: clamp(44px, 6.4vw, 88px); line-height: 1.0; letter-spacing: -.022em; font-weight: 560; text-wrap: balance; }
+    .hero h1 { margin: 22px auto 18px; max-width: 24ch; min-height: 2.32em; font-size: clamp(32px, 5.4vw, 72px); line-height: 1.08; letter-spacing: -.022em; font-weight: 560; text-wrap: balance; text-shadow: 0 0 22px rgba(47,123,255,.1); }
+    .type-h1 .caret { display: inline-block; width: .055em; height: .9em; margin-left: .06em; vertical-align: -0.06em; background: var(--blue); border-radius: 2px; box-shadow: 0 0 12px rgba(47,123,255,.85); animation: caretBlink 1.05s steps(1) infinite; }
+    @keyframes caretBlink { 50% { opacity: 0; } }
+    .type-h1.flash { animation: blueFlash 1.2s ease-out; }
+    @keyframes blueFlash { 0% { text-shadow: 0 0 0 rgba(47,123,255,0); } 32% { text-shadow: 0 0 34px rgba(47,123,255,.5); } 100% { text-shadow: 0 0 22px rgba(47,123,255,.1); } }
+    @media (prefers-reduced-motion: reduce) { .type-h1 .caret { display: none; } }
     .hero-sub { max-width: 60ch; margin: 0 auto; color: #a8aeb6; font-size: clamp(17px, 1.5vw, 22px); line-height: 1.5; font-weight: 420; text-wrap: balance; }
     .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
     .hero-proof { margin: 24px auto 0; color: var(--muted-2); font-size: 13px; }
@@ -374,7 +379,7 @@
     <!-- HERO -->
     <header class="hero wrap">
       <div class="badge"><span class="dot" aria-hidden="true"></span><span>Sistemas comerciales + agentes de IA</span></div>
-      <h1>Convierte más prospectos <span class="grad">en ventas</span>.</h1>
+      <h1 class="type-h1" aria-label="Convierte más prospectos en ventas. Crece de verdad con inteligencia artificial. Invertimos nuestra tecnología en tu empresa."><span id="typed" aria-hidden="true">Convierte más prospectos en ventas.</span><span class="caret" aria-hidden="true"></span></h1>
       <p class="hero-sub">Un sistema con IA responde, califica y da seguimiento a cada prospecto que ya generaste. Tu equipo solo cierra.</p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#diagnostico">Encontrar mi fuga comercial <span class="arrow">→</span></a>
@@ -711,6 +716,33 @@
   <script>
     // WhatsApp de NSG (formato internacional, solo dígitos)
     const NSG_WHATSAPP = '529842803001';
+
+    // TYPEWRITER HERO
+    (function(){
+      const typed = document.getElementById('typed');
+      const h1 = document.querySelector('.type-h1');
+      if (!typed || !h1) return;
+      const phrases = ['Convierte más prospectos en ventas.', 'Crece de verdad con inteligencia artificial.', 'Invertimos nuestra tecnología en tu empresa.'];
+      if (matchMedia('(prefers-reduced-motion: reduce)').matches) { typed.textContent = phrases[0]; return; }
+      let pi = 0, ci = phrases[0].length, deleting = false;
+      const tick = () => {
+        const w = phrases[pi];
+        if (!deleting) {
+          ci++; typed.textContent = w.slice(0, ci);
+          if (ci >= w.length) {
+            typed.textContent = w; deleting = true;
+            h1.classList.add('flash'); setTimeout(() => h1.classList.remove('flash'), 1200);
+            return setTimeout(tick, 2000);
+          }
+          return setTimeout(tick, 50 + Math.random() * 45);
+        } else {
+          ci--; typed.textContent = w.slice(0, Math.max(0, ci));
+          if (ci <= 0) { deleting = false; pi = (pi + 1) % phrases.length; return setTimeout(tick, 360); }
+          return setTimeout(tick, 26);
+        }
+      };
+      setTimeout(tick, 2200);
+    })();
 
     // NAV
     const navToggle = document.querySelector('#navToggle');
