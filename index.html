@@ -102,7 +102,7 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .07em; color: #9aa2ac; text-transform: uppercase; }
     .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.75); flex: none; }
     .badge .accent { color: var(--blue); font-weight: 700; text-transform: none; text-shadow: 0 0 14px rgba(47,123,255,.55); }
-    section { padding-block: clamp(80px, 9vw, 140px); }
+    section { padding-block: clamp(60px, 8vw, 128px); }
     .section-head { max-width: 760px; margin-bottom: clamp(40px, 5vw, 64px); }
     .section-head.center { margin-inline: auto; text-align: center; }
     h2.title { margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.04; letter-spacing: -.018em; font-weight: 560; text-wrap: balance; }
@@ -110,16 +110,49 @@
     .section-head.center p { margin-inline: auto; }
 
     /* HERO */
-    .hero { text-align: center; padding: clamp(76px, 10vw, 132px) 0 clamp(50px, 7vw, 84px); }
-    .hero h1 { margin: 22px auto 18px; max-width: 24ch; min-height: 2.32em; font-size: clamp(32px, 5.4vw, 72px); line-height: 1.08; letter-spacing: -.022em; font-weight: 560; text-wrap: balance; text-shadow: 0 0 22px rgba(47,123,255,.1); }
-    .type-h1 .caret { display: inline-block; width: .055em; height: .9em; margin-left: .06em; vertical-align: -0.06em; background: var(--blue); border-radius: 2px; box-shadow: 0 0 12px rgba(47,123,255,.85); animation: caretBlink 1.05s steps(1) infinite; }
+    .hero { position: relative; text-align: center; padding: clamp(24px, 4.2vw, 56px) 0 clamp(44px, 6vw, 76px); }
+    .hero::before { content: ""; position: absolute; z-index: -1; left: 50%; top: clamp(36px, 7vw, 96px); width: min(122vw, 1080px); height: min(64vw, 520px); pointer-events: none;
+      background: radial-gradient(closest-side, rgba(47,123,255,.22), rgba(66,216,255,.10) 46%, transparent 72%);
+      filter: blur(16px); will-change: transform; animation: heroAura 15s ease-in-out infinite alternate; transform: translate(-50%, 0); }
+    @keyframes heroAura { 0% { transform: translate(-53%, 0) scale(1); } 50% { transform: translate(-47%, 2.5%) scale(1.09); } 100% { transform: translate(-50%, -1%) scale(1.03); } }
+    .hero-title { margin: clamp(20px, 3.2vw, 34px) auto 18px; max-width: 18ch; font-size: clamp(48px, 9.4vw, 112px); line-height: .96; letter-spacing: -.032em; font-weight: 660; color: #fff;
+      background: linear-gradient(100deg, #ffffff 0%, #ffffff 33%, #d4e6ff 43%, #93beff 50%, #d4e6ff 57%, #ffffff 67%, #ffffff 100%); background-size: 220% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      animation: titleSheen 8s linear infinite, titleBreath 5s ease-in-out infinite alternate; }
+    .hero-title .ai { background: linear-gradient(100deg, #ffffff 0%, #a9ccff 42%, #5aa6ff 58%, #a9ccff 74%, #ffffff 100%); background-size: 220% 100%; -webkit-background-clip: text; background-clip: text; color: #fff; -webkit-text-fill-color: transparent; animation: titleSheen 8s linear infinite; }
+    @keyframes titleSheen { 0% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }
+    @keyframes titleBreath { from { filter: drop-shadow(0 0 16px rgba(150,190,255,.16)); } to { filter: drop-shadow(0 0 32px rgba(150,190,255,.34)); } }
+    .type-line { margin: 2px auto clamp(40px, 5.5vw, 60px); min-height: 1.5em; font-size: clamp(14px, 3.8vw, 30px); font-weight: 520; color: #e7edf6; letter-spacing: -.01em; white-space: nowrap; }
+    .type-line #typed { transition: filter .14s ease, opacity .14s ease; }
+    .type-line.swap #typed { filter: blur(7px); opacity: .25; }
+    .type-line .caret { display: inline-block; width: .07em; height: 1em; margin-left: .05em; vertical-align: -.13em; border-radius: 2px; background: var(--blue-hi); box-shadow: 0 0 10px rgba(47,123,255,.85), 0 0 22px rgba(47,123,255,.4); animation: caretBlink 1s steps(1) infinite; }
     @keyframes caretBlink { 50% { opacity: 0; } }
-    .type-h1.flash { animation: blueFlash 1.2s ease-out; }
-    @keyframes blueFlash { 0% { text-shadow: 0 0 0 rgba(47,123,255,0); } 32% { text-shadow: 0 0 34px rgba(47,123,255,.5); } 100% { text-shadow: 0 0 22px rgba(47,123,255,.1); } }
-    @media (prefers-reduced-motion: reduce) { .type-h1 .caret { display: none; } }
-    .hero-sub { max-width: 60ch; margin: 0 auto; color: #a8aeb6; font-size: clamp(17px, 1.5vw, 22px); line-height: 1.5; font-weight: 420; text-wrap: balance; }
-    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    @media (prefers-reduced-motion: reduce) { .hero::before, .hero-title { animation: none; } .type-line .caret { display: none; } .type-line.swap #typed { filter: none; opacity: 1; } }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 0; }
     .hero-proof { margin: 24px auto 0; color: var(--muted-2); font-size: 13px; }
+    /* Entrada escalonada del hero — @starting-style: el estado base es visible, solo transiciona la entrada */
+    .hero .badge, .hero-title, .hero .type-line, .hero .hero-actions, .hero .hero-proof, .hero .hero-trust {
+      transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .hero .badge { transition-delay: .02s; }
+    .hero-title { transition-delay: .10s; }
+    .hero .type-line { transition-delay: .22s; }
+    .hero .hero-actions { transition-delay: .34s; }
+    .hero .hero-proof { transition-delay: .46s; }
+    .hero .hero-trust { transition-delay: .56s; }
+    @starting-style {
+      .hero .badge, .hero-title, .hero .type-line, .hero .hero-actions, .hero .hero-proof, .hero .hero-trust { opacity: 0; transform: translateY(16px); } }
+    /* Resplandor en reposo del CTA primario */
+    .btn-primary { animation: ctaPulse 3.8s ease-in-out 1.6s infinite; }
+    @keyframes ctaPulse { 0%, 100% { box-shadow: 0 8px 28px -14px rgba(47,123,255,.5); } 50% { box-shadow: 0 0 0 1px rgba(90,166,255,.28), 0 18px 48px -12px rgba(47,123,255,.8); } }
+    .btn-primary:hover { animation: none; }
+    /* Franja de prueba social */
+    .hero-trust { list-style: none; padding: 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(16px, 2.4vw, 34px); margin: clamp(32px, 4vw, 48px) auto 0; }
+    .hero-trust li:not(.sep) { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+    .hero-trust b { font-size: clamp(20px, 1.9vw, 26px); font-weight: 600; color: #fff; letter-spacing: -.02em; line-height: 1; }
+    .hero-trust span { font-size: 12px; color: var(--muted-2); letter-spacing: .01em; }
+    .hero-trust .sep { width: 1px; height: 30px; background: linear-gradient(180deg, transparent, var(--line), transparent); }
+    @media (prefers-reduced-motion: reduce) { .hero .badge, .hero-title, .hero .type-line, .hero .hero-actions, .hero .hero-proof, .hero .hero-trust { transition: none; } .btn-primary { animation: none; } }
+    @media (max-width: 560px) { .hero-trust .sep { display: none; } .hero-trust { gap: 16px 28px; } }
     .hero-support { max-width: 64ch; margin: 14px auto 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
     /* GLOWING SCREENSHOT STAGE */
@@ -217,17 +250,19 @@
     .twin .pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
 
     /* DUKE */
-    .duke { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px,5vw,64px); align-items: center; }
-    .duke-num { font-size: clamp(64px,11vw,128px); font-weight: 540; letter-spacing: -.05em; line-height: .9; }
-    .duke-num span { font-size: .42em; letter-spacing: 0; color: var(--muted); display: block; margin-top: 12px; font-weight: 440; }
-    .duke p.lead { color: var(--muted); line-height: 1.65; font-size: 15px; }
-    .duke-quote { margin: 22px 0 0; padding-left: 18px; border-left: 2px solid var(--blue); font-size: 18px; line-height: 1.45; color: #dfe4ea; font-style: italic; }
-    .triad { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 28px; }
-    .triad div { padding: 18px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-    .triad small { color: var(--muted-2); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
-    .triad b { display: block; margin: 8px 0 6px; font-size: 17px; font-weight: 580; }
-    .triad p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
-    .honesty { margin-top: 22px; padding: 14px 16px; border: 1px dashed var(--line); border-radius: var(--radius); color: var(--muted-2); font-size: 12.5px; line-height: 1.5; }
+    .duke-figure { text-align: center; margin-top: clamp(24px, 4vw, 48px); }
+    .duke-num { display: inline-flex; align-items: flex-start; justify-content: center; gap: .1em; font-size: clamp(72px,13vw,150px); font-weight: 560; letter-spacing: -.05em; line-height: .82; }
+    .duke-num .grad { font-size: inherit; letter-spacing: -.05em; }
+    .duke-num i { font-style: normal; font-size: .26em; font-weight: 500; color: var(--muted); letter-spacing: .03em; margin-top: .55em; }
+    .duke-cap { max-width: 46ch; margin: 18px auto 0; color: var(--muted); font-size: clamp(14px,1.2vw,16px); line-height: 1.55; }
+    .duke-quote { max-width: 24ch; margin: clamp(40px,5.5vw,64px) auto; padding: 0; border: 0; text-align: center; font-style: normal; font-weight: 460; font-size: clamp(23px,2.8vw,38px); line-height: 1.28; letter-spacing: -.015em; color: #eef2f7; }
+    .duke-lead { max-width: 64ch; margin: 0 auto; text-align: center; color: var(--muted); font-size: clamp(15px,1.3vw,17px); line-height: 1.75; }
+    .triad { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,1.4vw,18px); margin: clamp(40px,5vw,60px) auto 0; max-width: 920px; }
+    .triad div { padding: clamp(20px,2vw,28px); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); text-align: left; }
+    .triad small { color: var(--cyan); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+    .triad b { display: block; margin: 10px 0 8px; font-size: 18px; font-weight: 580; }
+    .triad p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .honesty { max-width: 68ch; margin: clamp(30px,3.5vw,44px) auto 0; padding: 0; border: 0; text-align: center; color: var(--muted-2); font-size: 12.5px; line-height: 1.6; }
 
     /* OFFER LADDER */
     .ladder { border-top: 1px solid var(--line); }
@@ -379,13 +414,20 @@
     <!-- HERO -->
     <header class="hero wrap">
       <div class="badge"><span class="dot" aria-hidden="true"></span><span>Sistemas comerciales + agentes de IA</span></div>
-      <h1 class="type-h1" aria-label="Convierte más prospectos en ventas. Crece de verdad con inteligencia artificial. Invertimos nuestra tecnología en tu empresa."><span id="typed" aria-hidden="true">Convierte más prospectos en ventas.</span><span class="caret" aria-hidden="true"></span></h1>
-      <p class="hero-sub">Un sistema con IA responde, califica y da seguimiento a cada prospecto que ya generaste. Tu equipo solo cierra.</p>
+      <h1 class="hero-title">Somos tu <span class="ai">AI</span> Partner</h1>
+      <p class="type-line" aria-label="Convierte más prospectos en ventas. Crece de verdad con inteligencia artificial. Invertimos nuestra tecnología en tu empresa."><span id="typed" aria-hidden="true">Convierte más prospectos en ventas.</span><span class="caret" aria-hidden="true"></span></p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="#diagnostico">Encontrar mi fuga comercial <span class="arrow">→</span></a>
         <a class="btn" href="#stratos">Ver cómo funciona Stratos AI</a>
       </div>
       <p class="hero-proof">Diagnóstico sin costo. Sin compromiso. Indicadores que puedes medir.</p>
+      <ul class="hero-trust" aria-label="Pruebas de NSG">
+        <li><b>+40M&nbsp;USD</b><span>de experiencia · 3 años</span></li>
+        <li class="sep" aria-hidden="true"></li>
+        <li><b>Hoy</b><span>operando en empresas reales</span></li>
+        <li class="sep" aria-hidden="true"></li>
+        <li><b>Multisector</b><span>ventas, finanzas, legal, agro</span></li>
+      </ul>
     </header>
 
     <!-- 2 · PRUEBA -->
@@ -393,14 +435,14 @@
       <div class="section-head center">
         <span class="eyebrow">Operando hoy</span>
         <h2 class="title">No es una promesa. Ya está funcionando.</h2>
-        <p>Cinco sistemas con IA en producción, operando en empresas reales, en sectores distintos. La misma ingeniería detrás.</p>
+        <p>Tomamos experiencia comercial real y la convertimos en sistemas que operan hoy en empresas de varios sectores. La misma ingeniería que vas a operar tú.</p>
       </div>
       <div class="stats">
-        <div class="stat"><b class="tnum">+USD&nbsp;40&nbsp;M</b><h3>Experiencia comercial verificada</h3><p>Facturados por Duke del Caribe en operaciones inmobiliarias durante los últimos tres años. La experiencia real sobre la que construimos.</p></div>
-        <div class="stat"><b>5 sistemas</b><h3>Hoy en producción</h3><p>Call center, ERP, legal, agro y dirección. No son demos: son sistemas operando.</p></div>
-        <div class="stat"><b>5 perfiles</b><h3>Estrategia, arquitectura y adopción</h3><p>Arquitectura de IA, ingeniería full-stack y adopción real en la misma mesa.</p></div>
+        <div class="stat"><b class="tnum">+USD&nbsp;40&nbsp;M</b><h3>Experiencia que volvemos sistema</h3><p>Facturados por Duke del Caribe en operaciones inmobiliarias durante los últimos tres años. La materia prima de cada sistema que construimos.</p></div>
+        <div class="stat"><b>En vivo</b><h3>De la experiencia al sistema</h3><p>Ese conocimiento comercial, convertido en sistemas que ya funcionan en empresas reales: ventas, finanzas, legal, agro y dirección. Sin demos.</p></div>
+        <div class="stat"><b>Una mesa</b><h3>Estrategia, IA y adopción</h3><p>Arquitectura de IA, ingeniería full-stack y adopción real, trabajando juntas en tu proyecto.</p></div>
       </div>
-      <p class="note-line">Cinco industrias. Una misma ingeniería: la que vas a operar tú. Duke del Caribe aporta la experiencia comercial; NSG diseña e implementa el sistema; el resultado lo produce tu operación.</p>
+      <p class="note-line">De la experiencia al sistema. Duke del Caribe aporta el método comercial; NSG lo convierte en ingeniería que opera; el resultado lo produce tu operación.</p>
     </section>
 
     <!-- 3 · STRATOS AI -->
@@ -518,25 +560,27 @@
 
     <!-- 6 · DUKE -->
     <section class="wrap reveal" id="duke">
-      <div class="section-head">
+      <div class="section-head center">
         <span class="eyebrow">Experiencia real, sistema real</span>
         <h2 class="title">Tomamos 40 millones de experiencia y los volvimos sistema.</h2>
       </div>
-      <div class="duke">
-        <div>
-          <div class="duke-num tnum"><span class="grad" style="font-size:inherit;letter-spacing:-.05em">+40M</span><span>USD facturados por Duke del Caribe en operaciones inmobiliarias · últimos 3 años</span></div>
-          <blockquote class="duke-quote">“Lo que tardábamos años en enseñar a un vendedor, ahora vive dentro del sistema.”</blockquote>
-        </div>
-        <div>
-          <p class="lead">Duke del Caribe sabe vender propiedades, con un método comercial probado en la calle. NSG trabaja junto a Duke para traducir ese criterio —cómo califican, cómo dan seguimiento, cómo cierran— en flujos, reglas y respuestas dentro de Stratos AI. El resultado es un sistema que aplica, a escala, lo que un equipo experto haría en su mejor día.</p>
-          <div class="triad">
-            <div><small>Experiencia</small><b>Duke del Caribe</b><p>El método comercial y la autoridad inmobiliaria.</p></div>
-            <div><small>Implementación</small><b>NSG</b><p>La ingeniería, la IA y el sistema que lo ejecuta.</p></div>
-            <div><small>Resultado</small><b>Tuyo</b><p>Atribuible a tu operación. Medible desde el primer mes.</p></div>
-          </div>
-          <p class="honesty">La facturación histórica de Duke del Caribe es resultado de su experiencia comercial. NSG no la generó ni la atribuye a la inteligencia artificial.</p>
-        </div>
+
+      <div class="duke-figure">
+        <div class="duke-num tnum"><span class="grad">+40M</span><i>USD</i></div>
+        <p class="duke-cap">Facturados por Duke del Caribe en operaciones inmobiliarias · últimos 3 años.</p>
       </div>
+
+      <blockquote class="duke-quote">“Lo que tardábamos años en enseñar a un vendedor, ahora vive dentro del sistema.”</blockquote>
+
+      <p class="duke-lead">Duke del Caribe sabe vender propiedades, con un método probado en la calle. NSG traduce ese criterio —cómo califican, dan seguimiento y cierran— en flujos, reglas y respuestas dentro de Stratos AI: un sistema que aplica, a escala, lo que un equipo experto haría en su mejor día.</p>
+
+      <div class="triad">
+        <div><small>Experiencia</small><b>Duke del Caribe</b><p>El método comercial y la autoridad inmobiliaria.</p></div>
+        <div><small>Implementación</small><b>NSG</b><p>La ingeniería, la IA y el sistema que lo ejecuta.</p></div>
+        <div><small>Resultado</small><b>Tuyo</b><p>Atribuible a tu operación. Medible desde el primer mes.</p></div>
+      </div>
+
+      <p class="honesty">La facturación histórica de Duke del Caribe es resultado de su experiencia comercial. NSG no la generó ni la atribuye a la inteligencia artificial.</p>
     </section>
 
     <!-- 7 · OFERTA -->
@@ -613,7 +657,7 @@
       <div class="section-head">
         <span class="eyebrow">Sistemas en producción</span>
         <h2 class="title">Lo construimos antes de proponértelo.</h2>
-        <p>Cinco sistemas operando hoy, en cinco industrias distintas. Diseñados y construidos por el mismo equipo.</p>
+        <p>Sistemas operando hoy en empresas reales de varios sectores. Diseñados y construidos por el mismo equipo.</p>
       </div>
       <div class="pf-grid">
         <article class="pf-card"><div class="ph"><img src="assets/sys-callcenter.jpg" width="900" height="563" loading="lazy" decoding="async" alt="Call Center IA & CRM"></div><div class="pb"><small>Inmobiliaria</small><h3>Call Center IA & CRM</h3><p>Respuesta y calificación de prospectos integradas al CRM. El caso base de Stratos AI, en operación.</p></div></article>
@@ -717,31 +761,38 @@
     // WhatsApp de NSG (formato internacional, solo dígitos)
     const NSG_WHATSAPP = '529842803001';
 
-    // TYPEWRITER HERO
+    // TYPEWRITER TAGLINE
     (function(){
       const typed = document.getElementById('typed');
-      const h1 = document.querySelector('.type-h1');
-      if (!typed || !h1) return;
+      const line = document.querySelector('.type-line');
+      if (!typed || !line) return;
       const phrases = ['Convierte más prospectos en ventas.', 'Crece de verdad con inteligencia artificial.', 'Invertimos nuestra tecnología en tu empresa.'];
       if (matchMedia('(prefers-reduced-motion: reduce)').matches) { typed.textContent = phrases[0]; return; }
-      let pi = 0, ci = phrases[0].length, deleting = false;
+      const HOLD = 3000;   // visible 3 s
+      const TYPE = 20;     // escribir muy rápido
+      const ERASE = 11;    // borrar muy rápido (en bloques = "magia")
+      let pi = 0, ci = 0, deleting = false; typed.textContent = '';
       const tick = () => {
         const w = phrases[pi];
         if (!deleting) {
           ci++; typed.textContent = w.slice(0, ci);
           if (ci >= w.length) {
             typed.textContent = w; deleting = true;
-            h1.classList.add('flash'); setTimeout(() => h1.classList.remove('flash'), 1200);
-            return setTimeout(tick, 2000);
+            return setTimeout(() => { line.classList.add('swap'); tick(); }, HOLD);
           }
-          return setTimeout(tick, 50 + Math.random() * 45);
+          return setTimeout(tick, TYPE);
         } else {
-          ci--; typed.textContent = w.slice(0, Math.max(0, ci));
-          if (ci <= 0) { deleting = false; pi = (pi + 1) % phrases.length; return setTimeout(tick, 360); }
-          return setTimeout(tick, 26);
+          ci -= 3; if (ci < 0) ci = 0;
+          typed.textContent = w.slice(0, ci);
+          if (ci <= 0) {
+            deleting = false; pi = (pi + 1) % phrases.length;
+            line.classList.remove('swap');
+            return setTimeout(tick, 130);
+          }
+          return setTimeout(tick, ERASE);
         }
       };
-      setTimeout(tick, 2200);
+      setTimeout(tick, 650);  // se escribe desde cero al abrir/refrescar
     })();
 
     // NAV
