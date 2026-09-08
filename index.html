@@ -237,6 +237,8 @@
     .opt.sel { border-color: var(--blue); background: rgba(47,123,255,.14); color: #fff; box-shadow: inset 0 0 0 1px rgba(47,123,255,.35); }
     .num-in { width: 100%; max-width: 280px; padding: 13px 16px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; color: #fff; font-size: 16px; }
     .num-in:focus { outline: none; border-color: var(--blue); }
+    .text-in { max-width: 560px; }
+    .q-help { margin: 9px 0 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
     .lead-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 4px; }
     .lead-grid input { padding: 13px 14px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; color: #fff; font-size: 15px; width: 100%; }
     .lead-grid input:focus { outline: none; border-color: var(--blue); }
@@ -632,14 +634,14 @@
     <section class="wrap reveal" id="diagnostico">
       <div class="section-head center">
         <span class="eyebrow">Diagnóstico en 2 minutos</span>
-        <h2 class="title">¿Cuánto dinero se te escapa después del lead?</h2>
-        <p>El problema casi nunca es generar prospectos. Es lo que pasa después. Responde 4 preguntas y te decimos dónde está tu fuga, qué tan grande es y qué corregir primero.</p>
+        <h2 class="title">¿Qué puedes mejorar para atender a tus prospectos?</h2>
+        <p>Responde 4 preguntas sobre tu negocio y recibe una primera orientación para mejorar tu atención comercial.</p>
       </div>
       <div class="diag">
         <div class="diag-form" id="diagForm">
           <div class="q">
             <div class="q-label"><span class="n">1</span><span>¿Cuántos prospectos nuevos recibes al mes?</span></div>
-            <input class="num-in tnum" id="qLeads" type="number" inputmode="numeric" min="0" placeholder="Ej. 120">
+            <input class="num-in tnum" id="qLeads" type="number" inputmode="numeric" min="1" step="1" placeholder="Ej. 120" aria-label="Prospectos nuevos al mes">
           </div>
           <div class="q">
             <div class="q-label"><span class="n">2</span><span>En promedio, ¿cuánto tardas en dar la primera respuesta?</span></div>
@@ -652,39 +654,36 @@
             </div>
           </div>
           <div class="q">
-            <div class="q-label"><span class="n">3</span><span>¿Tienes seguimiento estructurado después del primer contacto?</span></div>
-            <div class="opts" data-group="follow">
-              <button class="opt" type="button" data-v="0">Sí, sistematizado</button>
-              <button class="opt" type="button" data-v="1">Parcial, depende de la persona</button>
-              <button class="opt" type="button" data-v="2">No, depende de la memoria</button>
-            </div>
+            <label class="q-label" for="qIndustry"><span class="n">3</span><span>¿En qué industria está tu negocio?</span></label>
+            <input class="num-in text-in" id="qIndustry" type="text" maxlength="120" placeholder="Ej. Inmobiliaria, salud, comercio, servicios">
           </div>
           <div class="q">
-            <div class="q-label"><span class="n">4</span><span>¿Cuál es tu ticket promedio por operación? (USD)</span></div>
-            <input class="num-in tnum" id="qTicket" type="number" inputmode="numeric" min="0" placeholder="Ej. 8000">
+            <label class="q-label" for="qChannel"><span class="n">4</span><span>¿Cuál es tu red social principal o sitio web?</span></label>
+            <input class="num-in text-in" id="qChannel" type="text" maxlength="300" autocapitalize="none" spellcheck="false" placeholder="Ej. @tunegocio en Instagram o tunegocio.com" aria-describedby="qChannelHelp">
+            <p class="q-help" id="qChannelHelp">Escribe el enlace o tu usuario y la red social. Si no tienes, indícalo aquí.</p>
           </div>
           <div class="q">
             <div class="q-label"><span>¿A dónde te enviamos el resultado y el plan?</span></div>
             <div class="lead-grid">
-              <input id="qName" type="text" autocomplete="name" placeholder="Nombre">
-              <input id="qEmail" type="email" autocomplete="email" placeholder="Correo">
-              <input id="qPhone" type="tel" autocomplete="tel" placeholder="WhatsApp">
+              <input id="qName" type="text" autocomplete="name" placeholder="Nombre" aria-label="Nombre">
+              <input id="qEmail" type="email" autocomplete="email" placeholder="Correo (opcional)" aria-label="Correo (opcional)">
+              <input id="qPhone" type="tel" autocomplete="tel" placeholder="WhatsApp con código de país" aria-label="WhatsApp con código de país">
             </div>
           </div>
           <div class="diag-actions">
-            <button class="btn btn-primary" id="diagCalc" type="button">Calcular mi fuga comercial <span class="arrow">→</span></button>
+            <button class="btn btn-primary" id="diagCalc" type="button">Ver mi diagnóstico <span class="arrow">→</span></button>
             <span class="diag-hint">Tus datos solo se usan para enviarte el diagnóstico. Nada de spam.</span>
           </div>
           <div class="diag-err" id="diagErr" role="alert"></div>
         </div>
         <div class="diag-result" id="diagResult" aria-live="polite" tabindex="-1">
-          <span class="eyebrow">Esta es tu fuga comercial estimada</span>
+          <span class="eyebrow">Tu diagnóstico inicial</span>
           <div class="leak-num tnum" id="leakNum">—</div>
           <p style="color:var(--muted);max-width:64ch;margin:14px 0 0;line-height:1.6" id="leakSub"></p>
           <div class="res-grid">
-            <div class="res-card"><small>Primer punto a corregir</small><b id="resFix">—</b><p id="resFixP"></p></div>
-            <div class="res-card"><small>Sistema recomendado</small><b id="resSys">—</b><p id="resSysP"></p></div>
-            <div class="res-card"><small>KPIs a medir</small><b id="resKpi">—</b><p id="resKpiP"></p></div>
+            <div class="res-card"><small>Primer paso</small><b id="resFix">—</b><p id="resFixP"></p></div>
+            <div class="res-card"><small>Tu negocio</small><b id="resIndustry">—</b><p id="resChannel"></p></div>
+            <div class="res-card"><small>Qué medir</small><b id="resKpi">—</b><p id="resKpiP"></p></div>
           </div>
           <div class="diag-actions">
             <a class="btn btn-primary" id="resWhats" href="#" target="_blank" rel="noopener">Enviar mi diagnóstico por WhatsApp <span class="arrow">→</span></a>
@@ -988,73 +987,70 @@
     if (!matchMedia('(prefers-reduced-motion: reduce)').matches) start();
 
     // OPTION GROUPS
-    const choice = { resp: null, follow: null };
+    const choice = { resp: null };
     document.querySelectorAll('.opts').forEach(group => {
       const key = group.dataset.group;
       group.querySelectorAll('.opt').forEach(btn => btn.addEventListener('click', () => {
-        group.querySelectorAll('.opt').forEach(b => b.classList.remove('sel'));
-        btn.classList.add('sel'); choice[key] = parseInt(btn.dataset.v, 10);
+        group.querySelectorAll('.opt').forEach(b => { b.classList.remove('sel'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('sel'); btn.setAttribute('aria-pressed', 'true'); choice[key] = parseInt(btn.dataset.v, 10);
       }));
     });
 
-    // DIAGNOSTIC CALCULATION
-    const fmtUSD = n => 'USD ' + Math.round(n).toLocaleString('en-US');
-    const respLoss = [0.04, 0.10, 0.20, 0.32, 0.48];   // fracción de prospectos perdidos por tiempo de respuesta
-    const followLoss = [0.05, 0.18, 0.32];             // por falta de seguimiento
-    const CLOSE_IF_RECOVERED = 0.12;                   // cierre conservador de las oportunidades recuperables
+    // DIAGNOSTIC: orientation based on the reported response time, without financial estimates.
+    const responseLabels = ['Menos de 5 min', '5–30 min', '30 min–2 h', 'Más de 2 h', 'A veces no respondemos'];
 
     document.querySelector('#diagCalc').addEventListener('click', () => {
-      const leads = parseFloat(document.querySelector('#qLeads').value);
-      const ticket = parseFloat(document.querySelector('#qTicket').value);
+      const leads = Number(document.querySelector('#qLeads').value);
+      const industry = document.querySelector('#qIndustry').value.trim();
+      const channel = document.querySelector('#qChannel').value.trim();
       const name = document.querySelector('#qName').value.trim();
       const email = document.querySelector('#qEmail').value.trim();
       const phone = document.querySelector('#qPhone').value.trim();
       const err = document.querySelector('#diagErr');
 
       const missing = [];
-      if (!(leads > 0)) missing.push('número de prospectos');
+      if (!Number.isSafeInteger(leads) || leads < 1) missing.push('número de prospectos (un entero mayor que cero)');
       if (choice.resp === null) missing.push('tiempo de respuesta');
-      if (choice.follow === null) missing.push('seguimiento');
-      if (!(ticket > 0)) missing.push('ticket promedio');
+      if (!industry) missing.push('industria');
+      if (!channel) missing.push('red social principal o sitio web');
       if (!name) missing.push('nombre');
-      if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) missing.push('correo válido');
-      if (phone.replace(/\D/g,'').length < 8) missing.push('WhatsApp');
+      if (email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) missing.push('correo válido o déjalo vacío');
+      if (!/^\+?[\d\s().-]+$/.test(phone) || !/^\d{8,15}$/.test(phone.replace(/\D/g,''))) missing.push('WhatsApp válido con código de país');
       if (missing.length) { err.textContent = 'Completa: ' + missing.join(', ') + '.'; return; }
       err.textContent = '';
 
-      const leak = 1 - (1 - respLoss[choice.resp]) * (1 - followLoss[choice.follow]);
-      const lostOps = leads * leak;
-      const monthly = lostOps * ticket * CLOSE_IF_RECOVERED;
-
-      document.querySelector('#leakNum').textContent = fmtUSD(monthly) + ' / mes';
-      document.querySelector('#leakSub').textContent = 'Estimación conservadora: de ~' + Math.round(lostOps) + ' oportunidades en riesgo cada mes, recuperar incluso una parte representa este monto. Es un orden de magnitud para priorizar, no una promesa.';
-
-      // Primer punto a corregir
-      let fix, fixP;
-      if (respLoss[choice.resp] >= followLoss[choice.follow]) {
-        fix = 'Respuesta inmediata'; fixP = 'La mayor fuga está en el tiempo de primera respuesta. Es lo primero que activa el sistema.';
+      const response = responseLabels[choice.resp];
+      let priority, fix, fixP;
+      if (choice.resp === 0) {
+        priority = 'Buen tiempo'; fix = 'Mantener la atención ágil';
+        fixP = 'Ya reportas una primera respuesta rápida. Revisa que se mantenga en todos tus canales y horarios.';
+      } else if (choice.resp < 3) {
+        priority = 'Puedes mejorar'; fix = 'Acortar la primera respuesta';
+        fixP = 'Define quién recibe cada consulta y un plazo de respuesta. Revisa en qué horarios se acumulan las demoras.';
       } else {
-        fix = 'Seguimiento sistemático'; fixP = 'La mayor fuga está en el seguimiento. Cadencias automáticas hasta avanzar o descartar.';
+        priority = 'Prioridad alta'; fix = 'Atender las consultas a tiempo';
+        fixP = 'Prioriza las consultas pendientes y asigna un responsable para que cada prospecto reciba una primera respuesta.';
       }
-      // Sistema recomendado
-      let sys, sysP;
-      if (monthly < 6000) { sys = 'Primera Victoria'; sysP = 'Resolver una fuga concreta en 21–30 días con un KPI, con riesgo mínimo.'; }
-      else if (monthly < 40000) { sys = 'Stratos AI'; sysP = 'El sistema comercial completo: respuesta, agentes, CRM, seguimiento y medición.'; }
-      else { sys = 'AI Department'; sysP = 'Capacidad interna de IA en varias áreas, dado el volumen de oportunidad.'; }
+      document.querySelector('#leakNum').textContent = priority;
+      document.querySelector('#leakSub').textContent = 'Recibes ' + leads.toLocaleString('es-MX') + ' prospectos al mes y tu primera respuesta es: ' + response.toLowerCase() + '. Esta orientación se basa en tus respuestas; el siguiente paso es revisar tu proceso con NSG.';
       document.querySelector('#resFix').textContent = fix; document.querySelector('#resFixP').textContent = fixP;
-      document.querySelector('#resSys').textContent = sys; document.querySelector('#resSysP').textContent = sysP;
-      document.querySelector('#resKpi').textContent = 'Respuesta < 60 s · Seguimiento 100%';
-      document.querySelector('#resKpiP').textContent = 'Tiempo de primera respuesta, cobertura de seguimiento y oportunidades atendidas vs. perdidas.';
+      document.querySelector('#resIndustry').textContent = industry;
+      document.querySelector('#resChannel').textContent = channel;
+      document.querySelector('#resKpi').textContent = 'Tiempo y cobertura de respuesta';
+      document.querySelector('#resKpiP').textContent = 'Cuánto tarda la primera respuesta y cuántas consultas quedan sin atender.';
 
-      const msg = '*Diagnóstico NSG — fuga comercial*%0A' +
-        'Nombre: ' + encodeURIComponent(name) + '%0A' +
-        'Correo: ' + encodeURIComponent(email) + '%0A' +
-        'WhatsApp: ' + encodeURIComponent(phone) + '%0A' +
-        'Prospectos/mes: ' + Math.round(leads) + '%0A' +
-        'Ticket: ' + fmtUSD(ticket) + '%0A' +
-        'Fuga estimada: ' + encodeURIComponent(fmtUSD(monthly)) + ' / mes%0A' +
-        'Primer punto: ' + encodeURIComponent(fix) + '%0A' +
-        'Sistema recomendado: ' + encodeURIComponent(sys);
+      const lines = [
+        '*Diagnóstico NSG*',
+        'Nombre: ' + name,
+        ...(email ? ['Correo: ' + email] : []),
+        'WhatsApp: ' + phone,
+        'Prospectos/mes: ' + leads,
+        'Tiempo de respuesta: ' + response,
+        'Industria: ' + industry,
+        'Red social principal o sitio web: ' + channel,
+        'Primer paso: ' + fix
+      ];
+      const msg = encodeURIComponent(lines.join('\n'));
       document.querySelector('#resWhats').href = 'https://wa.me/' + NSG_WHATSAPP + '?text=' + msg;
 
       const res = document.querySelector('#diagResult');
