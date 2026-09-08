@@ -4,340 +4,807 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#080a0d">
-  <meta name="description" content="Portafolio de NSG: sistemas de inteligencia artificial, agentes y automatización creados para operaciones reales en ventas, salud, finanzas y e-commerce.">
-  <title>Portafolio | NSG · New Strategy Group</title>
-  <link rel="canonical" href="https://newstrategygroup-nsg.vercel.app/portafolio">
+  <meta name="description" content="Portafolio de sistemas de IA en producción diseñados por NSG y validados con criterio comercial real junto a Duke del Caribe, socio comercial principal.">
+  <title>Portafolio | NSG · Sistemas de IA en producción</title>
+  <link rel="canonical" href="https://www.nsgintelligence.com/portafolio">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
   <meta name="robots" content="index, follow">
   <meta name="author" content="NSG · New Strategy Group">
+  <meta name="keywords" content="sistema comercial con IA, inteligencia artificial inmobiliaria, agentes IA, CRM, seguimiento de prospectos, Stratos AI, NSG, New Strategy Group">
+  <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="NSG · New Strategy Group">
   <meta property="og:locale" content="es_ES">
-  <meta property="og:url" content="https://newstrategygroup-nsg.vercel.app/portafolio">
-  <meta property="og:title" content="Portafolio NSG | Sistemas de IA para operaciones reales">
-  <meta property="og:description" content="Agentes de IA, sistemas comerciales y automatización en producción. Ventas, salud, finanzas y e-commerce.">
-  <meta property="og:image" content="https://newstrategygroup-nsg.vercel.app/assets/og-portafolio.jpg">
+  <meta property="og:url" content="https://www.nsgintelligence.com/portafolio">
+  <meta property="og:title" content="Portafolio NSG · Sistemas de IA en producción">
+  <meta property="og:description" content="Sistemas de IA en producción, diseñados por NSG y validados con criterio comercial real junto a Duke del Caribe.">
+  <meta property="og:image" content="https://www.nsgintelligence.com/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Portafolio NSG — Sistemas de IA en producción">
+  <meta property="og:image:alt" content="NSG — Sistema comercial operado por IA">
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Portafolio NSG | Sistemas de IA para operaciones reales">
-  <meta name="twitter:description" content="Agentes de IA, sistemas comerciales y automatización en producción. Ventas, salud, finanzas y e-commerce.">
-  <meta name="twitter:image" content="https://newstrategygroup-nsg.vercel.app/assets/og-portafolio.jpg">
+  <meta name="twitter:title" content="NSG | Sistema comercial operado por IA">
+  <meta name="twitter:description" content="Sistemas de IA en producción, diseñados por NSG y validados con criterio comercial real.">
+  <meta name="twitter:image" content="https://www.nsgintelligence.com/assets/og-image.jpg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Organization","name":"NSG · New Strategy Group","url":"https://www.nsgintelligence.com/","logo":"https://www.nsgintelligence.com/assets/icon-512.png","image":"https://www.nsgintelligence.com/assets/og-image.jpg","description":"NSG diseña e implementa sistemas comerciales y operativos con inteligencia artificial.","sameAs":["https://www.instagram.com/newstrategygroup/"]}
+  </script>
   <style>
+    @property --border-angle { syntax: '<angle>'; initial-value: 0deg; inherits: false; }
     :root {
       color-scheme: dark;
-      --bg: #080a0d; --surface: #0d1014; --surface-2: #12161c; --line: #242a32; --line-soft: #171c22;
-      --text: #f5f7fa; --muted: #8f969f; --muted-2: #65707c; --blue: #3f94ff; --eblue: #2f7bff; --cyan: #42d8ff;
-      --orange: #ff8744; --green: #53d18a; --max: 1180px; --radius: 10px;
+      --bg: #080a0d; --surface: #0d1014; --surface-2: #0f141a; --line: #222831; --line-soft: #161b21;
+      --text: #f5f7fa; --muted: #8f969f; --muted-2: #828a94;
+      --blue: #00a8ff; --blue-hi: #66d4ff; --cyan: #8be7ff; --green: #53d18a; --amber: #ff8744;
+      --max: 1140px; --max-wide: 1280px; --radius: 10px; --radius-lg: 16px;
       font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; font-synthesis: none;
     }
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--bg); color: var(--text); overflow-x: hidden; }
+    html { scroll-behavior: smooth; overflow-x: clip; overscroll-behavior-x: none; }
+    body { width: 100%; max-width: 100%; margin: 0; background: var(--bg); color: var(--text); overflow-x: clip; overscroll-behavior-x: none; touch-action: pan-y; -webkit-font-smoothing: antialiased; }
     body::before { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -2;
-      background: radial-gradient(circle at 50% 8%, rgba(0,126,255,.12), transparent 30%), radial-gradient(circle at 78% 30%, rgba(57,222,255,.05), transparent 24%); }
-    body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -3; opacity: .42;
-      background-image: linear-gradient(rgba(91,114,141,.09) 1px, transparent 1px), linear-gradient(90deg, rgba(91,114,141,.09) 1px, transparent 1px);
-      background-size: 88px 88px; mask-image: linear-gradient(to bottom, #000, transparent 82%); }
+      background: radial-gradient(ellipse at 50% 8%, rgba(56,128,255,.07), transparent 34%), radial-gradient(ellipse at 78% 30%, rgba(90,205,255,.025), transparent 24%); }
+    body::after { content: ""; position: fixed; inset: 0; pointer-events: none; z-index: -3; opacity: .14;
+      background-image: linear-gradient(rgba(126,151,180,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(126,151,180,.055) 1px, transparent 1px);
+      background-size: 112px 112px; mask-image: linear-gradient(to bottom, #000, transparent 62%); }
     a { color: inherit; text-decoration: none; }
-    button { font: inherit; color: inherit; }
+    button, input, select, textarea { font: inherit; color: inherit; }
+    h1, h2, h3, p { margin-top: 0; }
     .wrap { width: min(calc(100% - 40px), var(--max)); margin-inline: auto; }
+    .wide { width: min(calc(100% - 40px), var(--max-wide)); margin-inline: auto; }
+    main, header, section, footer, .wrap, .wide { max-width: 100%; }
+    .nav-inner > *, .hero > *, .stats > *, .diag > *, .prob-grid > *, .steps > *, .triad > *, .partner > *, .pf-grid > *, .proc > *, .team-grid > * { min-width: 0; }
+    img, svg, video, canvas { max-width: 100%; }
+    .grad { background: linear-gradient(100deg, #ffffff 8%, #c9efff 46%, #00a8ff 96%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .tnum { font-variant-numeric: tabular-nums; }
+    @media (max-width: 1180px) { .hide-narrow { display: none; } }
+
+    /* NAV */
     .nav { position: sticky; top: 0; z-index: 50; height: 72px; display: flex; align-items: center;
       background: rgba(8,10,13,.78); border-bottom: 1px solid rgba(255,255,255,.06); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 18px; }
     .brand { font-size: 18px; font-weight: 780; letter-spacing: .02em; display: flex; align-items: center; gap: 10px; }
     .brand-mark { width: 25px; height: 25px; border: 2px solid var(--blue); border-right-color: var(--cyan); border-radius: 7px; transform: rotate(45deg); box-shadow: 0 0 18px rgba(66,216,255,.3); }
     .brand-mark::after { content: ""; display: block; width: 7px; height: 7px; margin: 7px; background: var(--text); border-radius: 2px; }
-    .nav-back { font-size: 13px; color: #c4cad2; padding: 11px 16px; border-radius: 999px; transition: color .2s, background .2s; }
-    .nav-back:hover { color: #fff; background: rgba(255,255,255,.05); }
-    .nav-right { display: flex; align-items: center; gap: 8px; }
-    .btn { min-height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 20px;
-      border: 1px solid #31445b; border-radius: 999px; background: rgba(10,22,37,.84); color: #eef6ff; font-size: 13px; font-weight: 680; cursor: pointer;
-      transition: transform .2s, border-color .2s, background .2s, box-shadow .2s; box-shadow: inset 0 1px rgba(255,255,255,.035), 0 8px 24px rgba(0,0,0,.22); }
-    .btn:hover { transform: translateY(-2px); border-color: #5a9fe9; }
-    .nav-cta { background: #f7f9fb; border-color: #fff; color: #080b10; }
-    .nav-cta:hover { background: #fff; color: #080b10; }
+    .nav-pill { justify-self: center; display: flex; }
+    .nav-links { display: flex; align-items: center; gap: 2px; padding: 6px; border: 1px solid rgba(255,255,255,.07); border-radius: 999px; background: rgba(255,255,255,.03); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); color: #aab1ba; font-size: 13px; }
+    .nav-links a { padding: 9px 15px; border-radius: 999px; transition: color .2s, background .2s; }
+    .nav-links a:hover { color: #fff; background: rgba(255,255,255,.06); }
+    .nav-actions { justify-self: end; display: flex; align-items: center; gap: 8px; }
+    .nav-actions .nav-cta { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-8px) scale(.98); transition: opacity .28s ease, visibility .28s ease, transform .28s ease, box-shadow .28s ease; }
+    .nav.scrolled .nav-actions .nav-cta { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+    .nav-login { padding: 11px 16px; border-radius: 999px; font-size: 13px; color: #c4cad2; transition: color .2s, background .2s; }
+    .nav-login:hover { color: #fff; background: rgba(255,255,255,.05); }
+    .nav-toggle { display: none; width: 42px; height: 42px; border: 1px solid var(--line); background: var(--surface); border-radius: 9px; cursor: pointer; }
+    .nav-toggle span, .nav-toggle::before, .nav-toggle::after { content: ""; display: block; width: 18px; height: 1.5px; margin: 4px auto; background: #fff; }
+
+    /* BUTTONS */
+    .btn { min-height: 46px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 0 22px; white-space: nowrap;
+      border: 1px solid #2c3a4d; border-radius: 999px; background: rgba(13,18,26,.8); color: #eef6ff; font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: transform .2s, border-color .2s, background .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: #44597a; }
+    .btn-primary { position: relative; overflow: hidden; border-color: rgba(105,163,255,.72);
+      background: linear-gradient(180deg, #3178ee, #2462ce); color: #fff;
+      box-shadow: 0 10px 30px -16px rgba(47,123,255,.58), inset 0 1px rgba(255,255,255,.16); }
+    .btn-primary:hover { background: linear-gradient(180deg, #4a8cff, #2a6cf0); box-shadow: 0 0 0 1px rgba(90,166,255,.35), 0 16px 40px -10px rgba(47,123,255,.6); }
+    .btn-primary::after { content: ""; position: absolute; inset: -60% auto -60% -45%; width: 32%; transform: rotate(18deg); background: rgba(255,255,255,.5); filter: blur(8px); animation: none; }
+    .btn-primary:hover::after { animation: liquidShine 1.1s ease-out; }
+    @keyframes liquidShine { 0%,58% { left:-45%; opacity:0; } 66% { opacity:.7; } 86%,100% { left:130%; opacity:0; } }
+    .btn-ghost { background: rgba(255,255,255,.02); }
+    .nav-cta { background: rgba(0,168,255,.1); border-color: rgba(102,212,255,.42); color: #dcf6ff; min-height: 42px; padding: 0 18px; font-size: 13px; box-shadow: 0 8px 28px -18px rgba(0,168,255,.75); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); }
+    .nav-cta::after { display: none; }
+    .nav-cta:hover { background: rgba(0,168,255,.18); border-color: rgba(139,231,255,.7); color: #fff; transform: translateY(-2px); }
     .arrow { font-size: 16px; line-height: 1; }
-    .phero { padding: 80px 0 40px; text-align: center; }
+
+    /* TYPOGRAPHY SYSTEM */
+    .eyebrow { display: inline-block; color: var(--cyan); font-size: 12px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; }
     .badge { display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px;
-      background: rgba(255,255,255,.025); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .08em; color: #9aa2ac; text-transform: uppercase; }
-    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.75); }
-    .badge .accent { color: var(--eblue); font-weight: 700; text-transform: none; text-shadow: 0 0 14px rgba(47,123,255,.55); }
-    .phero h1 { margin: 22px auto 16px; max-width: 880px; font-size: clamp(42px, 7vw, 76px); line-height: 1.02; font-weight: 540; text-wrap: balance; }
-    .phero h1 .grad { background: linear-gradient(90deg,#fff 18%,#b9ddff 56%,#3f94ff 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .phero p { max-width: 660px; margin: 0 auto; color: #a2a8b0; font-size: clamp(16px, 2vw, 20px); line-height: 1.55; text-wrap: balance; }
-    .stats { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin: 44px auto 0; max-width: 900px; }
-    .stat { padding: 22px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-    .stat b { display: block; font-size: clamp(26px,4vw,38px); font-weight: 560; letter-spacing: -.02em; }
-    .stat span { display: block; margin-top: 6px; color: var(--muted); font-size: 12px; line-height: 1.4; }
-    .section-label { text-align: center; margin: 70px 0 8px; }
-    .section-label .eyebrow { color: var(--cyan); font-size: 11px; font-weight: 760; letter-spacing: .15em; text-transform: uppercase; }
-    .section-label h2 { margin: 12px 0 0; font-size: clamp(32px,5vw,52px); font-weight: 560; line-height: 1.05; }
-    .systems { display: flex; flex-direction: column; gap: 26px; margin-top: 40px; }
-    .sysrow { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; padding: 30px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
-    .sysrow:nth-child(even) .sys-media { order: -1; }
-    .sys-media { border-radius: 14px; overflow: hidden; border: 1px solid #1b212a; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
-    .sys-media img { display: block; width: 100%; height: 100%; object-fit: cover; aspect-ratio: 1/1; }
-    .sys-tag { color: var(--cyan); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; }
-    .sysrow h3 { margin: 14px 0 12px; font-size: clamp(26px,3.4vw,38px); font-weight: 580; line-height: 1.05; }
-    .sys-desc { color: var(--muted); line-height: 1.6; font-size: 15px; margin: 0 0 22px; }
-    .sys-feats { display: flex; flex-direction: column; gap: 16px; }
-    .sys-feat { display: grid; grid-template-columns: 18px 1fr; gap: 12px; }
-    .sys-feat::before { content: ""; grid-column: 1; grid-row: 1; width: 9px; height: 9px; margin-top: 6px; border-radius: 50%; background: var(--eblue); box-shadow: 0 0 12px rgba(47,123,255,.7); }
-    .sys-feat b, .sys-feat span { grid-column: 2; }
-    .sys-feat b { display: block; font-size: 15px; font-weight: 620; margin-bottom: 3px; }
-    .sys-feat span { color: var(--muted); font-size: 13px; line-height: 1.5; }
-    .filters { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin: 54px 0 28px; }
-    .filter { border: 1px solid var(--line); background: transparent; color: var(--muted); border-radius: 999px; padding: 10px 16px; font-size: 12px; cursor: pointer; transition: .2s; }
-    .filter:hover { color: #fff; border-color: #34465c; }
-    .filter.active { color: #fff; background: #17202b; border-color: #34465c; }
-    .grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; padding-bottom: 30px; }
-    .card { display: flex; flex-direction: column; padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface);
-      position: relative; overflow: hidden; transition: transform .25s, border-color .25s, box-shadow .25s; }
-    .card:hover { transform: translateY(-4px); border-color: #345b89; box-shadow: 0 18px 50px rgba(0,0,0,.4); }
-    .card.hidden { display: none; }
-    .card::before { content: ""; position: absolute; top: -80px; right: -80px; width: 170px; height: 170px; border: 1px solid rgba(63,148,255,.18); border-radius: 50%; box-shadow: 0 0 50px rgba(63,148,255,.08); }
-    .card.warm::before { border-color: rgba(255,135,68,.2); box-shadow: 0 0 50px rgba(255,135,68,.08); }
-    .card small { color: var(--cyan); text-transform: uppercase; letter-spacing: .12em; font-size: 9px; }
-    .card.warm small { color: #ffad79; }
-    .card h3 { margin: 16px 0 10px; font-size: 25px; font-weight: 580; }
-    .card .desc { color: var(--muted); line-height: 1.6; font-size: 14px; margin: 0; }
-    .card .scope { margin: 16px 0 0; padding: 14px 0 0; border-top: 1px solid var(--line-soft); color: #b6bcc4; font-size: 13px; line-height: 1.55; }
-    .card .scope b { color: #dfe4ea; font-weight: 600; }
-    .card .result { margin-top: auto; padding-top: 18px; }
-    .pill-result { display: inline-flex; align-items: center; gap: 8px; padding: 7px 13px; border-radius: 999px; font-size: 12px; font-weight: 600;
-      color: #aef0c6; border: 1px solid #214b35; background: #0d2117; }
-    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px; }
-    .tag { font-size: 10px; color: #8a93a0; border: 1px solid var(--line); border-radius: 999px; padding: 4px 9px; }
-    .cta-section { padding: 30px 0 110px; }
-    .cta-box { text-align: center; padding: 70px 24px; border: 1px solid #25466b; background: #0a1421; border-radius: var(--radius); position: relative; overflow: hidden; }
-    .cta-box::before { content: ""; position: absolute; inset: auto 14% -60px; height: 100px; background: linear-gradient(90deg, var(--eblue), var(--cyan)); filter: blur(50px); opacity: .16; }
-    .cta-box h2 { max-width: 680px; margin: 0 auto 14px; font-size: clamp(34px,6vw,58px); line-height: 1.02; font-weight: 560; }
-    .cta-box p { max-width: 540px; margin: 0 auto 26px; color: var(--muted); line-height: 1.6; }
-    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; }
+      background: rgba(255,255,255,.025); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; letter-spacing: .07em; color: #9aa2ac; text-transform: uppercase; }
+    .badge .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.75); flex: none; }
+    .badge .accent { color: var(--blue); font-weight: 700; text-transform: none; text-shadow: 0 0 14px rgba(47,123,255,.55); }
+    section { padding-block: clamp(60px, 7vw, 120px); }
+    .section-head { max-width: 760px; margin-bottom: clamp(24px, 3.2vw, 44px); }
+    .section-head.center { margin-inline: auto; text-align: center; }
+    h2.title { margin: 14px 0 0; font-size: clamp(34px, 4.4vw, 60px); line-height: 1.04; letter-spacing: -.018em; font-weight: 560; text-wrap: balance; }
+    .section-head p { margin: 16px 0 0; color: var(--muted); font-size: clamp(15px, 1.3vw, 18px); line-height: 1.6; max-width: 60ch; }
+    .section-head.center p { margin-inline: auto; }
+
+    /* HERO */
+    .hero { position: relative; text-align: center; padding: clamp(24px, 4vw, 56px) 0 clamp(44px, 6vw, 76px); }
+    .hero::before { content: ""; position: absolute; z-index: -1; left: 50%; top: clamp(36px, 7vw, 96px); width: min(112vw, 980px); height: min(58vw, 470px); pointer-events: none;
+      background:
+        radial-gradient(closest-side, rgba(48,116,224,.16), rgba(77,169,239,.075) 42%, rgba(18,51,105,.035) 62%, transparent 78%);
+      filter: blur(24px); will-change: transform; animation: heroAura 18s ease-in-out infinite alternate; transform: translate(-50%, 0); }
+    @keyframes heroAura { 0% { transform: translate(-53%, 0) scale(1); } 50% { transform: translate(-47%, 2.5%) scale(1.09); } 100% { transform: translate(-50%, -1%) scale(1.03); } }
+    .hero-title { margin: clamp(20px, 3.2vw, 34px) auto 18px; max-width: 18ch; font-size: clamp(48px, 9.4vw, 112px); line-height: .96; letter-spacing: -.032em; font-weight: 650; color: #fff;
+      background: linear-gradient(90deg, #f8fbff 0%, #dce8f4 18%, #a9c8e5 34%, #edf5fb 50%, #a9c8e5 66%, #dce8f4 82%, #f8fbff 100%); background-size: 200% 100%;
+      -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 8px 24px rgba(40,105,175,.08));
+      animation: titleFlow 7.2s linear infinite; }
+    .hero-title .ai { background: linear-gradient(90deg, #f2f7fb 0%, #c7dceb 22%, #8db7d6 38%, #e8f3fa 50%, #8db7d6 62%, #c7dceb 78%, #f2f7fb 100%); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: #fff; -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 10px rgba(106,176,225,.11)); animation: aiFlow 9.6s linear infinite, aiGlow 6.4s ease-in-out infinite; }
+    @keyframes titleFlow { from { background-position: 200% 50%; } to { background-position: 0% 50%; } }
+    @keyframes aiFlow { from { background-position: 200% 50%; } to { background-position: 0% 50%; } }
+    @keyframes aiGlow { 0%, 100% { filter: drop-shadow(0 0 8px rgba(106,176,225,.08)); } 50% { filter: drop-shadow(0 0 14px rgba(126,193,235,.15)); } }
+    .type-line { margin: 4px auto 18px; min-height: 1.5em; font-size: clamp(18px, 2.2vw, 28px); font-weight: 480; color: #d9e8f5; letter-spacing: -.015em; white-space: nowrap; }
+    .type-line #typed { transition: filter .14s ease, opacity .14s ease; }
+    .type-line.swap #typed { filter: blur(7px); opacity: .25; }
+    .type-line .caret { display: inline-block; width: .07em; height: 1em; margin-left: .05em; vertical-align: -.13em; border-radius: 2px; background: var(--blue-hi); box-shadow: 0 0 10px rgba(47,123,255,.85), 0 0 22px rgba(47,123,255,.4); animation: caretBlink 1s steps(1) infinite; }
+    @keyframes caretBlink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { .hero::before, .hero-title { animation: none; } .type-line .caret { display: none; } .type-line.swap #typed { filter: none; opacity: 1; } }
+    .hero-lead { max-width: 47ch; margin: 0 auto clamp(30px, 4vw, 42px); color: #aab5c1; font-size: clamp(15px, 1.35vw, 18px); line-height: 1.65; letter-spacing: -.006em; text-wrap: balance; }
+    .mobile-break { display: none; }
+    .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 0; }
+    .hero-proof { margin: 18px auto 0; color: #737e89; font-size: 12px; line-height: 1.55; letter-spacing: .01em; }
+    .hero-tech { max-width: 900px; margin: clamp(32px, 4.5vw, 48px) auto 0; }
+    .hero-tech-label { display: flex; align-items: center; gap: 18px; color: #697582; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; }
+    .hero-tech-label::before, .hero-tech-label::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, transparent, rgba(130,154,180,.24)); }
+    .hero-tech-label::after { transform: scaleX(-1); }
+    .hero-tech-list { list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); margin: 22px 0 0; padding: 0; color: #929ca7; }
+    .hero-tech-list li { min-height: 28px; display: flex; align-items: center; justify-content: center; padding: 0 16px; border-right: 1px solid rgba(255,255,255,.08); font-size: 13px; white-space: nowrap; transition: color .3s ease, transform .3s ease; }
+    .hero-tech-list li:last-child { border-right: 0; }
+    .hero-tech-list li:hover { color: #dce9f5; transform: translateY(-1px); }
+    /* Entrada escalonada del hero — @starting-style: el estado base es visible, solo transiciona la entrada */
+    .hero .badge, .hero-title, .hero .type-line, .hero .hero-lead, .hero .hero-actions, .hero .hero-proof, .hero .hero-tech, .hero .hero-trust {
+      transition: opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1); }
+    .hero .badge { transition-delay: .02s; }
+    .hero-title { transition-delay: .10s; }
+    .hero .type-line { transition-delay: .22s; }
+    .hero .hero-lead { transition-delay: .30s; }
+    .hero .hero-actions { transition-delay: .40s; }
+    .hero .hero-proof { transition-delay: .50s; }
+    .hero .hero-tech { transition-delay: .58s; }
+    .hero .hero-trust { transition-delay: .66s; }
+    @starting-style {
+      .hero .badge, .hero-title, .hero .type-line, .hero .hero-lead, .hero .hero-actions, .hero .hero-proof, .hero .hero-tech, .hero .hero-trust { opacity: 0; transform: translateY(16px); } }
+    /* Resplandor en reposo del CTA primario */
+    .btn-primary { animation: ctaPulse 3.8s ease-in-out 1.6s infinite; }
+    @keyframes ctaPulse { 0%, 100% { box-shadow: 0 8px 24px -16px rgba(47,123,255,.38); } 50% { box-shadow: 0 12px 32px -16px rgba(47,123,255,.52); } }
+    .btn-primary:hover { animation: none; }
+    /* Franja de prueba social */
+    .hero-trust { list-style: none; padding: 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: clamp(16px, 2.4vw, 34px); margin: clamp(32px, 4vw, 48px) auto 0; }
+    .hero-trust li:not(.sep) { display: flex; flex-direction: column; align-items: center; gap: 6px; max-width: 260px; text-align: center; }
+    .hero-trust li:not(.sep) { position: relative; transition: transform .45s cubic-bezier(.2,.8,.2,1); animation: trustFloat 7s ease-in-out infinite; }
+    .hero-trust li:nth-child(3) { animation-delay: -2.3s; }
+    .hero-trust li:nth-child(5) { animation-delay: -4.6s; }
+    .hero-trust li:not(.sep)::before { content: ""; position: absolute; top: -10px; left: 50%; width: 34px; height: 1px; transform: translateX(-50%); opacity: .55;
+      background: linear-gradient(90deg, transparent, rgba(124,190,255,.8), transparent); }
+    .hero-trust li:not(.sep):hover { transform: translateY(-3px); }
+    .hero-trust b { font-size: clamp(20px, 1.85vw, 25px); font-weight: 600; color: #f5fbff; letter-spacing: -.03em; line-height: 1.12; text-wrap: balance; }
+    .hero-trust span { font-size: 12px; color: var(--muted-2); letter-spacing: .01em; line-height: 1.45; text-wrap: balance; }
+    .hero-trust .sep { width: 1px; height: 30px; background: linear-gradient(180deg, transparent, var(--line), transparent); }
+    @keyframes trustFloat { 0%, 100% { translate: 0 0; } 50% { translate: 0 -2px; } }
+    @media (prefers-reduced-motion: reduce) { .hero .badge, .hero-title, .hero .type-line, .hero .hero-lead, .hero .hero-actions, .hero .hero-proof, .hero .hero-tech, .hero .hero-trust { transition: none; } .btn-primary, .hero-trust li:not(.sep) { animation: none; } }
+    @media (max-width: 560px) { .hero-trust .sep { display: none; } .hero-trust { gap: 16px 28px; } }
+    .hero-support { max-width: 64ch; margin: 14px auto 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+
+    /* GLOWING SCREENSHOT STAGE */
+    .stage { position: relative; margin: clamp(46px, 6vw, 64px) auto 0; padding: 2px; border-radius: 13px; isolation: isolate; }
+    .stage::before { content: ""; position: absolute; inset: -34px -3% -40px; z-index: -2; filter: blur(64px); opacity: .14; pointer-events: none;
+      background: radial-gradient(58% 130% at 50% 48%, rgba(66,216,255,.45), rgba(47,123,255,.22) 46%, transparent 72%);
+      animation: stageGlow 16s ease-in-out infinite alternate; }
+    @keyframes stageGlow { from { opacity: .10; } to { opacity: .18; } }
+    .stage::after { content: ""; position: absolute; inset: 0; z-index: 3; border-radius: 13px; padding: 2px; pointer-events: none;
+      background: conic-gradient(from var(--border-angle), #26313e 0 18%, #2f7bff 31%, #42d8ff 42%, #edf9ff 48%, #2c3a4d 59% 78%, #2f7bff 91%, #26313e 100%);
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: borderTravel 6s linear infinite; }
+    .stage.calm::before { animation-duration: 9s; opacity: .2; filter: blur(30px); }
+    .stage.calm::after { animation-duration: 9s; }
+    @keyframes borderTravel { to { --border-angle: 360deg; } }
+    .window { border: 1px solid #2a323c; border-radius: 11px; overflow: hidden; background: #0a0d11; box-shadow: 0 40px 120px -30px rgba(47,123,255,.35), 0 30px 80px rgba(0,0,0,.6); }
+    .window-bar { height: 42px; border-bottom: 1px solid #1a2027; display: flex; align-items: center; justify-content: space-between; padding: 0 14px; color: #6f7781; font-size: 11px; }
+    .window-bar .dots { display: flex; gap: 6px; }
+    .window-bar .dots i { width: 8px; height: 8px; border-radius: 50%; background: #323943; opacity: .6; }
+    .window-bar .ttl { font-family: ui-monospace, Menlo, monospace; letter-spacing: .04em; }
+    .product-slider { position: relative; aspect-ratio: 1200 / 780; background: #02050a; overflow: hidden; }
+    .product-slide { position: absolute; inset: 0; margin: 0; opacity: 0; transform: scale(1.006); transition: opacity .8s ease, transform 1.6s ease; }
+    .product-slide.active { opacity: 1; transform: scale(1); z-index: 1; }
+    .product-slide img { width: 100%; height: 100%; display: block; object-fit: cover; object-position: top; }
+    .slider-cap { position: absolute; left: 16px; bottom: 14px; z-index: 4; display: flex; align-items: center; gap: 9px; padding: 8px 12px; border: 1px solid rgba(255,255,255,.12); border-radius: 999px; background: rgba(5,8,12,.74); backdrop-filter: blur(12px); color: #d9dde2; font-size: 11px; max-width: calc(100% - 32px); }
+    .slider-cap i { width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 10px rgba(83,209,138,.8); flex: none; }
+    .slider-dots { position: absolute; right: 16px; bottom: 17px; z-index: 5; display: flex; gap: 7px; }
+    .slider-dot { width: 24px; height: 3px; padding: 0; border: 0; border-radius: 99px; background: rgba(255,255,255,.22); cursor: pointer; overflow: hidden; }
+    .slider-dot::after { content: ""; display: block; width: 0; height: 100%; background: linear-gradient(90deg, #2f7bff, #42d8ff); }
+    .slider-dot.active::after { animation: sliderProgress 2.5s linear forwards; }
+    @keyframes sliderProgress { to { width: 100%; } }
+
+    /* PRUEBA / STATS */
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+    .stat { padding: clamp(26px,3vw,38px); border-right: 1px solid var(--line); }
+    .stat:last-child { border-right: 0; }
+    .stat b { display: block; font-size: clamp(28px,3vw,40px); font-weight: 560; letter-spacing: -.03em; color: #fff; }
+    .stat b.cyan { color: var(--cyan); }
+    .stat h3 { margin: 12px 0 8px; font-size: 16px; font-weight: 560; }
+    .stat p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .note-line { margin-top: 22px; color: var(--muted-2); font-size: 13px; line-height: 1.6; max-width: 80ch; }
+
+    /* DIAGNOSTIC */
+    .diag { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); overflow: hidden; }
+    .diag-form { padding: clamp(24px,3vw,40px); }
+    .q { padding: 22px 0; border-bottom: 1px solid var(--line-soft); }
+    .q:first-child { padding-top: 0; }
+    .q-label { display: flex; gap: 12px; align-items: baseline; margin-bottom: 14px; }
+    .q-label .n { color: var(--blue); font-size: 13px; font-weight: 700; }
+    .q-label span { font-size: clamp(16px,1.6vw,19px); font-weight: 540; }
+    .opts { display: flex; flex-wrap: wrap; gap: 8px; }
+    .opt { padding: 11px 15px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 999px; font-size: 13px; color: #c2c8cf; cursor: pointer; transition: .18s; }
+    .opt:hover { border-color: #3a4b60; color: #fff; }
+    .opt.sel { border-color: var(--blue); background: rgba(47,123,255,.14); color: #fff; box-shadow: inset 0 0 0 1px rgba(47,123,255,.35); }
+    .num-in { width: 100%; max-width: 280px; padding: 13px 16px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; color: #fff; font-size: 16px; }
+    .num-in:focus { outline: none; border-color: var(--blue); }
+    .lead-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 4px; }
+    .lead-grid input { padding: 13px 14px; border: 1px solid var(--line); background: var(--surface-2); border-radius: 10px; color: #fff; font-size: 15px; width: 100%; }
+    .lead-grid input:focus { outline: none; border-color: var(--blue); }
+    .diag-actions { margin-top: 24px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .diag-hint { color: var(--muted-2); font-size: 12px; }
+    .diag-err { color: #ff9a7a; font-size: 13px; margin-top: 12px; min-height: 1px; }
+    .diag-result { display: none; padding: clamp(26px,3vw,40px); border-top: 1px solid var(--line); background: linear-gradient(180deg, rgba(47,123,255,.06), transparent 60%); }
+    .diag-result.show { display: block; animation: fadeUp .5s ease; }
+    @keyframes fadeUp { from { opacity:0; transform: translateY(12px); } to { opacity:1; transform:none; } }
+    .leak-num { font-size: clamp(48px,8vw,96px); font-weight: 560; letter-spacing: -.045em; line-height: .95; }
+    .res-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin: 26px 0; }
+    .res-card { padding: 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface-2); }
+    .res-card small { color: var(--muted-2); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+    .res-card b.tnum, .res-card b { font-variant-numeric: tabular-nums; }
+    .res-card b { display: block; margin: 8px 0 6px; font-size: 17px; font-weight: 580; }
+    .res-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+
+    /* PROBLEMS */
+    .prob-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 14px; }
+    .prob { padding: clamp(24px,2.6vw,32px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); transition: border-color .25s, transform .25s; }
+    .prob:hover { border-color: rgba(47,123,255,.35); transform: translateY(-3px); }
+    .prob h3 { margin: 0 0 10px; font-size: clamp(19px,1.6vw,23px); font-weight: 560; letter-spacing: -.01em; }
+    .prob p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .prob .fix { margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--line-soft); color: #aef0c6; font-size: 13px; display: flex; gap: 9px; align-items: flex-start; }
+    .prob .fix::before { content: "→"; color: var(--green); font-weight: 700; }
+
+    /* STRATOS / STEPS */
+    .stratos-shot { max-width: 860px; margin: clamp(36px,5vw,56px) auto 0; }
+    .shot-note { max-width: 58ch; margin: 20px auto 0; text-align: center; color: var(--muted); font-size: 15px; line-height: 1.6; }
+    .steps { display: grid; grid-template-columns: 1fr 1fr; gap: 0 clamp(28px,4vw,56px); border-top: 1px solid var(--line); list-style: none; margin: clamp(44px,5vw,64px) 0 0; padding: 0; }
+    .step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .step:last-child { grid-column: 1 / -1; }
+    .step .n { color: var(--blue); font-size: 13px; font-weight: 700; padding-top: 3px; }
+    .step h3 { margin: 0 0 5px; font-size: 18px; font-weight: 560; }
+    .step p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.55; max-width: 52ch; }
+    .twin { display: grid; gap: 16px; position: sticky; top: 96px; }
+    .twin .window-bar .ttl { font-size: 10px; }
+    .twin .product-slide { position: static; opacity: 1; transform: none; }
+    .twin .pshot { position: relative; aspect-ratio: 1200/780; overflow: hidden; background: #02050a; }
+    .twin .pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; }
+
+    /* DUKE */
+    .duke-figure { text-align: center; margin-top: clamp(24px, 4vw, 48px); }
+    .duke-num { display: inline-flex; align-items: flex-start; justify-content: center; gap: .1em; font-size: clamp(72px,13vw,150px); font-weight: 560; letter-spacing: -.05em; line-height: .82; }
+    .duke-num .grad { font-size: inherit; letter-spacing: -.05em; }
+    .duke-num i { font-style: normal; font-size: .26em; font-weight: 500; color: var(--muted); letter-spacing: .03em; margin-top: .55em; }
+    .duke-cap { max-width: 46ch; margin: 18px auto 0; color: var(--muted); font-size: clamp(14px,1.2vw,16px); line-height: 1.55; }
+    .duke-quote { max-width: 24ch; margin: clamp(40px,5.5vw,64px) auto; padding: 0; border: 0; text-align: center; font-style: normal; font-weight: 460; font-size: clamp(23px,2.8vw,38px); line-height: 1.28; letter-spacing: -.015em; color: #eef2f7; }
+    .duke-lead { max-width: 64ch; margin: 0 auto; text-align: center; color: var(--muted); font-size: clamp(15px,1.3vw,17px); line-height: 1.75; }
+    .triad { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(12px,1.4vw,18px); margin: clamp(40px,5vw,60px) auto 0; max-width: 920px; }
+    .triad div { padding: clamp(20px,2vw,28px); border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); text-align: left; }
+    .triad small { color: var(--cyan); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+    .triad b { display: block; margin: 10px 0 8px; font-size: 18px; font-weight: 580; }
+    .triad p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.55; }
+    .honesty { max-width: 68ch; margin: clamp(30px,3.5vw,44px) auto 0; padding: 0; border: 0; text-align: center; color: var(--muted-2); font-size: 12.5px; line-height: 1.6; }
+
+    /* OFFER LADDER */
+    .ladder { border-top: 1px solid var(--line); }
+    .tier { display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center; padding: 26px 26px; border-bottom: 1px solid var(--line); position: relative; transition: background .25s; }
+    .tier:hover { background: rgba(255,255,255,.015); }
+    .tier-main h3 { margin: 0 0 6px; font-size: clamp(20px,2vw,26px); font-weight: 560; letter-spacing: -.01em; display: flex; align-items: center; gap: 12px; }
+    .tier-main p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; max-width: 60ch; }
+    .tier-tag { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: var(--cyan); border: 1px solid var(--line); padding: 4px 9px; border-radius: 999px; }
+    .tier-price { font-size: clamp(18px,1.8vw,24px); font-weight: 580; letter-spacing: -.02em; white-space: nowrap; text-align: right; }
+    .tier-price small { display: block; color: var(--muted-2); font-size: 11px; font-weight: 440; letter-spacing: 0; margin-top: 4px; text-transform: none; }
+    .tier.featured { background: linear-gradient(180deg, rgba(47,123,255,.08), transparent); box-shadow: inset 3px 0 0 var(--blue); }
+    .tier.featured .tier-tag { color: #fff; background: var(--blue); border-color: var(--blue); }
+    .offer-foot { margin-top: 26px; display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+    .offer-foot .muted { color: var(--muted-2); font-size: 13px; }
+
+    /* PARTNER */
+    .partner { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(36px,5vw,64px); align-items: center; }
+    .comp-bar { display: flex; height: 56px; border-radius: 10px; overflow: hidden; border: 1px solid var(--line); margin: 4px 0 8px; }
+    .comp-seg { display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; color: #fff; min-width: 0; padding: 0 6px; text-align: center; white-space: nowrap; overflow: hidden; }
+    .comp-cli { background: var(--blue); flex: 1200; }
+    .comp-nsg { background: linear-gradient(90deg, #2f7bff, #4f8cff); flex: 5000; }
+    .comp-sld { background: repeating-linear-gradient(45deg, rgba(146,170,196,.2) 0 8px, rgba(146,170,196,.07) 8px 16px); color: #c4ccd5; flex: 3800; }
+    .comp-legend { display: flex; gap: 16px; flex-wrap: wrap; color: var(--muted); font-size: 12px; margin-top: 4px; }
+    .comp-legend i { display: inline-block; width: 10px; height: 10px; border-radius: 3px; margin-right: 6px; vertical-align: middle; }
+    .ptable { width: 100%; border-collapse: collapse; }
+    .ptable td { padding: 13px 0; border-bottom: 1px solid var(--line-soft); font-size: 14px; vertical-align: top; }
+    .ptable tr:last-child td { border-bottom: 0; }
+    .ptable .amt { text-align: right; font-weight: 600; white-space: nowrap; }
+    .ptable .pc { color: var(--muted); }
+    .ptable .pc small { display: block; color: var(--muted-2); font-size: 12px; margin-top: 3px; }
+    .scarcity { margin-top: 18px; padding: 14px 16px; border: 1px solid rgba(47,123,255,.25); border-radius: var(--radius); background: rgba(47,123,255,.06); color: #cfe0ff; font-size: 13px; line-height: 1.5; }
+
+    /* PORTFOLIO TEASER */
+    .pf-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; }
+    .pf-card { border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; background: var(--surface); transition: transform .25s, border-color .25s; }
+    .pf-card:hover { transform: translateY(-3px); border-color: #345b89; }
+    .pf-card .ph { aspect-ratio: 16/10; overflow: hidden; background: #02050a; }
+    .pf-card .ph img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pf-card .pb { padding: 18px 20px 22px; }
+    .pf-card small { color: var(--muted-2); font-size: 10px; letter-spacing: .12em; text-transform: uppercase; }
+    .pf-card h3 { margin: 9px 0 7px; font-size: 19px; font-weight: 560; }
+    .pf-card p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+    .pf-foot { margin-top: 26px; text-align: center; }
+
+    /* PROCESS / IMPLEMENTATION */
+    .proc { display: grid; grid-template-columns: repeat(5,1fr); border-top: 1px solid var(--line); }
+    .proc-step { padding: 24px 18px 24px 0; border-right: 1px solid var(--line); }
+    .proc-step:last-child { border-right: 0; padding-right: 0; }
+    .proc-step .n { color: var(--blue); font-size: 12px; font-weight: 700; }
+    .proc-step .t { color: var(--muted-2); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; margin-left: 8px; }
+    .proc-step h3 { margin: 38px 0 9px; font-size: 17px; font-weight: 560; }
+    .proc-step p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.55; }
+    .proc-note { margin-top: 24px; color: var(--muted-2); font-size: 13px; }
+
+    /* GUARANTEE */
+    .guarantee { margin-top: clamp(40px,5vw,60px); padding: clamp(30px,4vw,48px); border: 1px solid rgba(83,209,138,.25); border-radius: var(--radius-lg);
+      background: linear-gradient(180deg, rgba(83,209,138,.06), transparent 70%); }
+    .guarantee h3 { margin: 12px 0 14px; font-size: clamp(26px,3vw,40px); font-weight: 560; letter-spacing: -.015em; max-width: 18ch; }
+    .guarantee .gbody { color: #c7ccd2; line-height: 1.65; max-width: 70ch; font-size: 15px; }
+    .glist { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px 24px; margin: 24px 0; max-width: 760px; }
+    .glist div { color: #cdd2d8; font-size: 13.5px; display: flex; gap: 9px; align-items: flex-start; }
+    .glist div::before { content: "✓"; color: var(--green); font-weight: 700; }
+    .ghonesty { color: var(--muted-2); font-size: 13px; line-height: 1.6; max-width: 76ch; border-top: 1px solid var(--line-soft); padding-top: 18px; }
+
+    /* TEAM */
+    .team-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 12px; }
+    .person { padding: 22px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+    .person .role { color: var(--cyan); font-size: 9.5px; letter-spacing: .1em; text-transform: uppercase; line-height: 1.4; min-height: 26px; }
+    .person b { display: block; margin: 12px 0 8px; font-size: 18px; font-weight: 580; letter-spacing: -.01em; }
+    .person p { margin: 0; color: var(--muted); font-size: 12.5px; line-height: 1.5; }
+
+    /* FAQ */
+    .faq { max-width: 860px; }
+    .faq details { border-top: 1px solid var(--line); padding: 20px 0; }
+    .faq details:last-of-type { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; font-size: clamp(16px,1.5vw,19px); font-weight: 500; list-style: none; padding-right: 32px; position: relative; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; position: absolute; right: 4px; top: -2px; color: var(--blue); font-size: 22px; }
+    .faq details[open] summary::after { content: "–"; }
+    .faq details p { max-width: 74ch; color: var(--muted); line-height: 1.65; margin: 14px 0 0; font-size: 14.5px; }
+
+    /* CTA FINAL */
+    .cta-final { padding-bottom: clamp(90px,10vw,130px); }
+    .cta-box { text-align: center; padding: clamp(56px,7vw,90px) 24px; border: 1px solid #25466b; background: #0a1421; border-radius: var(--radius-lg); position: relative; overflow: hidden; }
+    .cta-box::before { content: ""; position: absolute; inset: auto 14% -70px; height: 120px; background: linear-gradient(90deg, var(--blue), var(--cyan)); filter: blur(56px); opacity: .18; }
+    .cta-box h2 { position: relative; max-width: 20ch; margin: 14px auto 16px; font-size: clamp(32px,5vw,62px); line-height: 1.04; font-weight: 560; letter-spacing: -.02em; }
+    .cta-box p { position: relative; max-width: 60ch; margin: 0 auto 28px; color: var(--muted); line-height: 1.6; }
+    .cta-box .micro { margin-top: 16px; color: var(--muted-2); font-size: 12px; }
+
+    /* FOOTER */
+    footer { padding: 34px 0; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
     .footer-inner { display: flex; justify-content: space-between; gap: 24px; align-items: center; }
-    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; }
+    .footer-links { display: flex; gap: 18px; flex-wrap: wrap; align-items: center; }
     .footer-links a:hover { color: #fff; }
-    .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+    .social-link { min-height: 34px; display: inline-flex; align-items: center; gap: 8px; padding: 0 12px; border: 1px solid rgba(255,255,255,.1); border-radius: 999px; background: rgba(255,255,255,.025); color: #c9d2dc; font-size: 12px; font-weight: 620; transition: color .2s, border-color .2s, background .2s, transform .2s; }
+    .social-link::before { content: ""; width: 7px; height: 7px; border-radius: 999px; background: var(--blue); box-shadow: 0 0 12px rgba(0,168,255,.5); }
+    .social-link:hover { color: #fff; border-color: rgba(139,231,255,.45); background: rgba(255,255,255,.06); transform: translateY(-1px); }
+    .social-ig { color: #fff; border-color: rgba(221,42,123,.38); background: linear-gradient(120deg, rgba(245,133,41,.13), rgba(221,42,123,.13), rgba(81,91,212,.12)); }
+    .social-ig::before { background: linear-gradient(135deg, #f58529, #dd2a7b 52%, #515bd4); box-shadow: 0 0 13px rgba(221,42,123,.55); }
+    .social-tt::before { background: linear-gradient(135deg, #25f4ee, #fe2c55); box-shadow: 0 0 12px rgba(37,244,238,.4); }
+
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .6s cubic-bezier(.22,.61,.36,1), transform .6s cubic-bezier(.22,.61,.36,1); }
     .reveal.visible { opacity: 1; transform: none; }
-    @media (max-width: 900px) {
-      .stats { grid-template-columns: repeat(2,1fr); }
-      .grid { grid-template-columns: repeat(2,1fr); }
-      .sysrow { grid-template-columns: 1fr; gap: 26px; padding: 22px; }
-      .sysrow:nth-child(even) .sys-media { order: 0; }
+
+    @media (max-width: 1000px) {
+      .nav-inner { display: flex; align-items: center; }
+      .brand { margin-right: auto; }
+      .nav-pill { display: contents; }
+      .nav-links { position: fixed; inset: 72px 0 auto; display: none; flex-direction: column; align-items: stretch; gap: 4px; padding: 16px; border: 0; border-radius: 0; border-bottom: 1px solid var(--line); background: #0b0e12; backdrop-filter: none; }
+      .nav-links.open { display: flex; } .nav-links a { padding: 13px 14px; }
+      .nav-toggle { display: block; order: 3; } .nav-login { display: none; }
+      .stratos-wrap, .duke, .partner { grid-template-columns: 1fr; }
+      .twin { position: static; }
+      .proc { grid-template-columns: repeat(2,1fr); } .proc-step { border-right: 0; border-bottom: 1px solid var(--line); padding-right: 0; }
+      .team-grid { grid-template-columns: repeat(2,1fr); }
+      .pf-grid { grid-template-columns: repeat(2,1fr); }
     }
     @media (max-width: 640px) {
-      .wrap { width: min(calc(100% - 28px), var(--max)); }
-      .nav { height: 64px; } .nav-back { display: none; }
-      .phero { padding-top: 56px; }
-      .grid { grid-template-columns: 1fr; }
+      :root { --mobile-gutter: clamp(16px, 5vw, 22px); }
+      html { scroll-padding-top: 76px; }
+      body.menu-open { overflow: hidden; }
+      a, button, summary { -webkit-tap-highlight-color: transparent; }
+      section[id] { scroll-margin-top: 76px; }
+      body::before { background: radial-gradient(ellipse at 50% 7%, rgba(57,126,231,.07), transparent 28%); }
+      body::after { display: none; }
+      .wrap, .wide { width: calc(100% - (var(--mobile-gutter) * 2)); }
+      section { padding-block: clamp(54px, 14vw, 70px); }
+      .section-head { margin-bottom: 32px; }
+      .section-head p { margin-top: 16px; font-size: 15px; line-height: 1.62; }
+      .section-head.center p { text-align: left; max-width: none; }
+      h2.title { font-size: clamp(34px, 10.2vw, 44px); line-height: 1.02; letter-spacing: -.035em; }
+      .eyebrow { font-size: 10px; letter-spacing: .2em; }
+      .nav { height: calc(64px + env(safe-area-inset-top)); padding-top: env(safe-area-inset-top); }
+      .nav-inner { gap: 10px; }
+      .nav-links { top: calc(64px + env(safe-area-inset-top)); height: calc(100dvh - 64px - env(safe-area-inset-top)); padding: 18px var(--mobile-gutter) max(24px, env(safe-area-inset-bottom)); background: rgba(8,10,13,.97); }
+      .nav-links a { min-height: 52px; display: flex; align-items: center; border-bottom: 1px solid var(--line-soft); font-size: 16px; }
+      .brand { min-height: 44px; gap: 8px; font-size: 17px; }
+      .brand-mark { width: 23px; height: 23px; }
+      .brand-mark::after { width: 6px; height: 6px; margin: 6.5px; }
+      .nav-actions { min-width: 0; margin-left: auto; }
+      .nav-cta { min-height: 38px; width: auto; max-width: 118px; padding-inline: 13px; font-size: 12px; line-height: 1; }
+      .nav-cta .cta-mobile-hide, .nav-cta .arrow { display: none; }
+      .nav:not(.scrolled) .nav-actions { width: 0; overflow: hidden; }
+      .nav-toggle { width: 44px; height: 44px; flex: 0 0 44px; }
+      .hero { padding: clamp(20px, 5vw, 38px) 0 36px; overflow: clip; }
+      .hero::before { top: 28px; width: 112vw; height: 320px; opacity: .56; filter: blur(30px); animation: none; }
+      .badge { max-width: 100%; justify-content: center; flex-wrap: nowrap; gap: 8px; padding: 8px 12px; font-size: clamp(9px, 2.65vw, 11px); letter-spacing: .055em; white-space: nowrap; }
+      .badge .dot { width: 7px; height: 7px; }
+      .hero-title { max-width: 9.2ch; margin: 20px auto 8px; font-size: clamp(46px, 13.2vw, 56px); line-height: .96; letter-spacing: -.046em; filter: drop-shadow(0 6px 18px rgba(40,105,175,.06)); animation-duration: 8.5s; }
+      .hero-title .ai { filter: drop-shadow(0 0 8px rgba(106,176,225,.08)); animation: aiFlow 11s linear infinite, aiGlow 7.2s ease-in-out infinite; }
+      .type-line { width: min(100%, 34ch); min-height: 1.7em; margin: 0 auto 16px; padding-inline: 6px; font-size: clamp(15px, 4.1vw, 17px); line-height: 1.34; white-space: normal; text-wrap: balance; }
+      .hero-lead { max-width: none; margin-bottom: 24px; font-size: 13.5px; line-height: 1.55; letter-spacing: -.01em; text-wrap: initial; }
+      .mobile-break { display: block; }
+      .hero-actions { gap: 10px; }
+      .hero-actions .btn { width: 100%; }
+      .btn { min-height: 48px; padding-inline: 18px; font-size: 14px; }
+      .hero-proof { max-width: 32ch; margin-top: 16px; line-height: 1.5; font-size: 11px; }
+      .hero-tech { margin-top: 32px; }
+      .hero-tech-label { gap: 12px; font-size: 9px; letter-spacing: .18em; }
+      .hero-tech-list { grid-template-columns: repeat(2, 1fr); margin-top: 18px; }
+      .hero-tech-list li { min-height: 42px; padding-inline: 8px; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.07); font-size: 12px; }
+      .hero-tech-list li:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.07); }
+      .hero-tech-list li:nth-last-child(-n+2) { border-bottom: 0; }
+      .hero-trust { display: grid; grid-template-columns: 1fr; gap: 0; margin-top: 28px; border-top: 1px solid rgba(255,255,255,.08); }
+      .hero-trust li:last-child { grid-column: auto; }
+      .hero-trust li:not(.sep) { min-width: 0; max-width: none; min-height: 88px; display: grid; grid-template-columns: minmax(118px, .78fr) 1.22fr; align-items: center; gap: 18px; text-align: left; border-bottom: 1px solid rgba(255,255,255,.08); }
+      .hero-trust li:not(.sep)::before { top: auto; bottom: -1px; left: 0; width: 42%; transform: none; opacity: .35; }
+      .hero-trust li:not(.sep):hover { transform: none; }
+      .hero-trust b { font-size: 18px; line-height: 1.1; }
+      .hero-trust span { font-size: 11.5px; line-height: 1.45; }
+      .hero-trust .sep { display: none; }
+      .stats { grid-template-columns: 1fr; } .stat { border-right: 0; border-bottom: 1px solid var(--line); } .stat:last-child { border-bottom: 0; }
+      .stat { padding: 24px 22px; }
+      .stage { margin-top: 44px; }
+      .stage::before { display: none; }
+      .window { box-shadow: 0 14px 34px -12px rgba(0,0,0,.55), 0 0 16px rgba(47,123,255,.30); }
+      .stratos-shot .shot-note, .shot-note { margin-top: 30px; }
+      .window-bar { height: 36px; padding-inline: 10px; }
+      .window-bar .ttl { max-width: 62%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+      .slider-cap { left: 9px; bottom: 9px; max-width: calc(100% - 18px); padding: 7px 9px; font-size: 9px; }
+      .slider-dots { display: none; }
+      .prob-grid { grid-template-columns: 1fr; }
+      .prob { padding: 22px 20px; }
+      .res-grid, .triad { grid-template-columns: 1fr; }
+      .lead-grid { grid-template-columns: 1fr; }
+      .diag-form, .diag-result { padding: 22px 18px; }
+      .q { padding-block: 20px; }
+      .q-label { gap: 9px; align-items: flex-start; }
+      .q-label span { line-height: 1.35; }
+      .opts { display: grid; grid-template-columns: 1fr; }
+      .opt { min-height: 48px; text-align: left; border-radius: 12px; }
+      .num-in, .lead-grid input { min-height: 50px; font-size: 16px; }
+      .diag-actions { align-items: stretch; }
+      .diag-actions .btn { width: 100%; white-space: normal; text-align: center; }
+      .tier { grid-template-columns: 1fr; align-items: start; } .tier-price { text-align: left; }
+      .tier { padding: 24px 4px; gap: 14px; }
+      .tier-main h3 { align-items: flex-start; flex-wrap: wrap; }
+      .proc { grid-template-columns: 1fr; } .proc-step h3 { margin-top: 18px; }
+      .team-grid, .pf-grid { grid-template-columns: 1fr; }
+      .person, .pf-card .pb { padding: 20px; }
+      .person .role { min-height: 0; }
+      .steps { grid-template-columns: 1fr; gap: 0; } .step:last-child { grid-column: auto; }
+      .step { grid-template-columns: 34px 1fr; gap: 10px; }
+      .glist { grid-template-columns: 1fr; }
       .footer-inner { display: block; } .footer-links { margin-top: 14px; }
+      .duke-num { font-size: clamp(56px,18vw,90px); }
+      .duke-figure, .duke-num, .duke-cap, .duke-quote, .duke-lead, .triad, .honesty { max-width: 100%; }
+      .duke-num { width: 100%; }
+      .duke-lead, .duke-quote, .duke-cap, .honesty { overflow-wrap: anywhere; }
+      .triad div { min-width: 0; overflow: hidden; }
+      .ptable, .ptable tbody { display: block; width: 100%; }
+      .ptable tr { display: grid; grid-template-columns: 1fr; gap: 8px; padding: 16px 0; border-bottom: 1px solid var(--line-soft); }
+      .ptable tr:last-child { border-bottom: 0; }
+      .ptable td { display: block; width: 100% !important; padding: 0; border: 0; overflow-wrap: anywhere; }
+      .ptable .amt { text-align: left; white-space: normal; color: #e7f8ff; font-size: 16px; }
+      .comp-legend { gap: 10px 14px; }
+      .faq details { padding: 0; }
+      .faq summary { min-height: 60px; display: flex; align-items: center; padding: 16px 40px 16px 0; line-height: 1.35; }
+      .faq summary::after { top: 50%; transform: translateY(-50%); }
+      .faq details p { margin: 0; padding: 0 32px 20px 0; font-size: 14px; }
+      .cta-box { padding: 48px 18px; }
+      .cta-box .btn { width: 100%; white-space: normal; }
+      footer { padding: 26px 0 max(30px, env(safe-area-inset-bottom)); }
+      .footer-inner { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+      .footer-links { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; margin-top: 0; }
+      .footer-links a { min-height: 44px; display: flex; align-items: center; }
+      .footer-links .social-link { min-height: 42px; justify-content: flex-start; padding-inline: 11px; }
+      .footer-links span { grid-column: 1 / -1; padding-top: 12px; border-top: 1px solid var(--line-soft); line-height: 1.5; }
+      .reveal { transform: translateY(8px); }
+    }
+    @media (max-width: 370px) {
+      .nav-cta { max-width: 108px; padding-inline: 11px; font-size: 11px; }
+      .hero-title { font-size: clamp(48px, 15vw, 56px); }
+      .type-line { min-height: 3em; }
+      .badge { letter-spacing: .03em; }
     }
     @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *,*::before,*::after { transition: none !important; animation: none !important; } .reveal { opacity: 1; transform: none; } }
+
+    /* === PORTAFOLIO ENTERPRISE === */
+    .pf2-metrics { display: grid; grid-template-columns: repeat(4,1fr); gap: 1px; margin: clamp(34px,4vw,52px) auto 0; max-width: 1000px; border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; background: var(--line); }
+    .pf2-metric { background: var(--surface); padding: clamp(22px,2.6vw,32px) 16px; text-align: center; }
+    .pf2-metric b { display: block; font-size: clamp(28px,3.2vw,44px); font-weight: 600; letter-spacing: -.03em; color: #fff; line-height: 1; }
+    .pf2-metric span { display: block; margin-top: 9px; color: var(--muted-2); font-size: 12px; line-height: 1.45; }
+    .status { display: inline-flex; align-items: center; gap: 7px; font-size: 10.5px; color: var(--green); letter-spacing: .1em; text-transform: uppercase; font-weight: 700; margin-bottom: 11px; }
+    .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--green); box-shadow: 0 0 9px rgba(83,209,138,.75); }
+    .pf-card { cursor: pointer; }
+    .pf-grid { grid-template-columns: repeat(2,1fr); }
+    .pf-card.contact { cursor: default; display: flex; align-items: center; justify-content: center; text-align: center; background: linear-gradient(160deg, rgba(47,123,255,.14), rgba(66,216,255,.05) 55%, transparent); border-color: #294a73; }
+    .pf-card.contact::before { content: ""; position: absolute; inset: auto 22% -50px; height: 110px; background: linear-gradient(90deg, var(--blue), var(--cyan)); filter: blur(58px); opacity: .18; pointer-events: none; }
+    .pf-card.contact { position: relative; overflow: hidden; }
+    .pf-card.contact .pb { padding: clamp(30px,3.4vw,48px); position: relative; }
+    .pf-card.contact .eyebrow2 { display: inline-block; color: var(--cyan); font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; margin-bottom: 14px; }
+    .pf-card.contact h3 { font-size: clamp(21px,2.1vw,28px); margin: 0 0 12px; font-weight: 600; letter-spacing: -.015em; }
+    .pf-card.contact p { margin: 0 auto 24px; max-width: 34ch; color: var(--muted); font-size: 14px; line-height: 1.6; }
+    .pf-card .pb small { display: block; margin-bottom: 2px; }
+    .pf-more { display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; color: var(--blue-hi); font-size: 13px; font-weight: 600; }
+    .pf2-filters { display: flex; flex-wrap: wrap; gap: 9px; justify-content: center; margin: 0 auto clamp(30px,3.4vw,44px); }
+    .pf2-chip { padding: 10px 18px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--muted); font: inherit; font-size: 13px; font-weight: 500; cursor: pointer; transition: color .2s, background .2s, border-color .2s; }
+    .pf2-chip:hover { color: #fff; border-color: #345b89; }
+    .pf2-chip.active { background: var(--blue); border-color: var(--blue); color: #fff; box-shadow: 0 8px 24px -12px rgba(47,123,255,.8); }
+    .pf2-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .pf2-item { border: 1px solid var(--line); border-radius: var(--radius-lg); background: var(--surface); padding: clamp(24px,2.4vw,30px); display: flex; flex-direction: column; gap: 13px; cursor: pointer; transition: transform .28s cubic-bezier(.2,.7,.2,1), border-color .28s, box-shadow .28s; }
+    .pf2-item:hover { transform: translateY(-4px); border-color: #345b89; box-shadow: 0 26px 50px -28px rgba(0,0,0,.8); }
+    .pf2-item .sector { color: var(--cyan); font-size: 10px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
+    .pf2-item h3 { margin: 0; font-size: 21px; font-weight: 580; letter-spacing: -.015em; }
+    .pf2-item > p { margin: 0; color: var(--muted); font-size: 13.5px; line-height: 1.6; flex: 1; }
+    .pf2-item .tags { display: flex; flex-wrap: wrap; gap: 7px; }
+    .pf2-item .tag { font-size: 10.5px; color: var(--muted-2); border: 1px solid var(--line); border-radius: 999px; padding: 5px 11px; letter-spacing: .02em; }
+    .pf2-item .outcome { font-size: 12.5px; color: #d3dbe6; border-top: 1px solid var(--line-soft); padding-top: 13px; display: flex; align-items: center; gap: 8px; }
+    .pf2-item .outcome::before { content: "→"; color: var(--blue-hi); font-weight: 700; }
+    .pf2-item[hidden] { display: none; }
+    .pf2-cta { text-align: center; border: 1px solid var(--line); border-radius: var(--radius-lg); background: linear-gradient(180deg, rgba(47,123,255,.07), transparent 70%); padding: clamp(40px,5.5vw,68px) 24px; position: relative; overflow: hidden; }
+    .pf2-cta::before { content: ""; position: absolute; inset: auto 20% -60px; height: 120px; background: linear-gradient(90deg, var(--blue), var(--cyan)); filter: blur(60px); opacity: .16; }
+    /* MODAL */
+    .pm-overlay { position: fixed; inset: 0; z-index: 200; display: flex; align-items: flex-end; justify-content: center; padding: 0; background: rgba(4,6,9,.72); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); opacity: 0; pointer-events: none; transition: opacity .28s ease; }
+    .pm-overlay.open { opacity: 1; pointer-events: auto; }
+    .pm-panel { width: 100%; max-width: 680px; max-height: 92vh; overflow-y: auto; background: var(--surface-2, #0f141a); border: 1px solid var(--line); border-radius: 20px 20px 0 0; box-shadow: 0 -30px 80px -20px rgba(0,0,0,.9); transform: translateY(28px); transition: transform .3s cubic-bezier(.2,.7,.2,1); padding: clamp(26px,3.4vw,40px); }
+    .pm-overlay.open .pm-panel { transform: none; }
+    @media (min-width: 720px) { .pm-overlay { align-items: center; padding: 24px; } .pm-panel { border-radius: 20px; } }
+    .pm-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; }
+    .pm-sector { color: var(--cyan); font-size: 10.5px; letter-spacing: .15em; text-transform: uppercase; font-weight: 700; }
+    .pm-title { margin: 10px 0 0; font-size: clamp(26px,3.2vw,38px); font-weight: 600; letter-spacing: -.02em; line-height: 1.05; }
+    .pm-close { flex: 0 0 auto; width: 40px; height: 40px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: #fff; font-size: 20px; cursor: pointer; line-height: 1; transition: .2s; }
+    .pm-close:hover { border-color: #345b89; background: #131922; }
+    .pm-summary { margin: 16px 0 0; color: #c7cfda; font-size: 15.5px; line-height: 1.65; }
+    .pm-h { margin: 26px 0 14px; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); font-weight: 700; }
+    .pm-points { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+    .pm-points li { display: flex; gap: 12px; align-items: flex-start; }
+    .pm-points .ck { flex: 0 0 auto; width: 22px; height: 22px; border-radius: 7px; display: grid; place-items: center; background: rgba(47,123,255,.14); color: var(--blue-hi); font-size: 12px; font-weight: 700; margin-top: 1px; }
+    .pm-points b { display: block; font-size: 15px; font-weight: 580; }
+    .pm-points span { display: block; color: var(--muted); font-size: 13.5px; line-height: 1.5; margin-top: 2px; }
+    .pm-scope { color: var(--muted); font-size: 14px; line-height: 1.65; border-left: 2px solid var(--blue); padding-left: 16px; }
+    .pm-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 22px; }
+    .pm-tags .tag { font-size: 11px; color: var(--muted-2); border: 1px solid var(--line); border-radius: 999px; padding: 5px 12px; }
+    .pm-foot { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; border-top: 1px solid var(--line-soft); padding-top: 22px; }
+    .pm-outcome { display: inline-flex; align-items: center; gap: 9px; color: #e6ebf2; font-size: 14px; font-weight: 560; }
+    .pm-outcome .status { margin: 0; }
+    body.pm-lock { overflow: hidden; }
+    @media (max-width: 860px) { .pf2-metrics { grid-template-columns: repeat(2,1fr); } .pf2-grid { grid-template-columns: 1fr; } }
+    @media (max-width: 680px) { .pf-grid { grid-template-columns: 1fr; } }
+
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="Navegación">
+  <nav class="nav" aria-label="Navegación principal">
     <div class="wrap nav-inner">
-      <a class="brand" href="index.html" aria-label="NSG, inicio"><span class="brand-mark" aria-hidden="true"></span>NSG</a>
-      <div class="nav-right">
-        <a class="nav-back" href="index.html">← Inicio</a>
-        <a class="btn nav-cta" href="index.html#diagnostico">Agendar diagnóstico <span class="arrow">→</span></a>
+      <a class="brand" href="/" aria-label="NSG, inicio"><span class="brand-mark" aria-hidden="true"></span>NSG</a>
+      <div class="nav-pill">
+        <div class="nav-links" id="navLinks">
+          <a href="/#stratos">Stratos AI</a><a href="/#oferta">Cómo trabajamos</a><a href="/#partner">Partner</a><a href="/portafolio">Portafolio</a><a href="/#equipo">Equipo</a>
+        </div>
       </div>
+      <div class="nav-actions">
+        <a class="btn nav-cta" href="/#diagnostico">Diagnóstico<span class="cta-mobile-hide"> gratis</span> <span class="arrow">→</span></a>
+      </div>
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Abrir menú" aria-expanded="false"><span></span></button>
     </div>
   </nav>
 
-  <main>
-    <header class="phero wrap">
-      <div class="badge"><span class="dot" aria-hidden="true"></span><span>Portafolio + agentes de IA</span></div>
-      <h1>Sistemas de IA creados para <span class="grad">operaciones reales</span>.</h1>
-      <p>No mostramos demostraciones aisladas. Cada proyecto es un sistema en producción que atiende, vende, opera o protege un negocio real.</p>
-      <div class="stats">
-        <div class="stat"><b>+40M</b><span>USD facturados (Duke del Caribe, 3 años)</span></div>
-        <div class="stat"><b>5</b><span>Sistemas insignia en producción</span></div>
-        <div class="stat"><b>5</b><span>Sectores: inmobiliaria, dirección, agro, finanzas y legal</span></div>
-        <div class="stat"><b>24/7</b><span>Agentes que atienden sin pausas</span></div>
-      </div>
-    </header>
+  <main id="inicio">
 
+    <!-- PORTAFOLIO · HERO -->
     <section class="wrap reveal">
-      <div class="section-label">
-        <div class="eyebrow">Sistemas NSG en producción</div>
-        <h2>Infraestructura de IA por vertical.</h2>
+      <div class="section-head center" style="max-width:900px">
+        <span class="eyebrow">Portafolio · sistemas en producción</span>
+        <h2 class="title">Ingeniería de IA para <span class="grad">operaciones reales</span>.</h2>
+        <p>No mostramos demos. Cada sistema de este portafolio opera hoy dentro de un negocio real —atiende, vende, opera o protege—, diseñado por NSG y validado con criterio comercial real. Duke del Caribe es nuestro socio comercial principal. <strong style="color:#cdd5df;font-weight:560">Haz clic en cualquiera para ver el detalle completo.</strong></p>
       </div>
-      <div class="systems">
-        <article class="sysrow">
-          <div class="sys-media"><img src="assets/sys-callcenter.jpg" width="900" height="900" loading="lazy" decoding="async" alt="Callcenter IA & CRM"></div>
-          <div>
-            <span class="sys-tag">01 · Vertical inmobiliaria &amp; ventas</span>
-            <h3>Callcenter IA &amp; CRM</h3>
-            <p class="sys-desc">Sustituimos a los equipos saturados por un Callcenter IA acoplado a un CRM 100% autónomo. Perfila prospectos en tiempo real sin intervención manual.</p>
-            <div class="sys-feats">
-              <div class="sys-feat"><b>Callcenter IA (voz y texto)</b><span>Atención persuasiva 24/7 que filtra intención de compra.</span></div>
-              <div class="sys-feat"><b>CRM inteligente</b><span>Actualiza el pipeline y el estado del lead al instante.</span></div>
-              <div class="sys-feat"><b>Cierre sin fricción</b><span>Agendamiento autónomo de citas. Tu equipo solo cierra.</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="sysrow">
-          <div class="sys-media"><img src="assets/sys-intelligence.jpg" width="900" height="900" loading="lazy" decoding="async" alt="NSG Intelligence"></div>
-          <div>
-            <span class="sys-tag">02 · Producto insignia</span>
-            <h3>NSG Intelligence</h3>
-            <p class="sys-desc">Sistema de inteligencia para altos mandos y directivos. Centraliza tu conocimiento corporativo y asiste en decisiones críticas basándose en datos reales.</p>
-            <div class="sys-feats">
-              <div class="sys-feat"><b>Horizon IA</b><span>Entorno inmersivo que estructura y resume notas estratégicas.</span></div>
-              <div class="sys-feat"><b>Copilot ejecutivo</b><span>Seguimiento implacable de tareas y métricas operativas.</span></div>
-              <div class="sys-feat"><b>Educación adaptativa</b><span>Rutas formativas vía bases de datos RAG y psicología.</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="sysrow">
-          <div class="sys-media"><img src="assets/sys-satelital.jpg" width="900" height="900" loading="lazy" decoding="async" alt="NSG Monitoreo Satelital"></div>
-          <div>
-            <span class="sys-tag">03 · Agro &amp; industria</span>
-            <h3>NSG Monitoreo Satelital</h3>
-            <p class="sys-desc">Infraestructura de captura masiva. La inteligencia artificial traduce imágenes satelitales complejas en decisiones rentables para optimizar cultivos a nivel industrial.</p>
-            <div class="sys-feats">
-              <div class="sys-feat"><b>Analítica NDVI/NDWI</b><span>Monitoreo de suelos y salud vegetal en tiempo real.</span></div>
-              <div class="sys-feat"><b>Cálculo cinemático</b><span>Modelos predictivos de velocidad y humedad vegetal.</span></div>
-              <div class="sys-feat"><b>Optimización de cosechas</b><span>Identificación de datos críticos para la decisión.</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="sysrow">
-          <div class="sys-media"><img src="assets/sys-odoo.jpg" width="900" height="900" loading="lazy" decoding="async" alt="Integración Odoo IA"></div>
-          <div>
-            <span class="sys-tag">04 · Finanzas &amp; ERP</span>
-            <h3>Integración Odoo IA</h3>
-            <p class="sys-desc">Aniquilación de la carga administrativa. Conexión de flujos contables directamente con inteligencias de extracción de datos NSG y bandejas de entrada.</p>
-            <div class="sys-feats">
-              <div class="sys-feat"><b>Extracción autónoma</b><span>Análisis IA de facturas desde Gmail/Outlook corporativo.</span></div>
-              <div class="sys-feat"><b>Matching contable</b><span>Conciliación perfecta en Odoo sin intervención humana.</span></div>
-              <div class="sys-feat"><b>Asignación analítica</b><span>Distribución inteligente de centros de costos.</span></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="sysrow">
-          <div class="sys-media"><img src="assets/sys-legal.jpg" width="900" height="900" loading="lazy" decoding="async" alt="Agentes Slack & OCR"></div>
-          <div>
-            <span class="sys-tag">05 · Legal &amp; corporativo</span>
-            <h3>Agentes Slack &amp; OCR</h3>
-            <p class="sys-desc">Automatización del backoffice jurídico. Agentes NSG especializados que leen documentos complejos y entregan respuestas estructuradas al equipo directivo.</p>
-            <div class="sys-feats">
-              <div class="sys-feat"><b>Slack nativos</b><span>Asistentes legales consultando jurisprudencias vía RAG.</span></div>
-              <div class="sys-feat"><b>Análisis multimodal</b><span>Procesamiento de contratos PDF con visión por IA.</span></div>
-              <div class="sys-feat"><b>Secretario IA</b><span>Clasificación de correos y extracción de entidades clave.</span></div>
-            </div>
-          </div>
-        </article>
+      <div class="pf2-metrics">
+        <div class="pf2-metric"><b>+40M</b><span>USD de experiencia<br>Duke del Caribe &middot; 3 a&ntilde;os</span></div>
+        <div class="pf2-metric"><b>11</b><span>sistemas en<br>producci&oacute;n</span></div>
+        <div class="pf2-metric"><b>6</b><span>sectores<br>distintos</span></div>
+        <div class="pf2-metric"><b>24/7</b><span>operaci&oacute;n<br>sin pausas</span></div>
       </div>
+    </section>
 
-      <div class="section-label" style="margin-top:90px">
-        <div class="eyebrow">Más proyectos</div>
-        <h2>Otros sistemas creados para clientes.</h2>
+    <!-- PORTAFOLIO · INSIGNIA -->
+    <section class="wide reveal" id="portafolio">
+      <div class="section-head">
+        <span class="eyebrow">Sistemas insignia</span>
+        <h2 class="title">Infraestructura de IA por vertical.</h2>
+        <p>Los cinco sistemas base sobre los que construimos cada implementaci&oacute;n a la medida.</p>
       </div>
-      <div class="filters" id="filters" aria-label="Filtrar proyectos">
-        <button class="filter active" data-filter="all" type="button">Todos</button>
-        <button class="filter" data-filter="ventas" type="button">Ventas</button>
-        <button class="filter" data-filter="operacion" type="button">Operación</button>
-        <button class="filter" data-filter="salud" type="button">Salud</button>
-        <button class="filter" data-filter="finanzas" type="button">Finanzas</button>
-        <button class="filter" data-filter="ecommerce" type="button">E-commerce</button>
+      <div class="pf-grid">
+        <article class="pf-card" data-proj="callcenter" tabindex="0" role="button" aria-label="Ver detalle de Call Center IA & CRM"><div class="ph"><img src="assets/sys-callcenter.jpg" width="900" height="563" loading="lazy" decoding="async" alt="Call Center IA & CRM"></div><div class="pb"><div class="status">En producción</div><small>Vertical inmobiliaria & ventas</small><h3>Call Center IA & CRM</h3><p>Sustituimos a los equipos saturados por un Call Center IA acoplado a un CRM 100% autónomo. Perfila prospectos en tiempo real, sin intervención manual.</p><span class="pf-more">Ver detalle <span aria-hidden="true">&rarr;</span></span></div></article>
+        <article class="pf-card" data-proj="intelligence" tabindex="0" role="button" aria-label="Ver detalle de NSG Intelligence"><div class="ph"><img src="assets/sys-intelligence.jpg" width="900" height="563" loading="lazy" decoding="async" alt="NSG Intelligence"></div><div class="pb"><div class="status">En producción</div><small>Producto insignia · Dirección</small><h3>NSG Intelligence</h3><p>Sistema de inteligencia para altos mandos y directivos. Centraliza el conocimiento corporativo y asiste decisiones críticas con datos reales.</p><span class="pf-more">Ver detalle <span aria-hidden="true">&rarr;</span></span></div></article>
+        <article class="pf-card" data-proj="satelital" tabindex="0" role="button" aria-label="Ver detalle de NSG Monitoreo Satelital"><div class="ph"><img src="assets/sys-satelital.jpg" width="900" height="563" loading="lazy" decoding="async" alt="NSG Monitoreo Satelital"></div><div class="pb"><div class="status">En producción</div><small>Agro & industria</small><h3>NSG Monitoreo Satelital</h3><p>Infraestructura de captura masiva: la IA traduce imágenes satelitales complejas en decisiones rentables para optimizar cultivos a nivel industrial.</p><span class="pf-more">Ver detalle <span aria-hidden="true">&rarr;</span></span></div></article>
+        <article class="pf-card" data-proj="odoo" tabindex="0" role="button" aria-label="Ver detalle de Integración Odoo IA"><div class="ph"><img src="assets/sys-odoo.jpg" width="900" height="563" loading="lazy" decoding="async" alt="Integración Odoo IA"></div><div class="pb"><div class="status">En producción</div><small>Finanzas & ERP</small><h3>Integración Odoo IA</h3><p>Aniquilación de la carga administrativa: conectamos los flujos contables con inteligencias de extracción de datos NSG y bandejas de entrada.</p><span class="pf-more">Ver detalle <span aria-hidden="true">&rarr;</span></span></div></article>
+        <article class="pf-card" data-proj="legal" tabindex="0" role="button" aria-label="Ver detalle de Agentes Slack & OCR"><div class="ph"><img src="assets/sys-legal.jpg" width="900" height="563" loading="lazy" decoding="async" alt="Agentes Slack & OCR"></div><div class="pb"><div class="status">En producción</div><small>Legal & corporativo</small><h3>Agentes Slack & OCR</h3><p>Automatización del backoffice jurídico: agentes especializados que leen documentos complejos y entregan respuestas estructuradas al equipo.</p><span class="pf-more">Ver detalle <span aria-hidden="true">&rarr;</span></span></div></article>
+        <article class="pf-card contact"><div class="pb"><span class="eyebrow2">Tu empresa</span><h3>&iquest;El siguiente sistema es el tuyo?</h3><p>Cu&eacute;ntanos tu operaci&oacute;n y dise&ntilde;amos el sistema de IA que la opere. Empezamos con un diagn&oacute;stico sin costo.</p><a class="btn btn-primary" href="/#diagnostico">Cont&aacute;ctanos <span class="arrow">&rarr;</span></a></div></article>
       </div>
+    </section>
 
-      <div class="grid" id="grid">
-        <article class="card" data-category="ventas">
-          <small>Sistema comercial</small>
+    <!-- PORTAFOLIO · CARTERA COMPLETA -->
+    <section class="wide reveal">
+      <div class="section-head center">
+        <span class="eyebrow">Cartera completa</span>
+        <h2 class="title">M&aacute;s sistemas creados para clientes.</h2>
+        <p>Filtra por sector y haz clic para ver el alcance de cada uno. Todos entregados y operando.</p>
+      </div>
+      <div class="pf2-filters" id="pfFilters">
+        <button class="pf2-chip active" data-f="all" type="button">Todos</button>
+        <button class="pf2-chip" data-f="ventas" type="button">Ventas</button>
+        <button class="pf2-chip" data-f="operacion" type="button">Operaci&oacute;n</button>
+        <button class="pf2-chip" data-f="finanzas" type="button">Finanzas</button>
+        <button class="pf2-chip" data-f="salud" type="button">Salud</button>
+        <button class="pf2-chip" data-f="ecommerce" type="button">E-commerce</button>
+      </div>
+      <div class="pf2-grid" id="pfGrid">
+        <article class="pf2-item" data-proj="stratos" data-cat="ventas" tabindex="0" role="button" aria-label="Ver detalle de Stratos AI">
+          <span class="sector">Sistema comercial</span>
           <h3>Stratos AI</h3>
-          <p class="desc">Organiza oportunidades, detecta falta de seguimiento, recuerda reuniones y conecta agentes de voz con la operación comercial.</p>
-          <p class="scope"><b>Alcance:</b> sistema comercial inmobiliario con seguimiento proactivo, agentes de voz, recordatorios, resúmenes para gerencia y organización de oportunidades.</p>
+          <p>Organiza oportunidades, detecta falta de seguimiento, recuerda reuniones y conecta agentes de voz con la operación comercial.</p>
           <div class="tags"><span class="tag">Agentes de voz</span><span class="tag">CRM</span><span class="tag">Inmobiliaria</span></div>
-          <div class="result"><span class="pill-result">Seguimiento proactivo</span></div>
+          <div class="outcome">Seguimiento que no falla.</div>
         </article>
-
-        <article class="card warm" data-category="ventas">
-          <small>Voz y mensajería</small>
+        <article class="pf2-item" data-proj="alma" data-cat="operacion" tabindex="0" role="button" aria-label="Ver detalle de ALMA">
+          <span class="sector">Voz & mensajería</span>
           <h3>ALMA</h3>
-          <p class="desc">Empleado virtual que llama, conversa por WhatsApp, califica prospectos y agenda durante todo el día.</p>
-          <p class="scope"><b>Alcance:</b> plataforma multiempresa de agentes de voz y WhatsApp para atender, calificar y agendar conversaciones de manera continua. Cada conversación queda transcrita, resumida y clasificada.</p>
+          <p>Empleado virtual que llama, conversa por WhatsApp, califica prospectos y agenda durante todo el día.</p>
           <div class="tags"><span class="tag">WhatsApp</span><span class="tag">Voz</span><span class="tag">Multiempresa</span></div>
-          <div class="result"><span class="pill-result">Atención continua 24/7</span></div>
+          <div class="outcome">Atención continua 24/7.</div>
         </article>
-
-        <article class="card warm" data-category="ventas operacion ecommerce">
-          <small>Comercio electrónico</small>
+        <article class="pf2-item" data-proj="recuperacion" data-cat="ecommerce" tabindex="0" role="button" aria-label="Ver detalle de Recuperación de ventas">
+          <span class="sector">Comercio electrónico</span>
           <h3>Recuperación de ventas</h3>
-          <p class="desc">Agentes que recuperan compras abandonadas, confirman pedidos y validan direcciones antes del envío.</p>
-          <p class="scope"><b>Alcance:</b> dos asistentes coordinados — uno recupera compras abandonadas y otro confirma pedidos, inventario y dirección antes del envío.</p>
-          <div class="tags"><span class="tag">E-commerce</span><span class="tag">Carrito abandonado</span><span class="tag">Logística</span></div>
-          <div class="result"><span class="pill-result">Venta recuperada y pedido protegido</span></div>
+          <p>Agentes que recuperan compras abandonadas, confirman pedidos y validan direcciones antes del envío.</p>
+          <div class="tags"><span class="tag">Carrito abandonado</span><span class="tag">Logística</span></div>
+          <div class="outcome">Venta recuperada, pedido protegido.</div>
         </article>
-
-        <article class="card" data-category="salud ventas">
-          <small>Atención médica</small>
+        <article class="pf2-item" data-proj="clinicas" data-cat="salud" tabindex="0" role="button" aria-label="Ver detalle de Asistente para clínicas">
+          <span class="sector">Atención médica</span>
           <h3>Asistente para clínicas</h3>
-          <p class="desc">Responde consultas, identifica necesidades, agenda citas, envía recordatorios y deriva casos delicados.</p>
-          <p class="scope"><b>Alcance:</b> recepción digital configurable por especialidad que responde preguntas, califica necesidades, agenda y deriva situaciones sensibles al personal.</p>
-          <div class="tags"><span class="tag">Salud</span><span class="tag">Agenda</span><span class="tag">Recordatorios</span></div>
-          <div class="result"><span class="pill-result">En producción</span></div>
+          <p>Responde consultas, identifica necesidades, agenda citas, envía recordatorios y deriva casos delicados.</p>
+          <div class="tags"><span class="tag">Agenda</span><span class="tag">Recordatorios</span></div>
+          <div class="outcome">Recepción que no descansa.</div>
         </article>
-
-        <article class="card" data-category="finanzas operacion">
-          <small>Administración financiera</small>
+        <article class="pf2-item" data-proj="facturas" data-cat="finanzas" tabindex="0" role="button" aria-label="Ver detalle de Facturas y pagos">
+          <span class="sector">Administración financiera</span>
           <h3>Facturas y pagos</h3>
-          <p class="desc">Lee facturas, concilia información, convierte divisas y prepara archivos bancarios de pago.</p>
-          <p class="scope"><b>Alcance:</b> automatización de lectura, conciliación, conversión de divisas y preparación de archivos bancarios para pagos masivos.</p>
-          <div class="tags"><span class="tag">Finanzas</span><span class="tag">Conciliación</span><span class="tag">Pagos masivos</span></div>
-          <div class="result"><span class="pill-result">Conciliación automatizada</span></div>
+          <p>Lee facturas, concilia información, convierte divisas y prepara archivos bancarios de pago.</p>
+          <div class="tags"><span class="tag">Conciliación</span><span class="tag">Pagos masivos</span></div>
+          <div class="outcome">Conciliación automatizada.</div>
         </article>
-
-        <article class="card warm" data-category="finanzas">
-          <small>Prevención de fraude</small>
+        <article class="pf2-item" data-proj="certipago" data-cat="finanzas" tabindex="0" role="button" aria-label="Ver detalle de Certipago">
+          <span class="sector">Prevención de fraude</span>
           <h3>Certipago</h3>
-          <p class="desc">Verifica identidad, valida pagos, controla reputación y registra cada operación desde WhatsApp.</p>
-          <p class="scope"><b>Alcance:</b> ecosistema de validación de identidad, pagos, reputación y planes desde WhatsApp para dejar trazabilidad y reducir riesgo.</p>
+          <p>Verifica identidad, valida pagos, controla reputación y registra cada operación desde WhatsApp.</p>
           <div class="tags"><span class="tag">Antifraude</span><span class="tag">Identidad</span><span class="tag">WhatsApp</span></div>
-          <div class="result"><span class="pill-result">Trazabilidad del pago</span></div>
+          <div class="outcome">Trazabilidad del pago.</div>
         </article>
       </div>
     </section>
 
-    <section class="wrap cta-section reveal">
-      <div class="cta-box">
-        <div class="badge" style="margin-bottom:18px"><span class="dot" aria-hidden="true"></span><span>Diagnóstico NSG</span></div>
-        <h2>¿Quieres un sistema así para tu empresa?</h2>
-        <p>Identificamos la oportunidad más valiosa y la ruta para implementarla. Empezamos donde existe mayor impacto.</p>
-        <a class="btn nav-cta" href="index.html#diagnostico">Agendar diagnóstico <span class="arrow">→</span></a>
+    <!-- PORTAFOLIO · CTA -->
+    <section class="wrap reveal">
+      <div class="pf2-cta">
+        <h2 class="title" style="margin:0 0 12px;font-size:clamp(28px,3.4vw,44px)">&iquest;Lo quieres operando en tu empresa?</h2>
+        <p style="color:var(--muted);max-width:58ch;margin:0 auto 26px;line-height:1.6">Empezamos por el diagn&oacute;stico: identificamos la oportunidad de mayor impacto y la ruta para implementarla. Sin costo.</p>
+        <a class="btn btn-primary" href="/#diagnostico">Encontrar mi fuga comercial <span class="arrow">&rarr;</span></a>
       </div>
     </section>
+
+    <!-- MODAL DETALLE -->
+    <div class="pm-overlay" id="pmOverlay" role="dialog" aria-modal="true" aria-labelledby="pmTitle" hidden>
+      <div class="pm-panel" role="document">
+        <div class="pm-head">
+          <div><span class="pm-sector" id="pmSector"></span><h3 class="pm-title" id="pmTitle"></h3></div>
+          <button class="pm-close" id="pmClose" type="button" aria-label="Cerrar">&times;</button>
+        </div>
+        <p class="pm-summary" id="pmSummary"></p>
+        <p class="pm-h">Qu&eacute; incluye</p>
+        <ul class="pm-points" id="pmPoints"></ul>
+        <div id="pmScopeWrap"><p class="pm-h">Alcance</p><p class="pm-scope" id="pmScope"></p></div>
+        <div class="pm-tags" id="pmTags"></div>
+        <div class="pm-foot">
+          <span class="pm-outcome"><span class="status">En producción</span><span id="pmOutcome"></span></span>
+          <a class="btn btn-primary" href="/#diagnostico">Quiero algo as&iacute; <span class="arrow">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
   </main>
 
   <footer>
     <div class="wrap footer-inner">
       <div class="brand"><span class="brand-mark" aria-hidden="true"></span>NSG</div>
       <div class="footer-links">
-        <a href="index.html">Inicio</a><a href="index.html#stratos">Stratos AI</a><a href="portafolio.html">Portafolio</a><a href="index.html#equipo">Equipo</a><span>© 2026 NSG · New Strategy Group</span>
+        <a href="/#stratos">Stratos AI</a><a href="/#oferta">Cómo trabajamos</a><a href="/portafolio">Portafolio</a><a href="/#equipo">Equipo</a><a href="/#diagnostico">Diagnóstico</a><a class="social-link social-ig" href="https://www.instagram.com/newstrategygroup/" target="_blank" rel="noopener">Instagram NSG</a><a class="social-link social-ig" href="https://www.instagram.com/eldukedelcaribe/" target="_blank" rel="noopener">Instagram Duke</a><a class="social-link social-tt" href="https://www.tiktok.com/@eldukedelcaribe" target="_blank" rel="noopener">TikTok Duke</a><span>© 2026 NSG · New Strategy Group</span>
       </div>
     </div>
   </footer>
 
   <script>
-    document.querySelectorAll('.filter').forEach(b => b.addEventListener('click', () => {
-      document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
-      b.classList.add('active');
-      const f = b.dataset.filter;
-      document.querySelectorAll('.card').forEach(c => c.classList.toggle('hidden', f !== 'all' && !c.dataset.category.includes(f)));
+    const navToggle = document.querySelector('#navToggle');
+    const navLinks = document.querySelector('#navLinks');
+    const nav = document.querySelector('.nav');
+    if (nav) { const u = () => nav.classList.toggle('scrolled', window.scrollY > 180); u(); window.addEventListener('scroll', u, { passive: true }); }
+    if (navToggle && navLinks) {
+      const setNav = open => { navLinks.classList.toggle('open', open); document.body.classList.toggle('menu-open', open); navToggle.setAttribute('aria-expanded', String(open)); };
+      navToggle.addEventListener('click', () => setNav(!navLinks.classList.contains('open')));
+      navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setNav(false)));
+    }
+    // Filtros
+    const chips = document.querySelectorAll('.pf2-chip');
+    const items = document.querySelectorAll('#pfGrid .pf2-item');
+    chips.forEach(c => c.addEventListener('click', () => {
+      chips.forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      const f = c.dataset.f;
+      items.forEach(it => { it.hidden = !(f === 'all' || (it.dataset.cat || '').split(' ').includes(f)); });
     }));
-    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .08 });
+    // Modal detalle de proyecto
+    const PROJECTS = {"callcenter": {"sector": "Vertical inmobiliaria & ventas", "title": "Call Center IA & CRM", "status": "En producción", "img": "assets/sys-callcenter.jpg", "summary": "Sustituimos a los equipos saturados por un Call Center IA acoplado a un CRM 100% autónomo. Perfila prospectos en tiempo real, sin intervención manual.", "points": [["Call Center IA (voz y texto)", "Atención persuasiva 24/7 que filtra intención de compra."], ["CRM inteligente", "Actualiza el pipeline y el estado del lead al instante."], ["Cierre sin fricción", "Agendamiento autónomo de citas. Tu equipo solo cierra."]], "outcome": "El caso base de Stratos AI, en operación.", "tags": ["Voz", "CRM", "Inmobiliaria"]}, "intelligence": {"sector": "Producto insignia · Dirección", "title": "NSG Intelligence", "status": "En producción", "img": "assets/sys-intelligence.jpg", "summary": "Sistema de inteligencia para altos mandos y directivos. Centraliza el conocimiento corporativo y asiste decisiones críticas con datos reales.", "points": [["Horizon IA", "Entorno inmersivo que estructura y resume notas estratégicas."], ["Copilot ejecutivo", "Seguimiento implacable de tareas y métricas operativas."], ["Educación adaptativa", "Rutas formativas vía bases de datos RAG y psicología."]], "outcome": "Decisiones basadas en datos, no en intuición.", "tags": ["RAG", "Dirección", "Analítica"]}, "satelital": {"sector": "Agro & industria", "title": "NSG Monitoreo Satelital", "status": "En producción", "img": "assets/sys-satelital.jpg", "summary": "Infraestructura de captura masiva: la IA traduce imágenes satelitales complejas en decisiones rentables para optimizar cultivos a nivel industrial.", "points": [["Analítica NDVI/NDWI", "Monitoreo de suelos y salud vegetal en tiempo real."], ["Cálculo cinemático", "Modelos predictivos de velocidad y humedad vegetal."], ["Optimización de cosechas", "Identificación de datos críticos para la decisión."]], "outcome": "Decisiones de campo más rentables.", "tags": ["Satelital", "NDVI", "Predicción"]}, "odoo": {"sector": "Finanzas & ERP", "title": "Integración Odoo IA", "status": "En producción", "img": "assets/sys-odoo.jpg", "summary": "Aniquilación de la carga administrativa: conectamos los flujos contables con inteligencias de extracción de datos NSG y bandejas de entrada.", "points": [["Extracción autónoma", "Análisis IA de facturas desde Gmail/Outlook corporativo."], ["Matching contable", "Conciliación perfecta en Odoo sin intervención humana."], ["Asignación analítica", "Distribución inteligente de centros de costos."]], "outcome": "Backoffice financiero automatizado.", "tags": ["Odoo", "ERP", "Conciliación"]}, "legal": {"sector": "Legal & corporativo", "title": "Agentes Slack & OCR", "status": "En producción", "img": "assets/sys-legal.jpg", "summary": "Automatización del backoffice jurídico: agentes especializados que leen documentos complejos y entregan respuestas estructuradas al equipo.", "points": [["Agentes en Slack", "Asistentes legales consultando jurisprudencia vía RAG."], ["Análisis multimodal", "Procesamiento de contratos PDF con visión por IA."], ["Secretario IA", "Clasificación de correos y extracción de entidades clave."]], "outcome": "Trabajo jurídico repetitivo, resuelto.", "tags": ["OCR", "Slack", "RAG"]}, "stratos": {"sector": "Sistema comercial", "title": "Stratos AI", "status": "En producción", "cat": "ventas", "summary": "Organiza oportunidades, detecta falta de seguimiento, recuerda reuniones y conecta agentes de voz con la operación comercial.", "scope": "Sistema comercial inmobiliario con seguimiento proactivo, agentes de voz, recordatorios, resúmenes para gerencia y organización de oportunidades.", "points": [["Seguimiento proactivo", "Detecta oportunidades sin actividad y las reactiva antes de que se enfríen."], ["Agentes de voz", "Llamadas y recordatorios conectados a la operación comercial."], ["Resúmenes para gerencia", "Estado del pipeline y próximos pasos, listos para dirección."]], "outcome": "Seguimiento que no falla.", "tags": ["Agentes de voz", "CRM", "Inmobiliaria"]}, "alma": {"sector": "Voz & mensajería", "title": "ALMA", "status": "En producción", "cat": "operacion", "summary": "Empleado virtual que llama, conversa por WhatsApp, califica prospectos y agenda durante todo el día.", "scope": "Plataforma multiempresa de agentes de voz y WhatsApp para atender, calificar y agendar conversaciones de manera continua. Cada conversación queda transcrita, resumida y clasificada.", "points": [["Voz + WhatsApp", "Atiende, califica y agenda en llamadas y mensajes, todo el día."], ["Multiempresa", "Una sola plataforma para varias marcas u operaciones."], ["Registro total", "Cada conversación transcrita, resumida y clasificada."]], "outcome": "Atención continua 24/7.", "tags": ["WhatsApp", "Voz", "Multiempresa"]}, "recuperacion": {"sector": "Comercio electrónico", "title": "Recuperación de ventas", "status": "En producción", "cat": "ecommerce", "summary": "Agentes que recuperan compras abandonadas, confirman pedidos y validan direcciones antes del envío.", "scope": "Dos asistentes coordinados: uno recupera compras abandonadas y otro confirma pedidos, inventario y dirección antes del envío.", "points": [["Carrito abandonado", "Recupera compras a punto de perderse con seguimiento oportuno."], ["Confirmación de pedido", "Valida inventario y datos antes de despachar."], ["Validación de dirección", "Reduce devoluciones por envíos a direcciones erróneas."]], "outcome": "Venta recuperada, pedido protegido.", "tags": ["Carrito abandonado", "Logística"]}, "clinicas": {"sector": "Atención médica", "title": "Asistente para clínicas", "status": "En producción", "cat": "salud", "summary": "Responde consultas, identifica necesidades, agenda citas, envía recordatorios y deriva casos delicados.", "scope": "Recepción digital configurable por especialidad que responde preguntas, califica necesidades, agenda y deriva situaciones sensibles al personal.", "points": [["Recepción digital", "Responde y califica necesidades por especialidad."], ["Agenda y recordatorios", "Programa citas y reduce inasistencias."], ["Derivación segura", "Escala casos sensibles al personal humano."]], "outcome": "Recepción que no descansa.", "tags": ["Agenda", "Recordatorios"]}, "facturas": {"sector": "Administración financiera", "title": "Facturas y pagos", "status": "En producción", "cat": "finanzas", "summary": "Lee facturas, concilia información, convierte divisas y prepara archivos bancarios de pago.", "scope": "Automatización de lectura, conciliación, conversión de divisas y preparación de archivos bancarios para pagos masivos.", "points": [["Lectura de facturas", "Extrae los datos automáticamente, sin captura manual."], ["Conciliación y divisas", "Concilia y convierte monedas con precisión."], ["Pagos masivos", "Prepara archivos bancarios listos para dispersar."]], "outcome": "Conciliación automatizada.", "tags": ["Conciliación", "Pagos masivos"]}, "certipago": {"sector": "Prevención de fraude", "title": "Certipago", "status": "En producción", "cat": "finanzas", "summary": "Verifica identidad, valida pagos, controla reputación y registra cada operación desde WhatsApp.", "scope": "Ecosistema de validación de identidad, pagos, reputación y planes desde WhatsApp para dejar trazabilidad y reducir riesgo.", "points": [["Validación de identidad", "Verifica a quién le pagas antes de operar."], ["Control de reputación", "Señala riesgo y patrones sospechosos."], ["Trazabilidad WhatsApp", "Registra cada operación con evidencia."]], "outcome": "Trazabilidad del pago.", "tags": ["Antifraude", "Identidad", "WhatsApp"]}};
+    const ov = document.getElementById('pmOverlay');
+    const elSector = document.getElementById('pmSector');
+    const elTitle = document.getElementById('pmTitle');
+    const elSummary = document.getElementById('pmSummary');
+    const elPoints = document.getElementById('pmPoints');
+    const elScope = document.getElementById('pmScope');
+    const elScopeWrap = document.getElementById('pmScopeWrap');
+    const elTags = document.getElementById('pmTags');
+    const elOutcome = document.getElementById('pmOutcome');
+    let lastFocus = null;
+    function openProj(slug) {
+      const p = PROJECTS[slug]; if (!p) return;
+      lastFocus = document.activeElement;
+      elSector.textContent = p.sector;
+      elTitle.textContent = p.title;
+      elSummary.textContent = p.summary;
+      elPoints.innerHTML = (p.points || []).map(pt => `<li><span class="ck">✓</span><span><b>${pt[0]}</b><span>${pt[1]}</span></span></li>`).join('');
+      if (p.scope) { elScope.textContent = p.scope; elScopeWrap.style.display = ''; } else { elScopeWrap.style.display = 'none'; }
+      elTags.innerHTML = (p.tags || []).map(t => `<span class="tag">${t}</span>`).join('');
+      elOutcome.textContent = p.outcome || '';
+      ov.hidden = false;
+      requestAnimationFrame(() => ov.classList.add('open'));
+      document.body.classList.add('pm-lock');
+      document.getElementById('pmClose').focus();
+    }
+    function closeProj() {
+      ov.classList.remove('open');
+      document.body.classList.remove('pm-lock');
+      setTimeout(() => { ov.hidden = true; }, 300);
+      if (lastFocus) lastFocus.focus();
+    }
+    document.querySelectorAll('[data-proj]').forEach(card => {
+      card.addEventListener('click', () => openProj(card.dataset.proj));
+      card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openProj(card.dataset.proj); } });
+    });
+    document.getElementById('pmClose').addEventListener('click', closeProj);
+    ov.addEventListener('click', e => { if (e.target === ov) closeProj(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && ov.classList.contains('open')) closeProj(); });
+    // Reveal
+    const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
 </body>
