@@ -6,6 +6,6 @@
   "scripts": {
     "dev": "node server.mjs",
     "build": "node build.mjs",
-    "test": "node --test diagnostic.test.mjs"
+    "test": "node --test diagnostic.test.mjs notifications.test.mjs"
   }
 }

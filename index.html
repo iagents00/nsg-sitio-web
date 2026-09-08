@@ -671,6 +671,7 @@
             </div>
           </div>
           <div class="diag-actions">
+            <input id="nsgContactFax" type="text" name="contact_fax" autocomplete="off" tabindex="-1" hidden aria-hidden="true">
             <button class="btn btn-primary" id="diagCalc" type="button">Ver mi diagnóstico <span class="arrow">→</span></button>
             <span class="diag-hint">Tus datos solo se usan para enviarte el diagnóstico. Nada de spam.</span>
           </div>
@@ -1057,11 +1058,15 @@
       res.classList.add('show');
       res.focus({ preventScroll: true });
       res.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      try {
+        window.NSGLeadNotify?.('quick', { name, email, phone, industry, channel, leads: String(leads), response, nextStep: fix });
+      } catch (_) { /* The result stays available if notification fails. */ }
     });
 
     // REVEAL ON SCROLL
     const obs = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } }), { threshold: .12 });
     document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   </script>
+  <script defer src="/assets/nsg-lead-notify.js"></script>
 </body>
 </html>

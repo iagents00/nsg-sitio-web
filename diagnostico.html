@@ -452,6 +452,7 @@
       </div>
       <div class="form-err" id="formErr" role="alert"></div>
       <div class="step-actions">
+        <input id="nsgContactFax" type="text" name="contact_fax" autocomplete="off" tabindex="-1" hidden aria-hidden="true">
         <button class="btn btn-primary btn-big" id="btnResult">Ver mi diagnóstico <span class="arrow">→</span></button>
         <span class="key-hint">o presiona <kbd>Enter ↵</kbd></span>
       </div>
@@ -691,6 +692,16 @@
         setTimeout(() => l.classList.add('done'), 720 + i * 620);
       });
       setTimeout(goCongrats, 2350);
+      try {
+        window.NSGLeadNotify?.('campaign', {
+          name, company, phone, email: answers.email,
+          industry: PERFIL_TXT[answers.perfil] || '',
+          channel: FUENTE_TXT[answers.fuente] || '',
+          leads: LEADS_TXT[answers.leads] || '',
+          revenue: FACT_TXT[answers.facturacion] || '',
+          problem: result.main.name
+        });
+      } catch (_) { /* Keep the existing campaign and booking flow independent. */ }
     });
 
     function compute() {
@@ -965,5 +976,6 @@
     document.getElementById('skipAgenda').addEventListener('click', () => goResult());
     document.getElementById('congratsNext').addEventListener('click', () => goAgenda());
   </script>
+  <script defer src="/assets/nsg-lead-notify.js"></script>
 </body>
 </html>
