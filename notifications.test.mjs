@@ -40,19 +40,20 @@ test('campaign result and agenda sequence remain available when notification thr
   const code = wizard.split('// ===== CÁLCULO =====')[1].split('function buildWaMsg')[0];
   for (const shouldThrow of [false, true]) {
     const nodes = new Map(), timers = [], notices = [], transitions = [];
-    const fields = { fName: 'PRUEBA', fPhone: '+570000000000', fCompany: 'Prueba', fEmail: '' };
+    const fields = { fName: 'PRUEBA', fPhone: '+570000000000', fEmail: '' };
     const element = id => {
       if (!nodes.has(id)) nodes.set(id, { value: fields[id] || '', classList: { add() {}, remove() {} }, addEventListener: (event, fn) => { element(id)[event] = fn; } });
       return nodes.get(id);
     };
-    const context = vm.createContext({ document: { getElementById: element }, steps: [{ dataset: { step: 'lead' } }], idx: 0, answers: { perfil: 'inmobiliaria', fuente: 'meta_ads', leads: '100', problema: 'respuesta' }, setTimeout: (fn, delay) => timers.push(delay), goCongrats() {}, show: n => transitions.push(n), window: { NSGLeadNotify: (...args) => { notices.push(args); if (shouldThrow) throw new Error('offline'); } } });
+    const context = vm.createContext({ document: { getElementById: element }, steps: [{ dataset: { step: 'lead' } }], idx: 0, answers: { perfil: 'inmobiliaria', canal: '@empresa', leads: '100', respuesta: '5a30' }, setTimeout: (fn, delay) => timers.push(delay), goCongrats() {}, show: n => transitions.push(n), window: { NSGLeadNotify: (...args) => { notices.push(args); if (shouldThrow) throw new Error('offline'); } } });
     vm.runInContext(code, context);
     element('btnResult').click();
     assert.deepEqual(transitions, [1]);
     assert.ok(timers.includes(2350));
-    assert.ok(vm.runInContext('result.monthly > 0', context));
+    assert.equal(vm.runInContext('result.main.name', context), 'Acortar la primera respuesta');
     assert.equal(notices[0][0], 'campaign');
-    assert.equal(notices[0][1].channel, 'Facebook/Instagram Ads');
-    assert.equal(notices[0][1].problem, 'Respuesta lenta');
+    assert.equal(notices[0][1].channel, '@empresa');
+    assert.equal(notices[0][1].response, '5–30 min');
+    assert.equal(notices[0][1].revenue, undefined);
   }
 });
